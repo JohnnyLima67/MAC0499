@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PrintHelloPowerUp : AbstractPowerUp
 {
-    void Use()
+    public override void Use()
     {
         Debug.Log("Hello World");
     }

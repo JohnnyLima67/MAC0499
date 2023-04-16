@@ -4,8 +4,5 @@ using UnityEngine;
 
 public abstract class AbstractPowerUp
 {
-    void Use()
-    {
-        // Do Nothing
-    }
+    public abstract void Use();
 }

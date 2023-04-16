@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class CollectablePowerUp : MonoBehaviour
 {
-    public AbstractPowerUp powerUp;
+    [SerializeField]
+    public AbstractPowerUp powerUp = new PrintHelloPowerUp();
 
-    void OnTriggerEnter2D(Collider2D other)
+    private bool collected = false;
+
+    void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if (other.CompareTag("Player"))
+        if (otherCollider.CompareTag("Player") && !collected)
         {
-            other.equipPowerUp(powerUp);
+            collected = true;
+            otherCollider.GetComponent<PowerUpManager>().equipPowerUp(powerUp);
+            // Debug.Log("Power Up coletado!");
         }
     }
 }
