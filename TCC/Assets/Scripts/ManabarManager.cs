@@ -7,7 +7,7 @@ public class ManabarManager : MonoBehaviour
 {
     public Image manaBar;
     public float maxMana = 200f;
-    public float mana = 40f;
+    public float mana = 200f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,18 +16,18 @@ public class ManabarManager : MonoBehaviour
         manaBar.fillAmount = mana / maxMana;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            LoseMana(20);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetMana(10);
-        }
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Return))
+    //     {
+    //         LoseMana(20);
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         GetMana(10);
+    //     }
+    // }
 
     public void LoseMana(float amount)
     {

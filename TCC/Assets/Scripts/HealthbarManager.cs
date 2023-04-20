@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HealthbarManager : MonoBehaviour
 {
     public Image healthBar;
-    public float maxHealth = 200f;
-    public float health = 160f;
+    [SerializeField] private float maxHealth = 200f;
+    [SerializeField] private float health = 200f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,18 +16,18 @@ public class HealthbarManager : MonoBehaviour
         healthBar.fillAmount = health / maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            TakeDamage(20);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Heal(10);
-        }
-    }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Return))
+    //     {
+    //         TakeDamage(20);
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         Heal(10);
+    //     }
+    // }
 
     public void TakeDamage(float damage)
     {
@@ -46,4 +46,12 @@ public class HealthbarManager : MonoBehaviour
             healthBar.fillAmount = health / maxHealth;
         }
     }
+
+	public bool isDead()
+	{
+		if (health <= 0.01)
+			return true;
+		else
+			return false;
+	}
 }
