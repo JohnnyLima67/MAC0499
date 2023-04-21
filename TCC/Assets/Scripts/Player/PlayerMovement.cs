@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float runSpeed = 40f;
 
+    [SerializeField] PlayerAnimator animator;
+
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
@@ -38,7 +40,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		// Move our character
-		controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        if (!animator.IsInCriticalAnimation())
+        {
+            // Move our character
+            controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        }
 	}
 }

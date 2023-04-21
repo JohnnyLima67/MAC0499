@@ -5,8 +5,11 @@ using UnityEngine;
 public class Buraco_planta : MonoBehaviour
 {
     private bool colidindo;
+    private HittableBehaviour collidingEntity;
+    [SerializeField] float damage = 10.0f;
 
-    void OnCollisionEnter2D(Collision2D col){
+    void OnCollisionEnter2D(Collision2D col)
+    {
         // colocar comando de dano do mob
         /*
         IDamageable damageable = other.GetComponent<IDamageable>();
@@ -15,12 +18,20 @@ public class Buraco_planta : MonoBehaviour
             damageable.Damage();
         }
         */
-        colidindo = true;
-        
+        collidingEntity = col.gameObject.GetComponent<HittableBehaviour>();
+        if (collidingEntity != null)
+        {
+            colidindo = true;
+        }
     }
 
-    void OnCollisionExit2D(Collision2D col){
-        colidindo = false;
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<HittableBehaviour>() != null)
+        {
+            colidindo = false;
+            collidingEntity = null;
+        }
     }
     
     private void Update()
@@ -28,11 +39,12 @@ public class Buraco_planta : MonoBehaviour
         if (colidindo)
         {
             // Executar a função a cada X segundos enquanto o objeto estiver colidindo
-            float intervaloDeTempo = 2.0f; // Intervalo de tempo em segundos
-            if (Time.time % intervaloDeTempo < Time.deltaTime)
-            {
-                Debug.Log("Dano"); // Função a ser chamada
-            }
+            // float intervaloDeTempo = 2.0f; // Intervalo de tempo em segundos
+            // if (Time.time % intervaloDeTempo < Time.deltaTime)
+            // {
+            //     collidingEntity.TakeDamage(damage);
+            // }
+            collidingEntity.TakeDamage(damage);
         }
     }
 }
