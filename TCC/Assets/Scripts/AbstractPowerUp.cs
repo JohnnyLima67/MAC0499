@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractPowerUp
+public class AbstractPowerUp : MonoBehaviour
 {
-    public abstract void Use();
+    public int manaCost;
+    public virtual void Use() { }
 }

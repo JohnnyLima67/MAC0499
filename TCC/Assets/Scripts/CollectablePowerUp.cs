@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollectablePowerUp : MonoBehaviour
 {
     [SerializeField]
-    public AbstractPowerUp powerUp = new PrintHelloPowerUp();
+    public AbstractPowerUp powerUp;
 
     private bool collected = false;
 

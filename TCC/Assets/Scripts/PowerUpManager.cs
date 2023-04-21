@@ -6,6 +6,9 @@ public class PowerUpManager : MonoBehaviour
 {
     private AbstractPowerUp powerUp;
 
+    [SerializeField]
+    private ManabarManager manabar;
+
     // Update is called once per frame
     void Update()
     {
