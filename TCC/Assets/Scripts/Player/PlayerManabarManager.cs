@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerManabarManager : MonoBehaviour
 {
-    public Image manaBar;
-    public float maxMana = 200f;
-    public float mana = 200f;
+    [SerializeField] private Image manaBar;
+    [SerializeField] private float maxMana = 200f;
+    [SerializeField] private float mana = 200f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +45,10 @@ public class PlayerManabarManager : MonoBehaviour
             mana = Mathf.Clamp(mana + amount, 0, maxMana);
             manaBar.fillAmount = mana / maxMana;
         }
+    }
+
+    public bool HasEnoughMana(float amount)
+    {
+        return (amount <= mana && amount >= 0);
     }
 }

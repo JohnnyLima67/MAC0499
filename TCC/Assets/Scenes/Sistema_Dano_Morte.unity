@@ -130,14 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 170291532, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 2076596538}
+    - target: {fileID: 170291533, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 2076596539}
     - target: {fileID: 4483263409004643478, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4483263409004643481, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 170291541}
     - target: {fileID: 4483263409004643483, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -184,110 +188,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
---- !u!1 &170291529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4483263409004643478, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
-  m_PrefabInstance: {fileID: 170291528}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &170291530
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170291529}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7088465ca206f9f6a86c01522a5b6b38, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &170291531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170291529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b68a99baf2785111e9e375c7181a0ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbarManager: {fileID: 170291533}
-  animator: {fileID: 170291541}
-  entityColliders:
-  - {fileID: 170291538}
-  - {fileID: 170291537}
---- !u!114 &170291532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170291529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239638e18c81758499c57fa95ef0f894, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manaBar: {fileID: 2076596538}
-  maxMana: 200
-  mana: 200
---- !u!114 &170291533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170291529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1bced4b0e1abf469ccbda2db4b3c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 170291541}
-  maxHealth: 200
-  health: 200
-  damageInterval: 1
-  healthBar: {fileID: 2076596539}
---- !u!61 &170291537 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4483263409004643479, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
-  m_PrefabInstance: {fileID: 170291528}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &170291538 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4483263409004643477, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
-  m_PrefabInstance: {fileID: 170291528}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &170291539 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4483263409004643482, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
-  m_PrefabInstance: {fileID: 170291528}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &170291541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170291529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2114c193e180ce58b1eaafca255275e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSprite: {fileID: 170291539}
-  healthbarManager: {fileID: 170291533}
 --- !u!1001 &798879625
 PrefabInstance:
   m_ObjectHideFlags: 0

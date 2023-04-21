@@ -7,22 +7,20 @@ public class PowerUpManager : MonoBehaviour
     private AbstractPowerUp powerUp;
 
     [SerializeField]
-    private ManabarManager manabar;
+    private PlayerManabarManager manabar;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (powerUp != null)
+            if (powerUp != null && manabar.HasEnoughMana(powerUp.manaCost))
             {
                 powerUp.Use();
-                powerUp = null;
-                // Debug.Log("Power Up usado!");
+                manabar.LoseMana(powerUp.manaCost);
             }
             else
             {
-                // Debug.Log("No Power Up!");
             }
         }
     }
