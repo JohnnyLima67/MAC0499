@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ManabarManager : MonoBehaviour
+public class PlayerManabarManager : MonoBehaviour
 {
     public Image manaBar;
     public float maxMana = 200f;
