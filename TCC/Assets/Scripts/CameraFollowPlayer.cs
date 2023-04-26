@@ -27,7 +27,6 @@ public class CameraFollowPlayer : MonoBehaviour
         if (projectedPosx!=0) transposer.m_TrackedObjectOffset.x = projectedPosx;
         if (_playerController.Velocity.y < -20) transposer.m_YDamping = projectedPosy;
         else transposer.m_YDamping = 1;
-        Debug.Log(projectedPosy);
 
         //Step(_smoothTime);
     }
