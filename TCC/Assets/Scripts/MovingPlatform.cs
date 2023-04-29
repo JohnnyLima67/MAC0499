@@ -32,13 +32,19 @@ public class MovingPlatform : MonoBehaviour
     
     [SerializeField]
     MovementType movementType;
-    public float speed = 2f;
     Vector3 startPosition;
     public Color gizmoColor = Color.yellow;
 
     // Line movement vars
-    public LineMovementOrientation lineMovementOrientation; 
-    public float lineDistance = 5f; 
+        [Tooltip("Local offsets from starting position")]
+        [SerializeField] private Vector2[] _points = new Vector2[] { Vector2.left, Vector2.right };
+        [SerializeField] private float _speed = 1.5f;
+        [SerializeField] private bool _looped;
+        [SerializeField] private bool _ascending;
+
+        private Vector2 _startPos;
+        private Vector2 Target => _startPos + _points[_index];
+        private int _index = 0;
 
     // Circle movement vars
     public CircularMovementOrientation circularMovementOrientation;
@@ -55,11 +61,12 @@ public class MovingPlatform : MonoBehaviour
     {
         // Set start position
         startPosition = this.transform.position;
+        _startPos = this.transform.position;
         zigzagStep = 0f;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Manage how the platform have to move according to movementType var
         switch (movementType) {
@@ -79,23 +86,17 @@ public class MovingPlatform : MonoBehaviour
     // Move the platform in a straight line in movementOrientation
     public void moveInAStraightLine() 
     {
-        // Get current coordenates 
-        float x = startPosition.x;
-        float y = startPosition.y;
-        float z = startPosition.z;
-
-        // Calculating next position according to the orientation selected
-        switch (lineMovementOrientation) {
-            case LineMovementOrientation.horizontal:
-                x = startPosition.x + Mathf.Sin(Time.time * speed) * lineDistance;
-            break;
-            case LineMovementOrientation.vertical:
-                y = startPosition.y + Mathf.Sin(Time.time * speed) * lineDistance;
-            break;
+        if ((Vector2)transform.position == Target){
+            if (_looped)
+                _index = (_ascending ? _index + 1 : _index + _points.Length - 1) % _points.Length;
+            else { // ping-pong
+                if (_index >= _points.Length - 1) _ascending = false;
+                else if (_index <= 0) _ascending = true;
+                _index = Mathf.Clamp(_index + (_ascending ? 1 : -1), 0, _points.Length - 1);
+            }
         }
-
-        // Moving platform
-        this.transform.position = new Vector3(x,y,z);
+        transform.position = Vector2.MoveTowards(transform.position, Target, _speed * Time.fixedDeltaTime);
+    
     }
 
     public void MoveInCircles() 
@@ -104,9 +105,9 @@ public class MovingPlatform : MonoBehaviour
         int direction = (circularMovementOrientation == CircularMovementOrientation.counterclockwise)?1:-1;
 
         // Calculating coordenates 
-        float x = startPosition.x + Mathf.Cos(Time.time * speed * direction) * circleRadius;
+        float x = startPosition.x + Mathf.Cos(Time.time * _speed * direction) * circleRadius;
         x -= circleRadius;
-        float y = startPosition.y + Mathf.Sin(Time.time * speed * direction) * circleRadius;
+        float y = startPosition.y + Mathf.Sin(Time.time * _speed * direction) * circleRadius;
         float z = transform.position.z;
 
         // Moving Platform
@@ -130,9 +131,9 @@ public class MovingPlatform : MonoBehaviour
         float y = startPosition.y + factor * zigzagLineDistance;
         
         if (zigzagMovingPositive) {
-            zigzagStep += speed/50;
+            zigzagStep += _speed/50;
         } else {
-            zigzagStep -= speed/50;
+            zigzagStep -= _speed/50;
         }
 
         // keep platform within the limits
@@ -151,11 +152,12 @@ public class MovingPlatform : MonoBehaviour
 
         switch (movementType) {
             case MovementType.line:
-                src = new Vector3 (startPosition.x - lineDistance, startPosition.y);
-                dest = new Vector3 (startPosition.x + lineDistance, startPosition.y); 
+                float lineDistanceX = _points[1].x - _points[0].x;
+                src = new Vector3 (startPosition.x + lineDistanceX, startPosition.y);
+                dest = new Vector3 (startPosition.x - lineDistanceX, startPosition.y); 
                 Gizmos.DrawLine(src, dest);
-                src = new Vector3 (startPosition.x, startPosition.y - lineDistance);
-                dest = new Vector3 (startPosition.x, startPosition.y + lineDistance); 
+                src = new Vector3 (startPosition.x, startPosition.y + _points[0].y);
+                dest = new Vector3 (startPosition.x, startPosition.y - _points[0].y); 
                 Gizmos.DrawLine(src, dest);
             break;
             case MovementType.circular:
@@ -193,17 +195,13 @@ public class MovingPlatform : MonoBehaviour
 public bool inIT;
 
 void OnCollisionEnter2D(Collision2D col){
-    inIT = true;
-    while(inIT){
-    if (transform.position.y<col.transform.position.y - 1.2f)
+    if (IsOnTop(col.GetContact(0).normal))
         col.transform.SetParent(transform);
-        inIT = false;
-    }
 }
 void OnCollisionExit2D(Collision2D col){
-    inIT = false;
     col.transform.SetParent(null);
 }
+bool IsOnTop(Vector2 normal) => Vector2.Dot(transform.up, normal) < -0.5f;
 
 }
 

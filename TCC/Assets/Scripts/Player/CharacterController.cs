@@ -124,7 +124,7 @@ public class CharacterController : MonoBehaviour
 			if (move > 0 && !m_FacingRight)
 			{
 				// ... flip the player.
-				Flip();
+				Flip();			//
 			}
 			// Otherwise if the input is moving the player left and the player is facing right...
 			else if (move < 0 && m_FacingRight)
@@ -162,8 +162,12 @@ public class CharacterController : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 
 		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		Quaternion theRotation = transform.localRotation;
+		if (theRotation.y != 0)
+			theRotation.y = 0;
+		else
+			theRotation.y = -180;
+
+		transform.localRotation = theRotation;
 	}
 }
