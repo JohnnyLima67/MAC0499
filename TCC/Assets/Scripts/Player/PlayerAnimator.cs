@@ -41,6 +41,14 @@ public class PlayerAnimator : EntityAnimator
         yield break;
     }
 
+    public IEnumerator PlayPlayerAttackAnimation(PlayerWeaponBehaviour playerWeapon)
+    {
+        unityAnimator.SetTrigger("Attack");
+        playerWeapon.TriggerAttackAnimation();
+
+        yield break;
+    }
+
     public bool IsInCriticalAnimation()
     {
         return isInCriticalAnimation;

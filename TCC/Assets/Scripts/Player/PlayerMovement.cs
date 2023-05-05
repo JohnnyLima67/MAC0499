@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float runSpeed = 40f;
 
     [SerializeField] PlayerAnimator animator;
+    [SerializeField] PlayerAttackBehaviour attackBehaviour;
 
 	float horizontalMove = 0f;
 	bool jump = false;
@@ -36,6 +37,10 @@ public class PlayerMovement : MonoBehaviour {
 			crouch = false;
 		}
 
+        if (Input.GetButtonDown("Fire1"))
+        {
+            attackBehaviour.InitAttack();
+        }
 	}
 
 	void FixedUpdate ()
