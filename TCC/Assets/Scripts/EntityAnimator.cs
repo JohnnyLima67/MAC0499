@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class EntityAnimator : MonoBehaviour
 {
+    public Animator unityAnimator;
+
     public virtual IEnumerator PlayTakeDamage()
     {
         yield break;
