@@ -6,13 +6,15 @@ using UnityEngine.InputSystem;
 
 namespace TarodevController {
     public class PlayerInput : MonoBehaviour {
+        public static PlayerInput instance;
+
         public FrameInput FrameInput { get; private set; }
 
         private void Update() => FrameInput = Gather();
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInputActions _actions;
-        private InputAction _move, _jump, _dash, _attack,_exampleAction;
+        private InputAction _move, _jump, _dash, _attack,_exampleAction, _escape;
 
         private void Awake() {
             _actions = new PlayerInputActions();
@@ -21,6 +23,11 @@ namespace TarodevController {
             _dash = _actions.Player.Dash;
             _attack = _actions.Player.Attack;
             _exampleAction = _actions.Player.ExampleAction;
+            _escape = _actions.Player.MenuOpenClose;
+
+            if (instance == null){
+                instance = this;
+            }
         }
 
         private void OnEnable() => _actions.Enable();
@@ -35,6 +42,7 @@ namespace TarodevController {
                 AttackDown = _attack.WasPressedThisFrame(),
                 Move = _move.ReadValue<Vector2>(),
                 ExampleActionHeld = _exampleAction.IsPressed(),
+                EscapeDown = _escape.WasPressedThisFrame(),
             };
         }
 
@@ -47,6 +55,7 @@ namespace TarodevController {
                 AttackDown = Input.GetButtonDown("Attack"),
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
                 ExampleActionHeld = Input.GetKey(KeyCode.E),
+                EscapeDown = Input.GetButtonDown("MenuOpenClose"),
             };
         }
 #endif
@@ -58,6 +67,7 @@ namespace TarodevController {
         public bool JumpHeld;
         public bool DashDown;
         public bool AttackDown;
+        public bool EscapeDown;
         public bool ExampleActionHeld;
     }
 }

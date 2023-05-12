@@ -73,6 +73,15 @@ namespace TarodevController
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MenuOpenClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a332415-a7da-48b9-a0e1-37548ac9af73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -306,6 +315,28 @@ namespace TarodevController
                     ""action"": ""ExampleAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c4edaea-01e6-4c74-a46d-0251d61b9b24"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""152f8d1b-3cd8-4808-93ca-efcf5a41cb2a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MenuOpenClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -380,6 +411,7 @@ namespace TarodevController
             m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
             m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
             m_Player_ExampleAction = m_Player.FindAction("ExampleAction", throwIfNotFound: true);
+            m_Player_MenuOpenClose = m_Player.FindAction("MenuOpenClose", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -446,6 +478,7 @@ namespace TarodevController
         private readonly InputAction m_Player_Dash;
         private readonly InputAction m_Player_Attack;
         private readonly InputAction m_Player_ExampleAction;
+        private readonly InputAction m_Player_MenuOpenClose;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -455,6 +488,7 @@ namespace TarodevController
             public InputAction @Dash => m_Wrapper.m_Player_Dash;
             public InputAction @Attack => m_Wrapper.m_Player_Attack;
             public InputAction @ExampleAction => m_Wrapper.m_Player_ExampleAction;
+            public InputAction @MenuOpenClose => m_Wrapper.m_Player_MenuOpenClose;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -479,6 +513,9 @@ namespace TarodevController
                 @ExampleAction.started += instance.OnExampleAction;
                 @ExampleAction.performed += instance.OnExampleAction;
                 @ExampleAction.canceled += instance.OnExampleAction;
+                @MenuOpenClose.started += instance.OnMenuOpenClose;
+                @MenuOpenClose.performed += instance.OnMenuOpenClose;
+                @MenuOpenClose.canceled += instance.OnMenuOpenClose;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -498,6 +535,9 @@ namespace TarodevController
                 @ExampleAction.started -= instance.OnExampleAction;
                 @ExampleAction.performed -= instance.OnExampleAction;
                 @ExampleAction.canceled -= instance.OnExampleAction;
+                @MenuOpenClose.started -= instance.OnMenuOpenClose;
+                @MenuOpenClose.performed -= instance.OnMenuOpenClose;
+                @MenuOpenClose.canceled -= instance.OnMenuOpenClose;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -567,6 +607,7 @@ namespace TarodevController
             void OnDash(InputAction.CallbackContext context);
             void OnAttack(InputAction.CallbackContext context);
             void OnExampleAction(InputAction.CallbackContext context);
+            void OnMenuOpenClose(InputAction.CallbackContext context);
         }
     }
 }
