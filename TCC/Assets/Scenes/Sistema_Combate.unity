@@ -730,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWeapon: {fileID: 1392030148}
+  playerRangedWeapon: {fileID: 1464196799}
   playerAnimator: {fileID: 1464196781}
   enemyLayer:
     serializedVersion: 2
@@ -739,6 +740,20 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 170291530, guid: 099adc509d3eae4c3bcb4ed151428623, type: 3}
   m_PrefabInstance: {fileID: 1943118079}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1464196799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464196779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d90e1ad327fadf43ac96c877dc4206f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionSetter: {fileID: 1392030147}
+  projectile: {fileID: 4351094884872722412, guid: 0a14ca186925de7d38738d8315aa3173, type: 3}
 --- !u!1001 &1738948557
 PrefabInstance:
   m_ObjectHideFlags: 0

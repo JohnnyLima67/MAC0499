@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour {
         {
             attackBehaviour.InitAttack();
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            attackBehaviour.InitProjectile();
+        }
 	}
 
 	void FixedUpdate ()
