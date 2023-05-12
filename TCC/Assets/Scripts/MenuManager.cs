@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine. EventSystems;
 
 namespace TarodevController {
     public class MenuManager : MonoBehaviour
@@ -10,6 +11,10 @@ namespace TarodevController {
         [SerializeField] private GameObject _settingsMenuCanvasGO;
         [SerializeField] private GameObject _playerController;
         protected FrameInput FrameInput;
+
+        [Header("First Selected Options")]
+        [SerializeField] private GameObject _mainMenuFirst;
+        [SerializeField] private GameObject _settingsMenuFirst;
 
         private bool isPaused;
 
@@ -47,16 +52,21 @@ namespace TarodevController {
         private void OpenMainMenu() {
             _mainMenuCanvasGO.SetActive(true);
             _settingsMenuCanvasGO.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(_mainMenuFirst);
         }
 
         private void CloseAllMenus() {
             _mainMenuCanvasGO.SetActive(false);
             _settingsMenuCanvasGO.SetActive(false);        
+            EventSystem.current.SetSelectedGameObject(null);
+
         }
 
         private void OpenSettingsMenuHandle() {
              _settingsMenuCanvasGO.SetActive(true);
              _mainMenuCanvasGO.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(_settingsMenuFirst);
+
         }
 
         public void OnSettingsPress(){
