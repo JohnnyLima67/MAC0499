@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttackBehaviour : MonoBehaviour
 {
     [SerializeField] PlayerWeaponBehaviour playerWeapon;
+    [SerializeField] PlayerRangedWeaponBehaviour playerRangedWeapon;
     [SerializeField] PlayerAnimator playerAnimator;
     [SerializeField] LayerMask enemyLayer;
 
@@ -22,5 +23,15 @@ public class PlayerAttackBehaviour : MonoBehaviour
             HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
             playerWeapon.ApplyEffect(hittableBehaviour);
         }
+    }
+
+    public void InitProjectile()
+    {
+        StartCoroutine(playerAnimator.PlayPlayerProjectileAnimation(playerRangedWeapon));
+    }
+
+    public void LaunchProjectile()
+    {
+        playerRangedWeapon.Fire();
     }
 }

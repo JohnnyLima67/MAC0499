@@ -49,6 +49,14 @@ public class PlayerAnimator : EntityAnimator
         yield break;
     }
 
+    public IEnumerator PlayPlayerProjectileAnimation(PlayerRangedWeaponBehaviour playerRangedWeapon)
+    {
+        unityAnimator.SetTrigger("Fire");
+        playerRangedWeapon.TriggerFireAnimation();
+
+        yield break;
+    }
+
     public bool IsInCriticalAnimation()
     {
         return isInCriticalAnimation;
