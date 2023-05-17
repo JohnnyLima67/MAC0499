@@ -14,7 +14,7 @@ namespace TarodevController {
         [SerializeField] private CapsuleCollider2D _standingCollider;
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
-        private PlayerInput _input;
+        private InputManager _input;
         private bool _cachedTriggerSetting;
 
         protected FrameInput FrameInput;
@@ -69,7 +69,7 @@ namespace TarodevController {
 
         protected virtual void Awake() {
             _rb = GetComponent<Rigidbody2D>();
-            _input = GetComponent<PlayerInput>();
+            _input = GetComponent<InputManager>();
             _cachedTriggerSetting = Physics2D.queriesHitTriggers;
             Physics2D.queriesStartInColliders = false;
 
