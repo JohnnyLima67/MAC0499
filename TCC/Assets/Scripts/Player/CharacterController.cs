@@ -72,7 +72,6 @@ public class CharacterController : MonoBehaviour
 
     public void Bounce()
     {
-        Debug.Log("Bounced");
         m_Rigidbody2D.AddForce(new Vector2(0f, calculateForce(Physics2D.gravity.magnitude, fixedBounceHeight)), ForceMode2D.Force);
     }
 
