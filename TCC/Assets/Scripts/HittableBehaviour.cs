@@ -10,7 +10,7 @@ public class HittableBehaviour : MonoBehaviour
 
     private bool died = false;
 
-	public void TakeDamage(float damage)
+	public virtual void TakeDamage(float damage)
 	{
         if (died)
             return;
@@ -21,7 +21,7 @@ public class HittableBehaviour : MonoBehaviour
 			Die();
 	}
 
-	public void Die()
+	public virtual void Die()
 	{
         if (died)
             return;
@@ -34,7 +34,7 @@ public class HittableBehaviour : MonoBehaviour
         }
 	}
 
-	public void AfterDie()
+	public virtual void AfterDie()
 	{
 		gameObject.SetActive(false);
 	}
