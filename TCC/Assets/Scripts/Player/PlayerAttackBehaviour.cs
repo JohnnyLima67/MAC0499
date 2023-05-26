@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction {HORIZONTAL, UP, DOWN}
+
 public class PlayerAttackBehaviour : MonoBehaviour
 {
     [SerializeField] PlayerWeaponBehaviour playerWeapon;
@@ -9,20 +11,52 @@ public class PlayerAttackBehaviour : MonoBehaviour
     [SerializeField] PlayerAnimator playerAnimator;
     [SerializeField] LayerMask enemyLayer;
 
-    public void InitAttack()
+    public void InitAttack(Direction dir)
     {
-        StartCoroutine(playerAnimator.PlayPlayerAttackAnimation(playerWeapon));
+        if (dir == Direction.HORIZONTAL || dir == Direction.HORIZONTAL)
+            StartCoroutine(playerAnimator.PlayPlayerHorizontalAttackAnimation(playerWeapon));
+        else if (dir == Direction.DOWN)
+            StartCoroutine(playerAnimator.PlayPlayerDownAttackAnimation(playerWeapon));
+        else if(dir == Direction.UP)
+            StartCoroutine(playerAnimator.PlayPlayerUpAttackAnimation(playerWeapon));
+        else
+        {
+            Debug.LogError("Direction not recognized for InitAttack");
+            return;
+        }
     }
 
-    public void Attack()
+    public void AttackHorizontal()
     {
-        Collider2D[] col = playerWeapon.OverlapAttack(enemyLayer);
+        Collider2D[] col = playerWeapon.OverlapAttackHorizontal(enemyLayer);
 
         foreach(Collider2D c in col)
         {
             HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
             playerWeapon.ApplyEffect(hittableBehaviour);
         }
+    }
+
+    public void AttackDown()
+    {
+        Collider2D[] col = playerWeapon.OverlapAttackDown(enemyLayer);
+
+        foreach(Collider2D c in col)
+        {
+            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
+            playerWeapon.ApplyEffect(hittableBehaviour);
+        }
+    }
+
+    public void AttackUp()
+    {
+        Collider2D[] col = playerWeapon.OverlapAttackUp(enemyLayer);
+
+        foreach(Collider2D c in col)
+        {
+            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
+            playerWeapon.ApplyEffect(hittableBehaviour);
+       }
     }
 
     public void InitProjectile()

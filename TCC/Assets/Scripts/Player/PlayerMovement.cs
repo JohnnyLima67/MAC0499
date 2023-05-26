@@ -12,13 +12,16 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] PlayerAttackBehaviour attackBehaviour;
 
 	float horizontalMove = 0f;
+    float verticalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
+    Direction attackDirection = Direction.HORIZONTAL;
 
 	// Update is called once per frame
 	void Update () {
 
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        verticalMove = Input.GetAxisRaw("Vertical");
 
 		if (Input.GetButtonDown("Jump"))
 		{
@@ -39,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
-            attackBehaviour.InitAttack();
+            attackBehaviour.InitAttack(attackDirection);
         }
         if (Input.GetButtonDown("Fire2"))
         {
@@ -52,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!animator.IsInCriticalAnimation())
         {
             // Move our character
-            controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+            attackDirection = controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove, crouch, jump);
         }
 	}
 }

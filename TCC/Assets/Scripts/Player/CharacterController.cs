@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class CharacterController : MonoBehaviour
 {
 	[SerializeField] private float fixedJumpHeight = 5.0f;
+    [SerializeField] private float fixedBounceHeight = 100f;
 
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
@@ -69,7 +70,18 @@ public class CharacterController : MonoBehaviour
 		hasJumped = false;
 	}
 
-	public void Move(float move, bool crouch, bool jump)
+    public void Bounce()
+    {
+        Debug.Log("Bounced");
+        m_Rigidbody2D.AddForce(new Vector2(0f, calculateForce(Physics2D.gravity.magnitude, fixedBounceHeight)), ForceMode2D.Force);
+    }
+
+    public bool ShouldBounce()
+    {
+        return !m_Grounded;
+    }
+
+	public Direction Move(float move, float verticalMove, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -95,7 +107,10 @@ public class CharacterController : MonoBehaviour
 				}
 
 				// Reduce the speed by the crouchSpeed multiplier
-				move *= m_CrouchSpeed;
+				if (m_Grounded)
+                {
+                    move *= m_CrouchSpeed;
+                }
 
 				// Disable one of the colliders when crouching
 				if (m_CrouchDisableCollider != null)
@@ -149,6 +164,21 @@ public class CharacterController : MonoBehaviour
 			freezeUp = true;
 			m_Rigidbody2D.velocity = targetVelocity;
 		}
+
+        if (verticalMove == 0.0f)
+        {
+            return Direction.HORIZONTAL;
+        }
+        else if (Mathf.Sign(verticalMove) == 1)
+        {
+            return Direction.UP;
+        }
+        else if (Mathf.Sign(verticalMove) == -1 && !m_Grounded)
+        {
+            return Direction.DOWN;
+        }
+
+        return Direction.HORIZONTAL;
 	}
 
 	private float calculateForce(float gravity, float jumpHeight)
