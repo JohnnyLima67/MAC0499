@@ -11,7 +11,7 @@ namespace TarodevController {
 
 
         private PlayerInput _playerInput;
-        private InputAction _move, _jump, _dash, _attack,_exampleAction, _escape;
+        private InputAction _move, _jump, _dash, _attack, _attack2, _powerUp,_exampleAction, _escape;
 
         private void Awake() {
 
@@ -28,6 +28,8 @@ namespace TarodevController {
             _jump = _playerInput.actions["Jump"];
             _dash = _playerInput.actions["Dash"];
             _attack = _playerInput.actions["Attack"];
+            _attack2 = _playerInput.actions["Attack2"];
+            _powerUp = _playerInput.actions["PowerUp"];
             _escape = _playerInput.actions["MenuOpenClose"];
         }
 
@@ -42,6 +44,8 @@ namespace TarodevController {
                 JumpHeld = _jump.IsPressed(),
                 DashDown = _dash.WasPressedThisFrame(),
                 AttackDown = _attack.WasPressedThisFrame(),
+                Attack2Down = _attack2.WasPressedThisFrame(),
+                PowerUp = _powerUp.WasPressedThisFrame(),
                 EscapeDown = _escape.WasPressedThisFrame(),
             };
         }
@@ -53,6 +57,8 @@ namespace TarodevController {
         public bool JumpHeld;
         public bool DashDown;
         public bool AttackDown;
+        public bool Attack2Down;
+        public bool PowerUp;
         public bool EscapeDown;
         public bool ExampleActionHeld;
     }

@@ -15,7 +15,7 @@ public class CollectablePowerUp : MonoBehaviour
         {
             collected = true;
             otherCollider.GetComponent<PowerUpManager>().equipPowerUp(powerUp);
-            // Debug.Log("Power Up coletado!");
+            Debug.Log("Power Up coletado!");
         }
     }
 }
