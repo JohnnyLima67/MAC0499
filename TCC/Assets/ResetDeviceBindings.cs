@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class ResetDeviceBindings : MonoBehaviour
+{
+    [SerializeField] private InputActionAsset _inputActions;
+    // Start is called before the first frame update
+    public void ResetAllBindings() {
+        foreach (InputActionMap map in _inputActions.actionMaps) {
+            map.RemoveAllBindingOverrides();
+        }
+        
+    }
+}
