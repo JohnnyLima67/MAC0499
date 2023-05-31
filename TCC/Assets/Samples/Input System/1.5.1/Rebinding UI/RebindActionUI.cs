@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 ////TODO: localization support
 
@@ -264,13 +265,17 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             // disable the action before use to prevent errors
             action.Disable();
+            EventSystem.current.sendNavigationEvents = false;
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
+                
+                .WithControlsExcluding("<Keyboard>/enter")
                 .WithCancelingThrough("<Keyboard>/escape")
                 .OnCancel(
                     operation =>
                     {
                         action.Enable();
+                        EventSystem.current.sendNavigationEvents = true;
                         m_RebindStopEvent?.Invoke(this, operation);
                         m_RebindOverlay?.SetActive(false);
                         UpdateBindingDisplay();
@@ -280,8 +285,16 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     operation =>
                     {
                         action.Enable();
+                        EventSystem.current.sendNavigationEvents = true;
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
+
+                        if (CheckDuplicatedBindings(action,bindingIndex, allCompositeParts)){
+                            action.RemoveBindingOverride(bindingIndex);
+                            CleanUp();
+                            PerformInteractiveRebind(action, bindingIndex, allCompositeParts);
+                            return;
+                        }
                         UpdateBindingDisplay();
                         CleanUp();
 
@@ -319,6 +332,29 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindStartEvent?.Invoke(this, m_RebindOperation);
 
             m_RebindOperation.Start();
+        }
+
+        private bool CheckDuplicatedBindings(InputAction action, int bindingIndex, bool allCompositeParts = false) {
+            InputBinding newBinding = action.bindings[bindingIndex];
+            foreach (InputBinding binding in action.actionMap.bindings)
+            {
+                if (binding.action == newBinding.action) {
+                    continue;
+                }
+                if (binding.effectivePath == newBinding.effectivePath) {
+                    return true;
+                }
+            }
+
+            if (allCompositeParts) {
+                for(int i = 1; i < bindingIndex; i++) {
+                    if (action.bindings[i].effectivePath == newBinding.overridePath) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         protected void OnEnable()

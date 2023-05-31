@@ -10,6 +10,7 @@ namespace TarodevController {
         [SerializeField] private GameObject _mainMenuCanvasGO;
         [SerializeField] private GameObject _settingsMenuCanvasGO;
         [SerializeField] private GameObject _keyboardMenuCanvasGO;
+        [SerializeField] private GameObject _gamepadMenuCanvasGO;
 
         [SerializeField] private GameObject _playerController;
         protected FrameInput FrameInput;
@@ -18,6 +19,7 @@ namespace TarodevController {
         [SerializeField] private GameObject _mainMenuFirst;
         [SerializeField] private GameObject _settingsMenuFirst;
         [SerializeField] private GameObject _keyboardMenuFirst;
+        [SerializeField] private GameObject _gamepadMenuFirst;
 
         private bool isPaused;
 
@@ -25,6 +27,8 @@ namespace TarodevController {
             _mainMenuCanvasGO.SetActive(false);
             _settingsMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(false);
+            _gamepadMenuCanvasGO.SetActive(false);
+
         }
 
         private void Update() {
@@ -57,6 +61,7 @@ namespace TarodevController {
             _mainMenuCanvasGO.SetActive(true);
             _settingsMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(false);
+            _gamepadMenuCanvasGO.SetActive(false);
 
             EventSystem.current.SetSelectedGameObject(_mainMenuFirst);
         }
@@ -65,6 +70,7 @@ namespace TarodevController {
             _mainMenuCanvasGO.SetActive(false);
             _settingsMenuCanvasGO.SetActive(false); 
             _keyboardMenuCanvasGO.SetActive(false);        
+            _gamepadMenuCanvasGO.SetActive(false);
        
             EventSystem.current.SetSelectedGameObject(null);
 
@@ -74,17 +80,29 @@ namespace TarodevController {
              _settingsMenuCanvasGO.SetActive(true);
              _mainMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(false);
+            _gamepadMenuCanvasGO.SetActive(false);
 
             EventSystem.current.SetSelectedGameObject(_settingsMenuFirst);
 
         }
 
         private void OpenKeyboardMenuHandle() {
-             _settingsMenuCanvasGO.SetActive(false);
-             _mainMenuCanvasGO.SetActive(false);
+            _settingsMenuCanvasGO.SetActive(false);
+            _mainMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(true);
+            _gamepadMenuCanvasGO.SetActive(false);
 
             EventSystem.current.SetSelectedGameObject(_keyboardMenuFirst);
+
+        }
+
+        private void OpenGamepadMenuHandle() {
+            _settingsMenuCanvasGO.SetActive(false);
+            _mainMenuCanvasGO.SetActive(false);
+            _keyboardMenuCanvasGO.SetActive(false);
+            _gamepadMenuCanvasGO.SetActive(true);
+
+            EventSystem.current.SetSelectedGameObject(_gamepadMenuFirst);
 
         }
 // -----------------Botões Menu Principal -------------------//
@@ -104,12 +122,20 @@ namespace TarodevController {
         public void OnSettingsKeyboardPress(){
             OpenKeyboardMenuHandle();
         }
+
+        public void OnSettingsGamepadPress(){
+            OpenGamepadMenuHandle();
+        }
  // -----------------Botões Menu Teclado -------------------//
        
         public void OnKeyboardBackPress(){
             OpenSettingsMenuHandle();
         }
-
+ // -----------------Botões Menu Gamepad -------------------//
+       
+        public void OnGamepadBackPress(){
+            OpenSettingsMenuHandle();
+        }
 
     }
 }
