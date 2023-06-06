@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerWeaponBehaviour : MonoBehaviour
 {
-    [SerializeField] CharacterController characterController;
+    [SerializeField] TarodevController.PlayerController playerController;
     [SerializeField] float damage;
     [SerializeField] Animator animator;
     [SerializeField] Transform pointArea1Horizontal;
@@ -18,7 +18,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour
 
     void Awake()
     {
-        characterController = GameObject.FindWithTag("Player").GetComponent<CharacterController>();
+        playerController = GameObject.FindWithTag("Player").GetComponent<TarodevController.PlayerController>();
     }
 
     public void TriggerHorizontalAttackAnimation()
@@ -60,9 +60,9 @@ public class PlayerWeaponBehaviour : MonoBehaviour
     public void ApplyEffect(HittableBehaviour hittableBehaviour)
     {
         hittableBehaviour.TakeDamage(damage);
-        if (hittableBehaviour.IsBounceable() && characterController.ShouldBounce())
+        if (hittableBehaviour.IsBounceable() && playerController.ShouldBounce())
         {
-            characterController.Bounce();
+            playerController.Bounce();
         }
     }
 

@@ -11,8 +11,17 @@ public class PlayerAttackBehaviour : MonoBehaviour
     [SerializeField] PlayerAnimator playerAnimator;
     [SerializeField] LayerMask enemyLayer;
 
-    public void InitAttack(Direction dir)
+    TarodevController.PlayerController playerController;
+
+    void Awake()
     {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<TarodevController.PlayerController>();
+        playerController.Attacked += InitAttack;
+    }
+
+    public void InitAttack()
+    {
+        Direction dir = playerController.GetDirection();
         if (dir == Direction.HORIZONTAL || dir == Direction.HORIZONTAL)
             StartCoroutine(playerAnimator.PlayPlayerHorizontalAttackAnimation(playerWeapon));
         else if (dir == Direction.DOWN)

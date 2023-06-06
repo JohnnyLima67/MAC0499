@@ -22,6 +22,7 @@ namespace TarodevController {
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
+        private Direction currentDir = Direction.HORIZONTAL;
 
         #endregion
 
@@ -87,6 +88,11 @@ namespace TarodevController {
             {
                 FrameInput.Move.x = Mathf.Abs(FrameInput.Move.x) < _stats.HorizontalDeadzoneThreshold ? 0 : Mathf.Sign(FrameInput.Move.x);
                 FrameInput.Move.y = Mathf.Abs(FrameInput.Move.y) < _stats.VerticalDeadzoneThreshold ? 0 : Mathf.Sign(FrameInput.Move.y);
+
+                currentDir = Direction.HORIZONTAL;
+
+                if (FrameInput.Move.y > 0.0f) currentDir = Direction.UP;
+                else if (FrameInput.Move.y < 0.0f) currentDir = Direction.DOWN;
             }
 
             if (FrameInput.JumpDown) {
@@ -117,6 +123,21 @@ namespace TarodevController {
             HandleHorizontal();
             HandleVertical();
             ApplyMovement();
+        }
+
+        public bool ShouldBounce()
+        {
+            return false;
+        }
+
+        public void Bounce()
+        {
+            return;
+        }
+
+        public Direction GetDirection()
+        {
+            return currentDir;
         }
 
         #region Collisions

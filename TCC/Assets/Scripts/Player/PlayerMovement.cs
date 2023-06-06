@@ -40,10 +40,10 @@ public class PlayerMovement : MonoBehaviour {
 			crouch = false;
 		}
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            attackBehaviour.InitAttack(attackDirection);
-        }
+        // if (Input.GetButtonDown("Fire1"))
+        // {
+        //     attackBehaviour.InitAttack(attackDirection);
+        // }
         if (Input.GetButtonDown("Fire2"))
         {
             attackBehaviour.InitProjectile();
