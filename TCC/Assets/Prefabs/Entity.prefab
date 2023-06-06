@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6215356497186813717}
   - component: {fileID: 6215356497186813727}
   - component: {fileID: 981985826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Entity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,7 @@ MonoBehaviour:
   animator: {fileID: 6215356497186813716}
   entityColliders:
   - {fileID: 6215356497186813717}
+  isBounceable: 1
 --- !u!114 &6215356497186813715
 MonoBehaviour:
   m_ObjectHideFlags: 0

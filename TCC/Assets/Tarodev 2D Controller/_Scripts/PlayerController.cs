@@ -92,7 +92,7 @@ namespace TarodevController {
                 currentDir = Direction.HORIZONTAL;
 
                 if (FrameInput.Move.y > 0.0f) currentDir = Direction.UP;
-                else if (FrameInput.Move.y < 0.0f) currentDir = Direction.DOWN;
+                else if (FrameInput.Move.y < 0.0f && !_grounded) currentDir = Direction.DOWN;
             }
 
             if (FrameInput.JumpDown) {
