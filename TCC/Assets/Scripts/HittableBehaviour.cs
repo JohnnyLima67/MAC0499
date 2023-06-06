@@ -7,6 +7,7 @@ public class HittableBehaviour : MonoBehaviour
 	[SerializeField] HealthManager healthbarManager;
     [SerializeField] EntityAnimator animator;
     [SerializeField] Collider2D[] entityColliders;
+    [SerializeField] bool isBounceable = true;
 
     private bool died = false;
 
@@ -38,4 +39,9 @@ public class HittableBehaviour : MonoBehaviour
 	{
 		gameObject.SetActive(false);
 	}
+
+    public bool IsBounceable()
+    {
+        return isBounceable;
+    }
 }

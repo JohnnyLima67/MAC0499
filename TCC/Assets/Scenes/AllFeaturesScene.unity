@@ -1595,6 +1595,7 @@ MonoBehaviour:
   entityColliders:
   - {fileID: 1060629591}
   - {fileID: 1060629590}
+  isBounceable: 1
 --- !u!1001 &1611433757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1709,7 +1710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.66959
+      value: -16.6821
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
