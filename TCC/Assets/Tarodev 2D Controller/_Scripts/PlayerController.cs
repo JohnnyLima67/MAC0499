@@ -127,12 +127,14 @@ namespace TarodevController {
 
         public bool ShouldBounce()
         {
-            return false;
+            return !_grounded && (currentDir == Direction.DOWN);
         }
 
         public void Bounce()
         {
-            return;
+            var incomingSpeedNormal = Vector3.Project(Speed, transform.up); // vertical speed in direction of Bouncer
+            ApplyVelocity(-incomingSpeedNormal, PlayerForce.Burst); // cancel current vertical speed for more consistent heights
+            SetVelocity(transform.up * 35f, PlayerForce.Burst);
         }
 
         public Direction GetDirection()
