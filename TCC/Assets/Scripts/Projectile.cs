@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player")) return;
+        if (col.CompareTag("Player") || col.CompareTag("Camera") || col.CompareTag("PlayerProjectile")) return;
 
         HittableBehaviour h = col.gameObject.GetComponent<HittableBehaviour>();
         if (h != null)
