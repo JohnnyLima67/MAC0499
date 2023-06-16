@@ -17,6 +17,7 @@ public class PlayerAttackBehaviour : MonoBehaviour
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<TarodevController.PlayerController>();
         playerController.Attacked += InitAttack;
+        playerController.RangedAttacked += InitProjectile;
     }
 
     public void InitAttack()

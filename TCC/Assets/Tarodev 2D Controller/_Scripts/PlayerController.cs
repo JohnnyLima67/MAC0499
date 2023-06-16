@@ -35,6 +35,7 @@ namespace TarodevController {
         public event Action<bool> Jumped;
         public event Action AirJumped;
         public event Action Attacked;
+        public event Action RangedAttacked;
         public ScriptableStats PlayerStats => _stats;
         public Vector2 Input => FrameInput.Move;
         public Vector2 Velocity => _rb.velocity;
@@ -104,6 +105,7 @@ namespace TarodevController {
 
             if (FrameInput.DashDown && _stats.AllowDash) _dashToConsume = true;
             if (FrameInput.AttackDown && _stats.AllowAttacks) _attackToConsume = true;
+            if (FrameInput.RangedAttackDown) _rangedAttackToConsume = true;
         }
 
         protected virtual void FixedUpdate() {
@@ -119,6 +121,7 @@ namespace TarodevController {
             HandleJump();
             HandleDash();
             HandleAttacking();
+            HandleRangedAttacking();
 
             HandleHorizontal();
             HandleVertical();
@@ -540,6 +543,7 @@ namespace TarodevController {
         #region Attacking
 
         private bool _attackToConsume;
+        private bool _rangedAttackToConsume;
         private int _frameLastAttacked = int.MinValue;
 
 
@@ -552,6 +556,17 @@ namespace TarodevController {
             }
 
             _attackToConsume = false;
+        }
+
+        protected virtual void HandleRangedAttacking() {
+            if (!_rangedAttackToConsume) return;
+
+            if (_fixedFrame > _frameLastAttacked + _stats.AttackFrameCooldown) {
+                _frameLastAttacked = _fixedFrame;
+                RangedAttacked?.Invoke();
+            }
+
+            _rangedAttackToConsume = false;
         }
 
         #endregion

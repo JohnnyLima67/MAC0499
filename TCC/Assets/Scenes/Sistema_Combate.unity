@@ -456,10 +456,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 326958529, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.88
-      objectReference: {fileID: 0}
     - target: {fileID: 871529893, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: manaBar
       value: 

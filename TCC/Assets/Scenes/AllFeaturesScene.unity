@@ -1219,7 +1219,7 @@ GameObject:
   - component: {fileID: 627981273}
   m_Layer: 0
   m_Name: Bound1 (1)
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,7 +1238,7 @@ Transform:
   m_Children:
   - {fileID: 688115342}
   m_Father: {fileID: 86471667}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &627981272
 PolygonCollider2D:
@@ -15386,7 +15386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.003853
+      value: -17.59537
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15394,6 +15394,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491278084628019, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705491278084628019, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_TagString
+      value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705491278084628020, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7705491278084628020, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}

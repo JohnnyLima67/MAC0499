@@ -93,6 +93,7 @@ public class BoxBoiAnimator : MonoBehaviour {
                 newRotation.y = 0;
             }
 
+            newRotation.z = 0;
             gameObject.transform.rotation = newRotation;
         }
     }
