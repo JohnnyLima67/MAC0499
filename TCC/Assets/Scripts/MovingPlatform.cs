@@ -35,6 +35,8 @@ public class MovingPlatform : MonoBehaviour
     Vector3 startPosition;
     public Color gizmoColor = Color.yellow;
 
+    Collision2D playerRef = null;
+
     // Line movement vars
         [Tooltip("Local offsets from starting position")]
         [SerializeField] private Vector2[] _points = new Vector2[] { Vector2.left, Vector2.right };
@@ -68,6 +70,18 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (playerRef != null)
+        {
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                playerRef.transform.SetParent(null);
+            }
+            else
+            {
+                playerRef.transform.SetParent(transform);
+            }
+        }
+
         // Manage how the platform have to move according to movementType var
         switch (movementType) {
             case MovementType.line:
@@ -191,17 +205,19 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D col){
+        if (IsOnTop(col.GetContact(0).normal))
+        {
+            col.transform.SetParent(transform);
+            playerRef = col;
+        }
+    }
 
-public bool inIT;
+    void OnCollisionExit2D(Collision2D col) {
+        col.transform.SetParent(null);
+        playerRef = null;
+    }
 
-void OnCollisionEnter2D(Collision2D col){
-    if (IsOnTop(col.GetContact(0).normal))
-        col.transform.SetParent(transform);
-}
-void OnCollisionExit2D(Collision2D col){
-    col.transform.SetParent(null);
-}
-bool IsOnTop(Vector2 normal) => Vector2.Dot(transform.up, normal) < -0.5f;
-
+    bool IsOnTop(Vector2 normal) => Vector2.Dot(transform.up, normal) < -0.5f;
 }
 
