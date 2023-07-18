@@ -36,37 +36,66 @@ public class PlayerAttackBehaviour : MonoBehaviour
         }
     }
 
-    public void AttackHorizontal()
+    GameObject[] CheckForWeakSpots(Collider2D[] col)
     {
-        Collider2D[] col = playerWeapon.OverlapAttackHorizontal(enemyLayer);
+        GameObject[] weakSpotsReached = new GameObject[col.Length];
+
+        int i = 0;
+        foreach(Collider2D c in col)
+        {
+            WeakSpot w = c.GetComponent<WeakSpot>();
+            if (w != null)
+            {
+                if (w.IsHittable() && w.IsPlayerCorrectPos(transform))
+                    weakSpotsReached[i] = w.gameObject.transform.parent.parent.gameObject;
+            }
+            i++;
+        }
+
+        return weakSpotsReached;
+    }
+
+    void FinalizeAttack(Collider2D[] col)
+    {
+        GameObject[] attackedWeakSpots = CheckForWeakSpots(col);
 
         foreach(Collider2D c in col)
         {
             HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
-            playerWeapon.ApplyEffect(hittableBehaviour);
+            if (hittableBehaviour != null)
+            {
+                bool reachedWeakSpot = false;
+
+                foreach (GameObject o in attackedWeakSpots)
+                {
+                    if (o == hittableBehaviour.gameObject)
+                    {
+                        reachedWeakSpot = true;
+                        break;
+                    }
+                }
+
+                playerWeapon.ApplyEffect(hittableBehaviour, reachedWeakSpot);
+            }
         }
+    }
+
+    public void AttackHorizontal()
+    {
+        Collider2D[] col = playerWeapon.OverlapAttackHorizontal(enemyLayer);
+        FinalizeAttack(col);
     }
 
     public void AttackDown()
     {
         Collider2D[] col = playerWeapon.OverlapAttackDown(enemyLayer);
-
-        foreach(Collider2D c in col)
-        {
-            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
-            playerWeapon.ApplyEffect(hittableBehaviour);
-        }
+        FinalizeAttack(col);
     }
 
     public void AttackUp()
     {
         Collider2D[] col = playerWeapon.OverlapAttackUp(enemyLayer);
-
-        foreach(Collider2D c in col)
-        {
-            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
-            playerWeapon.ApplyEffect(hittableBehaviour);
-       }
+        FinalizeAttack(col);
     }
 
     public void InitProjectile()

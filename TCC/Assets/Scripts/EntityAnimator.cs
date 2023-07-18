@@ -12,6 +12,10 @@ public class EntityAnimator : MonoBehaviour
         yield break;
     }
 
+    public virtual IEnumerator PlayTakeCriticalDamage() {
+        yield break;
+    }
+
     public virtual IEnumerator PlayDie()
     {
         yield break;

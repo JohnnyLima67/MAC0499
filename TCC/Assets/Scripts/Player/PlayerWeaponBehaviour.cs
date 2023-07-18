@@ -57,9 +57,9 @@ public class PlayerWeaponBehaviour : MonoBehaviour
                                         targetLayer);
     }
 
-    public void ApplyEffect(HittableBehaviour hittableBehaviour)
+    public void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
     {
-        hittableBehaviour.TakeDamage(damage);
+        hittableBehaviour.TakeDamage(damage, hitWeakSpot);
         if (hittableBehaviour.IsBounceable() && playerController.ShouldBounce())
         {
             playerController.Bounce();
