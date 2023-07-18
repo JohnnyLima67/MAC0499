@@ -8,10 +8,11 @@ public class HittableBehaviour : MonoBehaviour
     [SerializeField] EntityAnimator animator;
     [SerializeField] Collider2D[] entityColliders;
     [SerializeField] bool isBounceable = true;
+    [SerializeField] float weakSpotDmgMul = 5.0f;
 
     private bool died = false;
 
-	public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
 	{
         if (died)
             return;
@@ -20,6 +21,31 @@ public class HittableBehaviour : MonoBehaviour
 
 		if (healthbarManager.isDead())
 			Die();
+	}
+
+	public void TakeDamage(float damage, bool hitWeakSpot)
+	{
+        if (died)
+            return;
+
+        if (hitWeakSpot)
+        {
+            healthbarManager.TakeDamage(damage * weakSpotDmgMul);
+
+            if (healthbarManager.isDead())
+                Die();
+            else
+                StartCoroutine(animator.PlayTakeCriticalDamage());
+        }
+        else
+        {
+            healthbarManager.TakeDamage(damage);
+
+            if (healthbarManager.isDead())
+                Die();
+            else
+                StartCoroutine(animator.PlayTakeDamage());
+        }
 	}
 
 	public void Die()
