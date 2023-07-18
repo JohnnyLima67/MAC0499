@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class TwoPointMove : AbstractMovement
 {
-    [SerializeField] Transform[] points;
+    [SerializeField] Vector3[] points;
     int target = 1;
     int speed = 5;
+
+    Vector3 startPosition;
+    bool startPositionSet = false;
 
     protected override void Move()
     {
         if (points.Length < 2)
             return;
 
-        Vector3 movement = points[target].position - transform.position;
+        if (!startPositionSet)
+        {
+            startPosition = transform.position;
+            startPositionSet = true;
+        }
+            
+
+        Vector3 globalTarget = startPosition + points[target];
+
+        Vector3 movement = globalTarget - transform.position;
 
         float frameOffset = speed * Time.deltaTime;
         float distToTarget = movement.sqrMagnitude;
@@ -25,7 +37,7 @@ public class TwoPointMove : AbstractMovement
         }
         else
         {
-            transform.position = points[target].position;
+            transform.position = globalTarget;
             target = 1 - target;
         }
     }
