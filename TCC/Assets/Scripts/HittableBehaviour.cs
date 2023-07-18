@@ -14,18 +14,20 @@ public class HittableBehaviour : MonoBehaviour
 
     public void TakeDamage(float damage)
 	{
-        if (died)
+        if (died || !healthbarManager.CanTakeDamage())
             return;
 
-		healthbarManager.TakeDamage(damage);
+        healthbarManager.TakeDamage(damage);
 
-		if (healthbarManager.isDead())
-			Die();
+        if (healthbarManager.isDead())
+            Die();
+        else
+            StartCoroutine(animator.PlayTakeDamage());
 	}
 
 	public void TakeDamage(float damage, bool hitWeakSpot)
 	{
-        if (died)
+        if (died || !healthbarManager.CanTakeDamage())
             return;
 
         if (hitWeakSpot)
