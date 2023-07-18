@@ -27,6 +27,11 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public bool CanTakeDamage()
+    {
+        return (Mathf.Sign(passedTime) == -1);
+    }
+
     public virtual void TakeDamage(float damage)
     {
         if (Mathf.Sign(passedTime) == -1)
