@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1348577257}
     m_Modifications:
+    - target: {fileID: 832420879, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: allowCritFront
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1899,7 +1903,6 @@ MonoBehaviour:
   circleRadius: 5
   zigzagLines: 4
   zigzagLineDistance: 2
-  inIT: 0
 --- !u!1 &1240802252
 GameObject:
   m_ObjectHideFlags: 0
@@ -15458,7 +15461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.234833
+      value: -12.813606
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
