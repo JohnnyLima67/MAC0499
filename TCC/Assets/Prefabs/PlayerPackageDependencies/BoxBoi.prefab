@@ -583,10 +583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1bced4b0e1abf469ccbda2db4b3c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 871529892}
   maxHealth: 200
   health: 200
   damageInterval: 0.5
+  animator: {fileID: 871529892}
   healthBar: {fileID: 0}
 --- !u!114 &1846508762
 MonoBehaviour:
@@ -657,6 +657,7 @@ MonoBehaviour:
   - {fileID: 1544650614272011794}
   - {fileID: 1544650614272011799}
   isBounceable: 1
+  weakSpotDmgMul: 5
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0
