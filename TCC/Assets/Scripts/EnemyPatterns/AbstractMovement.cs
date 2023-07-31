@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AbstractMovement : MonoBehaviour
 {
+    [SerializeField] HealthManager healthManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,9 @@ public class AbstractMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (healthManager.isDead())
+            return;
+
         Move();
     }
 

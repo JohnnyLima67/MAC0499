@@ -5,6 +5,8 @@ using UnityEngine;
 public class TwoPointMove : AbstractMovement
 {
     [SerializeField] Vector3[] points;
+    [SerializeField] Enemy thisEnemy;
+
     int target = 1;
     int speed = 5;
 
@@ -39,6 +41,7 @@ public class TwoPointMove : AbstractMovement
         {
             transform.position = globalTarget;
             target = 1 - target;
+            thisEnemy.Flip();
         }
     }
 }
