@@ -16,6 +16,11 @@ public class HealthManager : MonoBehaviour
         health = Mathf.Clamp(health, 0, maxHealth);
     }
 
+    public virtual float CurrentHealth()
+    {
+        return health;
+    }
+
     public virtual void FixedUpdate()
     {
         if (Mathf.Sign(passedTime) == 1)
