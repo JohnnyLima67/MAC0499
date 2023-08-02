@@ -301,7 +301,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: entityColliders.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: entityColliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1004115898}
+    - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: entityColliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 1196958618}
+    - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: entityColliders.Array.data[2]
       value: 
       objectReference: {fileID: 1004115898}
     - target: {fileID: 6215356497186813715, guid: c72043930527eb4c39077247de4b181d, type: 3}
@@ -318,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813727, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_Mass
@@ -489,11 +501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.2360516
+      value: -19.6
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8667767
+      value: 1.06
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1186,7 +1198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 573946069}
   - component: {fileID: 573946068}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115516666}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_back_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2347,6 +2359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c72043930527eb4c39077247de4b181d, type: 3}
+--- !u!61 &1196958618 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 832420878, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231077321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
@@ -6093,7 +6110,7 @@ GameObject:
   - component: {fileID: 1783917153}
   - component: {fileID: 1783917155}
   - component: {fileID: 1783917154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TilemapBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15700,7 +15717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1884396312}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_back_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16128,7 +16145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.199129
+      value: -13.174648
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
