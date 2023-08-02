@@ -41,19 +41,12 @@ public class EnemyAnimator : EntityAnimator
 
     public override IEnumerator PlayDie()
     {
-        isInCriticalAnimation = true;
-        gameObject.transform.DOShakePosition(1.0f, 0.5f, 10, 90.0f, false, true);
+        unityAnimator.SetTrigger("Dead");
 
-        yield return new WaitForSeconds(1.0f);
-
-        Vector3 newEndPosition = new Vector3(gameObject.transform.position.x, -1000.0f, 0.0f);
-        gameObject.transform.DOMove(newEndPosition, 100.0f);
-
-        yield return new WaitForSeconds(4.0f);
-
-        isInCriticalAnimation = false;
-
+        yield return new WaitForSeconds(unityAnimator.GetCurrentAnimatorStateInfo(0).length + 10);
+        Destroy(gameObject);
         yield break;
+        
     }
 
     public bool IsInCriticalAnimation()

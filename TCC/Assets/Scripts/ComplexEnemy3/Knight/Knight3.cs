@@ -13,6 +13,9 @@ public class Knight3 : MonoBehaviour
     [SerializeField] float detectionDistance = 20.0f;
     [SerializeField] float speed = 2.0f;
     [SerializeField] LayerMask playerAndGroundLayer;
+    [SerializeField] EnemyAnimator animator;
+    [SerializeField] HealthManager healthManager;
+
 
     void Start()
     {
@@ -20,7 +23,8 @@ public class Knight3 : MonoBehaviour
 
         fsm.AddState("Idle");
         fsm.AddState("Active",
-                     onEnter: (state) => Debug.Log("Estou no Active"),
+                     onEnter: (state) => animator.unityAnimator.SetBool("Following", true),
+                     onExit: (state) => animator.unityAnimator.SetBool("Following", false),
                      onLogic: (state) => FollowPlayer());
         fsm.AddState("Flip", onEnter: (state) => thisEnemy.Flip());
 
@@ -79,6 +83,7 @@ public class Knight3 : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(healthManager.isDead()) return;
         fsm.OnLogic();
     }
 

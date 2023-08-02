@@ -70,6 +70,7 @@ public class HittableBehaviour : MonoBehaviour
 
     public bool IsBounceable()
     {
+        if(healthbarManager.isDead()) return false;
         return isBounceable;
     }
 }
