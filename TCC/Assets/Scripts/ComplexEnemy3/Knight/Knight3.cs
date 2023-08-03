@@ -55,7 +55,7 @@ public class Knight3 : MonoBehaviour
                       Vector3.Normalize(visionObject.transform.position - transform.position), Color.red);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             if (hit.collider.CompareTag("Player"))
             {
                 lastPlayerPos = hit.collider.gameObject.transform;
