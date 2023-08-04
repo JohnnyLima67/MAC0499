@@ -5,15 +5,20 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float damage;
-    [SerializeField] float speed;
-    [SerializeField] Rigidbody2D rigidbody;
     [SerializeField] float projectileDuration;
+    [SerializeField] Vector3 velocity;
+    [SerializeField] float hitRadius;
+    [SerializeField] LayerMask hitMask;
+    [SerializeField] LayerMask groundLayer;
 
-    float time = 0.0f;
+    private float time = 0.0f;
+    private Vector3 direction;
+    private Vector3 lastPosition;
 
     public void FireProjectile(Vector3 direction)
     {
-        rigidbody.velocity = direction * speed;
+        this.direction = direction;
+        lastPosition = GetCurrentPosition();
     }
 
     public void FixedUpdate()
@@ -21,21 +26,30 @@ public class Projectile : MonoBehaviour
         time += Time.deltaTime;
 
         if (time >= projectileDuration) ExpireSequence();
-    }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Player") || col.CompareTag("Camera") || col.CompareTag("PlayerProjectile")) return;
+        // get difference between last position and next position
+        Vector3 displacement = velocity * Time.fixedDeltaTime * Mathf.Sign(direction.x);
 
-        HittableBehaviour h = col.gameObject.GetComponent<HittableBehaviour>();
-        if (h != null)
-        {
-            h.TakeDamage(damage);
-            HitHittableSequence();
-        }
-        else
+        transform.position += displacement;
+        RaycastHit2D hit = Physics2D.Raycast(lastPosition,
+                                             transform.position - lastPosition,
+                                             displacement.magnitude,
+                                             groundLayer);
+
+        if (hit.collider != null)
         {
             HitNonHittableSequence();
+        }
+
+        lastPosition = GetCurrentPosition();
+
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position,
+                                                      hitRadius,
+                                                      hitMask);
+
+        if (col.Length > 0)
+        {
+            FinalizeAttack(col);
         }
     }
 
@@ -52,5 +66,33 @@ public class Projectile : MonoBehaviour
     void ExpireSequence()
     {
         Destroy(gameObject);
+    }
+
+    void FinalizeAttack(Collider2D[] col)
+    {
+        HittableBehaviour hittableBehaviour = col[0].GetComponent<HittableBehaviour>();
+        HealthManager healthManager = col[0].GetComponent<HealthManager>();
+
+        if (healthManager != null && healthManager.isDead()) return;
+        if (hittableBehaviour == null || healthManager == null)
+        {
+            HitNonHittableSequence();
+            return;
+        }
+
+        hittableBehaviour.TakeDamage(damage);
+        HitHittableSequence();
+    }
+
+    Vector3 GetCurrentPosition()
+    {
+        return new Vector3(transform.position.x,
+                           transform.position.y,
+                           transform.position.z);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position, hitRadius);
     }
 }

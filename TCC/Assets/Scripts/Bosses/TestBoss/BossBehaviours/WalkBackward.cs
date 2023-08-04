@@ -11,28 +11,34 @@ public class WalkBackward : ActionBase {
 
     Rigidbody2D rb;
     Vector3 direction = new Vector3(1, 0, 0);
-    Vector3 startingPosition;
 
-    public WalkBackward(float d)
+    float currentTime = 0.0f;
+    float maxTime;
+
+    public WalkBackward(float d, float speed)
     {
         maxDistance = d;
+        this.speed = speed;
+        maxTime = d / speed;
     }
 
     protected override void OnStart()
     {
         rb = Owner.GetComponent<Rigidbody2D>();
-        startingPosition = new Vector3(Owner.transform.position.x,
-                                       Owner.transform.position.y,
-                                       Owner.transform.position.z);
+        currentTime = 0.0f;
     }
 
     protected override TaskStatus OnUpdate () {
         Vector3 result = direction * speed;
         rb.velocity = result;
+        currentTime += Time.deltaTime;
 
-        float currentDistance = Vector3.Magnitude(Owner.transform.position - startingPosition);
-        Debug.Log(currentDistance);
-        if (currentDistance > maxDistance) return TaskStatus.Success;
+        if (currentTime > maxTime) return TaskStatus.Success;
         else return TaskStatus.Continue;
+    }
+
+    protected override void OnExit()
+    {
+        rb.velocity = Vector3.zero;
     }
 }

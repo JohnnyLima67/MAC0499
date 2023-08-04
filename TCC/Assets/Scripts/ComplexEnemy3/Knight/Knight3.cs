@@ -51,11 +51,8 @@ public class Knight3 : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position,
                                              Vector3.Normalize(visionObject.transform.position - transform.position),
                                              playerAndGroundLayer);
-        Debug.DrawRay(transform.position,
-                      Vector3.Normalize(visionObject.transform.position - transform.position), Color.red);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject);
             if (hit.collider.CompareTag("Player"))
             {
                 lastPlayerPos = hit.collider.gameObject.transform;
@@ -86,14 +83,4 @@ public class Knight3 : MonoBehaviour
         if(healthManager.isDead()) return;
         fsm.OnLogic();
     }
-
-    // void OnDrawGizmos()
-    // {
-    //     if(transform.position != null && visionObject != null)
-    //      {
-    //          // Draws a blue line from this transform to the target
-    //          Gizmos.color = Color.magenta;
-    //          Gizmos.DrawLine(transform.position, visionObject.transform.position);
-    //      }
-    // }
 }
