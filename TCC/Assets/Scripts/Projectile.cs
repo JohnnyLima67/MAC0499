@@ -2,61 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float damage;
-    [SerializeField] float speed;
-    [SerializeField] Rigidbody2D rigidbody;
     [SerializeField] float projectileDuration;
+    [SerializeField] Vector3 velocity;
+    [SerializeField] float hitRadius;
+    [SerializeField] LayerMask hitMask;
+    [SerializeField] LayerMask groundLayer;
 
-	public Vector3 velocity;
-	public LayerMask hitMask = -1; // all layers by default
-
-
-    float time = 0.0f;
+    private float time = 0.0f;
+    private Vector3 direction;
+    private Vector3 lastPosition;
 
     public void FireProjectile(Vector3 direction)
     {
-        //rigidbody.velocity = direction * speed;
-        return;
+        this.direction = direction;
+        lastPosition = GetCurrentPosition();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         time += Time.deltaTime;
 
         if (time >= projectileDuration) ExpireSequence();
 
-        		// get difference between last position and next position
-		Vector3 displacement = velocity * Time.fixedDeltaTime;
+        // get difference between last position and next position
+        Vector3 displacement = velocity * Time.fixedDeltaTime * Mathf.Sign(direction.x);
 
-		// get Raycast ray (cache last position)
-		Ray2D ray = new Ray2D(transform.position, displacement);
-		RaycastHit2D hit;
+        transform.position += displacement;
+        RaycastHit2D hit = Physics2D.Raycast(lastPosition,
+                                             transform.position - lastPosition,
+                                             displacement.magnitude,
+                                             groundLayer);
 
-		// apply displacement
-		transform.position += displacement;
-        
+        if (hit.collider != null)
+        {
+            HitNonHittableSequence();
+        }
 
-		// raycast for any collisions since last position
-        hit = Physics2D.Raycast(transform.position, displacement, 2, hitMask);
-        Debug.DrawRay(transform.position, displacement);
+        lastPosition = GetCurrentPosition();
 
-		if (hit.collider != null)
-		{
-			// hit something!
-			
-			// example events
-			Debug.Log(this.name + " has hit " + hit.collider.name + " at point " + hit.point);
-			//hit.collider.SendMessage("OnProjectileCollision", this, SendMessageOptions.DontRequireReceiver);
-			Destroy(this.gameObject);
-		}
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position,
+                                                      hitRadius,
+                                                      hitMask);
 
-
+        if (col.Length > 0)
+        {
+            FinalizeAttack(col);
+        }
     }
-
-
 
     void HitHittableSequence()
     {
@@ -72,38 +67,32 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void FinalizeAttack(Collider2D[] col)
+    {
+        HittableBehaviour hittableBehaviour = col[0].GetComponent<HittableBehaviour>();
+        HealthManager healthManager = col[0].GetComponent<HealthManager>();
+
+        if (healthManager != null && healthManager.isDead()) return;
+        if (hittableBehaviour == null || healthManager == null)
+        {
+            HitNonHittableSequence();
+            return;
+        }
+
+        hittableBehaviour.TakeDamage(damage);
+        HitHittableSequence();
+    }
+
+    Vector3 GetCurrentPosition()
+    {
+        return new Vector3(transform.position.x,
+                           transform.position.y,
+                           transform.position.z);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position, hitRadius);
+    }
 }
-
-/*
-public class Projectile : MonoBehaviour
-{
-	public Vector3 velocity;
-	public LayerMask hitMask = -1; // all layers by default
-
-	void FixedUpdate()
-	{
-
-		// get difference between last position and next position
-		Vector3 displacement = velocity * Time.fixedDeltaTime;
-
-		// get Raycast ray (cache last position)
-		Ray ray = new Ray(transform.position, displacement);
-		RaycastHit hit;
-
-		// apply displacement
-		transform.position += displacement;
-
-		// raycast for any collisions since last position
-		if (Physics.Raycast(ray, out hit, displacement.magnitude, hitMask))
-		{
-			// hit something!
-			
-			// example events
-			Debug.Log(this.name + " has hit " + hit.collider.name + " at point " + hit.point);
-			hit.collider.SendMessage("OnProjectileCollision", this, SendMessageOptions.DontRequireReceiver);
-			Destroy(this.gameObject);
-		}
-	}
-}
-
-*/

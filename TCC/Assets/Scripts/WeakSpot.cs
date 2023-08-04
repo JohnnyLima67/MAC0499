@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeakSpot : MonoBehaviour
 {
+    [SerializeField] Enemy thisEnemy;
     [SerializeField] Transform topOfHead;
     [SerializeField] Transform bottomOfFeet;
     [SerializeField] Transform front;
@@ -45,12 +46,12 @@ public class WeakSpot : MonoBehaviour
     {
         Vector3 result = new Vector3(0, 0, 0);
 
-        if (!IsFlipped())
+        if (!thisEnemy.IsFlipped())
             result = player.position - front.position;
         else
             result = player.position - back.position;
 
-        if ((result.x < 0 && !IsFlipped()) || (result.x > 0 && IsFlipped()))
+        if ((result.x < 0 && !thisEnemy.IsFlipped()) || (result.x > 0 && thisEnemy.IsFlipped()))
         {
             return true;
         }
@@ -62,12 +63,12 @@ public class WeakSpot : MonoBehaviour
     {
         Vector3 result = new Vector3(0, 0, 0);
 
-        if (!IsFlipped())
+        if (!thisEnemy.IsFlipped())
             result = player.position - back.position;
         else
             result = player.position - front.position;
 
-        if ((result.x > 0 && !IsFlipped()) || (result.x < 0 && IsFlipped()))
+        if ((result.x > 0 && !thisEnemy.IsFlipped()) || (result.x < 0 && thisEnemy.IsFlipped()))
             return true;
 
         return false;
@@ -88,14 +89,6 @@ public class WeakSpot : MonoBehaviour
         Vector3 result = player.position - bottomOfFeet.position;
 
         if (result.y < 0)
-            return true;
-
-        return false;
-    }
-
-    private bool IsFlipped()
-    {
-        if (flippable.rotation.y == -180)
             return true;
 
         return false;

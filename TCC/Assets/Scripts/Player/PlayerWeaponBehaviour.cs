@@ -59,11 +59,12 @@ public class PlayerWeaponBehaviour : MonoBehaviour
 
     public void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
     {
-        hittableBehaviour.TakeDamage(damage, hitWeakSpot);
         if (hittableBehaviour.IsBounceable() && playerController.ShouldBounce())
         {
             playerController.Bounce();
         }
+
+        hittableBehaviour.TakeDamage(damage, hitWeakSpot);
     }
 
      void OnDrawGizmos()
