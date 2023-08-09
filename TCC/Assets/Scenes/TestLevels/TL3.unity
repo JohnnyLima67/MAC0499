@@ -346,11 +346,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.11
+      value: 107.1
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6215356497186813715, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: deathReceiver
+      value: 
+      objectReference: {fileID: 64508210}
     - target: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_Name
       value: Entity (8)
@@ -1052,11 +1056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813715, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: health
-      value: 200
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813715, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: maxHealth
-      value: 200
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813715, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: deathReceiver
@@ -1068,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813727, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_Mass
@@ -2127,6 +2131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: deathReceiver
+      value: 
+      objectReference: {fileID: 64508210}
     - target: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_Name
       value: Entity (7)
@@ -16012,11 +16020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.89
+      value: 138.1
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.679
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 6177314221914999605, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_RootOrder
@@ -16184,11 +16192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491276725305751, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1265225
+      value: 81.668175
       objectReference: {fileID: 0}
     - target: {fileID: 7705491276725305751, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.90199333
+      value: 1.5683423
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531945, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_IsActive
@@ -16220,7 +16228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.79598
+      value: 110.67081
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
