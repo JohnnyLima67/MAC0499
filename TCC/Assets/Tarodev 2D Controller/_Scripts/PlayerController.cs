@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace TarodevController {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-    public class PlayerController : MonoBehaviour, IPlayerController {
+    public class PlayerController :  CharacterController, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
 
         #region Internal
 
-        [HideInInspector] private Rigidbody2D _rb; // Hide is for serialization to avoid errors in gizmo calls
         [SerializeField] private CapsuleCollider2D _standingCollider;
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
@@ -22,6 +21,7 @@ namespace TarodevController {
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
+        private bool hasInputControl = true;
         private Direction currentDir = Direction.HORIZONTAL;
 
         #endregion
@@ -52,6 +52,11 @@ namespace TarodevController {
             else _currentExternalVelocity += vel;
         }
 
+        public override void ApplyForce(Vector2 force)
+        {
+            ApplyVelocity(force, PlayerForce.Burst);
+        }
+
         public virtual void SetVelocity(Vector2 vel, PlayerForce velocityType) {
             if (velocityType == PlayerForce.Burst) _speed = vel;
             else _currentExternalVelocity = vel;
@@ -65,6 +70,30 @@ namespace TarodevController {
         public virtual void ReturnControl() {
             _speed = Vector2.zero;
             _hasControl = true;
+        }
+
+        public void TakeAwayInputControl()
+        {
+            hasInputControl = false;
+        }
+
+        public void ReturnInputControl()
+        {
+            hasInputControl = true;
+        }
+
+        public override void BeforeStartKnockback()
+        {
+            _rb.velocity = Vector2.zero;
+            _speed = Vector2.zero;
+
+            _endedJumpEarly = true;
+            TakeAwayInputControl();
+        }
+
+        public override void AfterEndKnockback()
+        {
+            ReturnInputControl();
         }
 
         #endregion
@@ -83,6 +112,8 @@ namespace TarodevController {
         }
 
         protected virtual void GatherInput() {
+            if (!hasInputControl) return;
+
             FrameInput = _input.FrameInput;
 
             if (_stats.SnapInput)

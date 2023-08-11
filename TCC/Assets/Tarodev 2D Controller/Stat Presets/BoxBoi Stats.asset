@@ -20,7 +20,7 @@ MonoBehaviour:
     m_Bits: 64
   LadderLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   SnapInput: 1
   VerticalDeadzoneThreshold: 0.3
   HorizontalDeadzoneThreshold: 0.1
@@ -42,7 +42,7 @@ MonoBehaviour:
   JumpEndEarlyGravityModifier: 3
   CoyoteFrames: 7
   JumpBufferFrames: 7
-  AllowWalls: 1
+  AllowWalls: 0
   RequireInputPush: 0
   WallClimbSpeed: 5
   WallFallAcceleration: 8
