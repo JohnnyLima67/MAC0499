@@ -85,7 +85,7 @@ MonoBehaviour:
   front: {fileID: 1609894690}
   back: {fileID: 2032255502}
   flippable: {fileID: 109880269}
-  allowCritFront: 1
+  allowCritFront: 0
   allowCritBack: 0
   allowCritUp: 0
   allowCritDown: 0
@@ -430,6 +430,8 @@ GameObject:
   - component: {fileID: 179217995}
   - component: {fileID: 179218003}
   - component: {fileID: 179218004}
+  - component: {fileID: 179217997}
+  - component: {fileID: 179217998}
   m_Layer: 7
   m_Name: Entity
   m_TagString: Untagged
@@ -477,6 +479,11 @@ MonoBehaviour:
   - {fileID: 832420878}
   isBounceable: 1
   weakSpotDmgMul: 5
+  knockbackBehaviour: {fileID: 179217998}
+  knockbackForceX: -20
+  knockbackForceY: 0
+  knockbackDuration: 0.2
+  thisFlippable: {fileID: 109880269}
 --- !u!114 &6215356497186813715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,7 +594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba1414b12a394ba943543648cef7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6215356497186813727}
   thisEnemy: {fileID: 179218004}
   visionObject: {fileID: 1022792384}
   detectionDistance: 20
@@ -597,6 +603,7 @@ MonoBehaviour:
     m_Bits: 320
   animator: {fileID: 653041682}
   healthManager: {fileID: 6215356497186813715}
+  thisEnemyCharacterController: {fileID: 179217997}
 --- !u!114 &179218003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,3 +630,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flippableAssets: {fileID: 109880268}
+--- !u!114 &179217997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215356497186813718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcefdf477aaaa130aaf0f0320cca5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 6215356497186813727}
+  thisDrag: 120
+--- !u!114 &179217998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215356497186813718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2356d83431c5e1189318c465e1a60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 179217997}
