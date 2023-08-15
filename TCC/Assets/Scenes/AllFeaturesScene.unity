@@ -222,11 +222,15 @@ PrefabInstance:
     - target: {fileID: 179217995, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: thisEnemyCharacterController
       value: 
-      objectReference: {fileID: 179217997}
+      objectReference: {fileID: 179218006}
     - target: {fileID: 832420879, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: allowCritFront
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 832420879, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: calculatePlayerDirection
+      value: 
+      objectReference: {fileID: 179218015}
     - target: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -272,12 +276,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
+      propertyPath: calcPlayerDir
+      value: 
+      objectReference: {fileID: 179218015}
+    - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: thisFlippable
       value: 
       objectReference: {fileID: 179217995}
     - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: knockbackForceX
-      value: -20
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: knockbackForceY
@@ -290,7 +298,7 @@ PrefabInstance:
     - target: {fileID: 6215356497186813714, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: knockbackBehaviour
       value: 
-      objectReference: {fileID: 179217998}
+      objectReference: {fileID: 179218005}
     - target: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
       propertyPath: m_Name
       value: Entity (8)
@@ -312,25 +320,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6215356497186813718, guid: c72043930527eb4c39077247de4b181d, type: 3}
   m_PrefabInstance: {fileID: 179217993}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &179217997
+--- !u!114 &179218005 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179217996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fcefdf477aaaa130aaf0f0320cca5c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 179218004}
-  thisDrag: 120
---- !u!114 &179217998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 179217998, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179217996}
   m_Enabled: 1
@@ -338,12 +331,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2356d83431c5e1189318c465e1a60b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterController: {fileID: 179217997}
---- !u!50 &179218004 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 6215356497186813727, guid: c72043930527eb4c39077247de4b181d, type: 3}
+--- !u!114 &179218006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 179217997, guid: c72043930527eb4c39077247de4b181d, type: 3}
   m_PrefabInstance: {fileID: 179217993}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179217996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcefdf477aaaa130aaf0f0320cca5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &179218007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 179218004, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179217996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6daa2bfc03301b5c5a983467d4d129ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &179218015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179217996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2312cc01b54165a2f72694c179436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnemy: {fileID: 179218007}
+  topOfHead: {fileID: 1413660218}
+  bottomOfFeet: {fileID: 2132069709}
+  front: {fileID: 2027157582}
+  back: {fileID: 1161385739}
+  flippable: {fileID: 179217995}
 --- !u!1001 &196628871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1183,12 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6ada0314b66635594570194db3d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnemy: {fileID: 1126255494}
-  topOfHead: {fileID: 1111026282}
-  bottomOfFeet: {fileID: 1457156502}
-  front: {fileID: 1280932030}
-  back: {fileID: 1787670930}
-  flippable: {fileID: 354472017}
+  calculatePlayerDirection: {fileID: 0}
   allowCritFront: 0
   allowCritBack: 0
   allowCritUp: 1
@@ -2207,6 +2229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!4 &1161385739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2032255502, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1240802252
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,6 +4453,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1413660218 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1368693238, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1438543703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 501622773151123473, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
@@ -17474,6 +17506,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
   m_PrefabInstance: {fileID: 1478475976}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2027157582 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1609894690, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2042197298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6215356497186813712, guid: c72043930527eb4c39077247de4b181d, type: 3}
@@ -17556,6 +17593,11 @@ Transform:
   m_Father: {fileID: 324693997}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2132069709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1165361674, guid: c72043930527eb4c39077247de4b181d, type: 3}
+  m_PrefabInstance: {fileID: 179217993}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3441348968931737155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17837,7 +17879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.133637
+      value: -12.133644
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18064,6 +18106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbarManager: {fileID: 6215356497410393231}
   animator: {fileID: 893440910}
+  calcPlayerDir: {fileID: 0}
   entityColliders:
   - {fileID: 1895066606}
   - {fileID: 573689746}
