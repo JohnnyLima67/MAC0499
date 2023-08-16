@@ -79,8 +79,23 @@ public class BoxBoiAnimator : MonoBehaviour {
     // Face the direction of your last input
     private void HandleSpriteFlip(float xInput) {
 
-        if (_player.Input.x != 0) _sprite.flipX = xInput < 0; // _player.Input.x > 0 ? 1 : -1, 1, 1);
- 
+        // if (_player.Input.x != 0) _sprite.flipX = xInput < 0; // _player.Input.x > 0 ? 1 : -1, 1, 1);
+        if (_player.Input.x != 0)
+        {
+            _sprite.flipX = xInput < 0;
+            Quaternion newRotation = gameObject.transform.rotation;
+            if (xInput < 0)
+            {
+                newRotation.y = -180;
+            }
+            else
+            {
+                newRotation.y = 0;
+            }
+
+            newRotation.z = 0;
+            gameObject.transform.rotation = newRotation;
+        }
     }
 
     // Speed up idle while running

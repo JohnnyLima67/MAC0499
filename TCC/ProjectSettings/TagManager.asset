@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Camera
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - UI
   - Ground
   - Enemy
-  - 
-  - 
+  - Player
+  - EnemyDamage
   - 
   - 
   - 
@@ -38,12 +40,33 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 1284203021
     locked: 0
+  - name: Background_2
+    uniqueID: 1095873329
+    locked: 0
+  - name: Background_1
+    uniqueID: 3931527927
+    locked: 0
+  - name: Ground_Back_2
+    uniqueID: 1504271683
+    locked: 0
+  - name: Fog_Back_1
+    uniqueID: 1124176903
+    locked: 0
+  - name: Ground_Back_1
+    uniqueID: 4003799627
+    locked: 0
+  - name: Ground
+    uniqueID: 3983276451
+    locked: 0
   - name: Player
     uniqueID: 545339749
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground_Front_1
+    uniqueID: 1550067095
     locked: 0

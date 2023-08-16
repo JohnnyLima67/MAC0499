@@ -4,35 +4,88 @@ using UnityEngine;
 
 public class PlayerWeaponBehaviour : MonoBehaviour
 {
+    [SerializeField] TarodevController.PlayerController playerController;
     [SerializeField] float damage;
     [SerializeField] Animator animator;
-    [SerializeField] Transform pointArea1;
-    [SerializeField] Transform pointArea2;
+    [SerializeField] Transform pointArea1Horizontal;
+    [SerializeField] Transform pointArea2Horizontal;
 
-    public void TriggerAttackAnimation()
+    [SerializeField] Transform pointArea1Down;
+    [SerializeField] Transform pointArea2Down;
+
+    [SerializeField] Transform pointArea1Up;
+    [SerializeField] Transform pointArea2Up;
+
+    void Awake()
     {
-        animator.SetTrigger("Attack");
+        playerController = GameObject.FindWithTag("Player").GetComponent<TarodevController.PlayerController>();
     }
 
-    public Collider2D[] OverlapAttack(LayerMask targetLayer)
+    public void TriggerHorizontalAttackAnimation()
     {
-        return Physics2D.OverlapAreaAll(new Vector2(pointArea1.position.x, pointArea1.position.y),
-                                        new Vector2(pointArea2.position.x, pointArea2.position.y),
+        animator.SetTrigger("AttackHorizontal");
+    }
+
+    public void TriggerDownAttackAnimation()
+    {
+        animator.SetTrigger("AttackDown");
+    }
+
+    public void TriggerUpAttackAnimation()
+    {
+        animator.SetTrigger("AttackUp");
+    }
+
+    public Collider2D[] OverlapAttackHorizontal(LayerMask targetLayer)
+    {
+        return Physics2D.OverlapAreaAll(new Vector2(pointArea1Horizontal.position.x, pointArea1Horizontal.position.y),
+                                        new Vector2(pointArea2Horizontal.position.x, pointArea2Horizontal.position.y),
                                         targetLayer);
     }
 
-    public void ApplyEffect(HittableBehaviour hittableBehaviour)
+    public Collider2D[] OverlapAttackDown(LayerMask targetLayer)
     {
-        hittableBehaviour.TakeDamage(damage);
+        return Physics2D.OverlapAreaAll(new Vector2(pointArea1Down.position.x, pointArea1Down.position.y),
+                                        new Vector2(pointArea2Down.position.x, pointArea2Down.position.y),
+                                        targetLayer);
+    }
+
+    public Collider2D[] OverlapAttackUp(LayerMask targetLayer)
+    {
+        return Physics2D.OverlapAreaAll(new Vector2(pointArea1Up.position.x, pointArea1Up.position.y),
+                                        new Vector2(pointArea2Up.position.x, pointArea2Up.position.y),
+                                        targetLayer);
+    }
+
+    public void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
+    {
+        if (hittableBehaviour.IsBounceable() && playerController.ShouldBounce())
+        {
+            playerController.Bounce();
+        }
+
+        hittableBehaviour.TakeDamage(damage, hitWeakSpot);
     }
 
      void OnDrawGizmos()
      {
-         if(pointArea1 != null && pointArea2 != null)
+         if(pointArea1Horizontal != null && pointArea2Horizontal != null)
          {
              // Draws a blue line from this transform to the target
              Gizmos.color = Color.red;
-             Gizmos.DrawLine(pointArea1.position, pointArea2.position);
+             Gizmos.DrawLine(pointArea1Horizontal.position, pointArea2Horizontal.position);
+         }
+         if(pointArea1Down != null && pointArea2Down != null)
+         {
+             // Draws a blue line from this transform to the target
+             Gizmos.color = Color.red;
+             Gizmos.DrawLine(pointArea1Down.position, pointArea2Down.position);
+         }
+         if(pointArea1Up != null && pointArea2Up != null)
+         {
+             // Draws a blue line from this transform to the target
+             Gizmos.color = Color.red;
+             Gizmos.DrawLine(pointArea1Up.position, pointArea2Up.position);
          }
      }
 }

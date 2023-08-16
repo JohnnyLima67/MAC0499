@@ -41,10 +41,34 @@ public class PlayerAnimator : EntityAnimator
         yield break;
     }
 
-    public IEnumerator PlayPlayerAttackAnimation(PlayerWeaponBehaviour playerWeapon)
+    public IEnumerator PlayPlayerHorizontalAttackAnimation(PlayerWeaponBehaviour playerWeapon)
     {
-        unityAnimator.SetTrigger("Attack");
-        playerWeapon.TriggerAttackAnimation();
+        unityAnimator.SetTrigger("AttackHorizontal");
+        playerWeapon.TriggerHorizontalAttackAnimation();
+
+        yield break;
+    }
+
+    public IEnumerator PlayPlayerDownAttackAnimation(PlayerWeaponBehaviour playerWeapon)
+    {
+        unityAnimator.SetTrigger("AttackDown");
+        playerWeapon.TriggerDownAttackAnimation();
+
+        yield break;
+    }
+
+    public IEnumerator PlayPlayerUpAttackAnimation(PlayerWeaponBehaviour playerWeapon)
+    {
+        unityAnimator.SetTrigger("AttackUp");
+        playerWeapon.TriggerUpAttackAnimation();
+
+        yield break;
+    }
+
+    public IEnumerator PlayPlayerProjectileAnimation(PlayerRangedWeaponBehaviour playerRangedWeapon)
+    {
+        unityAnimator.SetTrigger("Fire");
+        playerRangedWeapon.TriggerFireAnimation();
 
         yield break;
     }

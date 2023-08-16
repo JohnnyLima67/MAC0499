@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace TarodevController {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-    public class PlayerController : MonoBehaviour, IPlayerController {
+    public class PlayerController :  CharacterController, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
 
         #region Internal
 
-        [HideInInspector] private Rigidbody2D _rb; // Hide is for serialization to avoid errors in gizmo calls
         [SerializeField] private CapsuleCollider2D _standingCollider;
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
@@ -22,6 +21,8 @@ namespace TarodevController {
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
+        private bool hasInputControl = true;
+        private Direction currentDir = Direction.HORIZONTAL;
 
         #endregion
 
@@ -34,6 +35,7 @@ namespace TarodevController {
         public event Action<bool> Jumped;
         public event Action AirJumped;
         public event Action Attacked;
+        public event Action RangedAttacked;
         public ScriptableStats PlayerStats => _stats;
         public Vector2 Input => FrameInput.Move;
         public Vector2 Velocity => _rb.velocity;
@@ -50,6 +52,11 @@ namespace TarodevController {
             else _currentExternalVelocity += vel;
         }
 
+        public override void ApplyForce(Vector2 force)
+        {
+            ApplyVelocity(force, PlayerForce.Burst);
+        }
+
         public virtual void SetVelocity(Vector2 vel, PlayerForce velocityType) {
             if (velocityType == PlayerForce.Burst) _speed = vel;
             else _currentExternalVelocity = vel;
@@ -63,6 +70,30 @@ namespace TarodevController {
         public virtual void ReturnControl() {
             _speed = Vector2.zero;
             _hasControl = true;
+        }
+
+        public void TakeAwayInputControl()
+        {
+            hasInputControl = false;
+        }
+
+        public void ReturnInputControl()
+        {
+            hasInputControl = true;
+        }
+
+        public override void BeforeStartKnockback()
+        {
+            _rb.velocity = Vector2.zero;
+            _speed = Vector2.zero;
+
+            _endedJumpEarly = true;
+            TakeAwayInputControl();
+        }
+
+        public override void AfterEndKnockback()
+        {
+            ReturnInputControl();
         }
 
         #endregion
@@ -81,12 +112,19 @@ namespace TarodevController {
         }
 
         protected virtual void GatherInput() {
+            if (!hasInputControl) return;
+
             FrameInput = _input.FrameInput;
 
             if (_stats.SnapInput)
             {
                 FrameInput.Move.x = Mathf.Abs(FrameInput.Move.x) < _stats.HorizontalDeadzoneThreshold ? 0 : Mathf.Sign(FrameInput.Move.x);
                 FrameInput.Move.y = Mathf.Abs(FrameInput.Move.y) < _stats.VerticalDeadzoneThreshold ? 0 : Mathf.Sign(FrameInput.Move.y);
+
+                currentDir = Direction.HORIZONTAL;
+
+                if (FrameInput.Move.y > 0.0f) currentDir = Direction.UP;
+                else if (FrameInput.Move.y < 0.0f && !_grounded) currentDir = Direction.DOWN;
             }
 
             if (FrameInput.JumpDown) {
@@ -98,6 +136,7 @@ namespace TarodevController {
 
             if (FrameInput.DashDown && _stats.AllowDash) _dashToConsume = true;
             if (FrameInput.AttackDown && _stats.AllowAttacks) _attackToConsume = true;
+            if (FrameInput.RangedAttackDown) _rangedAttackToConsume = true;
         }
 
         protected virtual void FixedUpdate() {
@@ -113,10 +152,28 @@ namespace TarodevController {
             HandleJump();
             HandleDash();
             HandleAttacking();
+            HandleRangedAttacking();
 
             HandleHorizontal();
             HandleVertical();
             ApplyMovement();
+        }
+
+        public bool ShouldBounce()
+        {
+            return !_grounded && (currentDir == Direction.DOWN);
+        }
+
+        public void Bounce()
+        {
+            var incomingSpeedNormal = Vector3.Project(Speed, transform.up); // vertical speed in direction of Bouncer
+            ApplyVelocity(-incomingSpeedNormal, PlayerForce.Burst); // cancel current vertical speed for more consistent heights
+            SetVelocity(transform.up * 35f, PlayerForce.Burst);
+        }
+
+        public Direction GetDirection()
+        {
+            return currentDir;
         }
 
         #region Collisions
@@ -517,6 +574,7 @@ namespace TarodevController {
         #region Attacking
 
         private bool _attackToConsume;
+        private bool _rangedAttackToConsume;
         private int _frameLastAttacked = int.MinValue;
 
 
@@ -529,6 +587,17 @@ namespace TarodevController {
             }
 
             _attackToConsume = false;
+        }
+
+        protected virtual void HandleRangedAttacking() {
+            if (!_rangedAttackToConsume) return;
+
+            if (_fixedFrame > _frameLastAttacked + _stats.AttackFrameCooldown) {
+                _frameLastAttacked = _fixedFrame;
+                RangedAttacked?.Invoke();
+            }
+
+            _rangedAttackToConsume = false;
         }
 
         #endregion
