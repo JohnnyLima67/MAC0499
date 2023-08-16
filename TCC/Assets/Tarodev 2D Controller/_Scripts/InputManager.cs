@@ -11,8 +11,7 @@ namespace TarodevController {
 
 
         private PlayerInput _playerInput;
-        private InputAction _move, _jump, _dash, _attack, _attack2, _powerUp,_exampleAction, _escape;
-        private InputAction _move, _jump, _dash, _attack, _rangedAttack, _exampleAction, _escape;
+        private InputAction _move, _jump, _dash, _attack, _attack2, _rangedAttack, _powerUp,_exampleAction, _escape;
 
         private void Awake() {
 
