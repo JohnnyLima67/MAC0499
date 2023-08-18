@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 896
+    m_Bits: 1920
   ClimbableLayer:
     serializedVersion: 2
     m_Bits: 64
