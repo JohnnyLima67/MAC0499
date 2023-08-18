@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack2",
-                    "type": "Button",
-                    "id": "34953aee-0eb1-4b3e-a5a4-f6401b168d88",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PowerUp",
                     "type": "Button",
                     "id": "81dae02d-dcdf-4d2d-a933-9992242c22d9",
@@ -178,17 +169,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9d168e6e-7713-4ae3-b372-87fc73a539cc",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "19f4a3a7-3e3d-4e43-bccb-dbbfe723a1ae",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -288,28 +268,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0a9a2eef-afcf-42f9-a530-4700802b340e",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Attack2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dfad512a-d8ee-49fb-9a89-ee4ea4a26ad3",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Attack2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4aa63b94-cc0c-4008-9937-700645414fe9",
                     "path": "<Keyboard>/l",
                     "interactions": "",
@@ -327,11 +285,27 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "PowerUp",
-                    "id": "c042d801-7b5f-402c-bf68-ce214df19805",
-                    "path": "<Mouse>/rightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7fb61dc9-9484-4ed6-9aaa-d76269f4cefb",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "RangedAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fece2205-393e-49ea-b161-2a4847c0c0de",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "RangedAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
