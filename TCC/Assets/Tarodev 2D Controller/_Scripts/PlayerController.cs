@@ -82,6 +82,11 @@ namespace TarodevController {
             hasInputControl = true;
         }
 
+        public void ResetPlayerSpeed()
+        {
+            _speed = Vector2.zero;
+        }
+
         public override void BeforeStartKnockback()
         {
             _rb.velocity = Vector2.zero;
@@ -112,7 +117,11 @@ namespace TarodevController {
         }
 
         protected virtual void GatherInput() {
-            if (!hasInputControl) return;
+            if (!hasInputControl)
+            {
+                FrameInput = new FrameInput();
+                return;
+            }
 
             FrameInput = _input.FrameInput;
 

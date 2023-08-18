@@ -24,7 +24,7 @@ public class Knight3 : MonoBehaviour
         fsm.AddState("Idle");
         fsm.AddState("Active",
                      onEnter: (state) => animator.unityAnimator.SetBool("Following", true),
-                     onExit: (state) => animator.unityAnimator.SetBool("Following", false),
+                     onExit: (state) =>  {thisEnemyCharacterController.SetSpeed(Vector2.zero);animator.unityAnimator.SetBool("Following", false);},
                      onLogic: (state) => FollowPlayer());
         fsm.AddState("Flip", onEnter: (state) => thisEnemy.Flip());
 
