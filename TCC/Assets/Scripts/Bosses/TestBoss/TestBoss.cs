@@ -25,10 +25,19 @@ public class TestBoss : MonoBehaviour
     {
         battleBehaviourTree = new BehaviorTreeBuilder(gameObject)
             .Sequence()
-                .Sequence()
-                    .Condition(() => {return !SawOrHeardPlayer();})
-                    .Flip()
+                .RepeatUntilSuccess()
+                    .Selector()
+                        .Sequence()
+                            .Condition(() => {return SawOrHeardPlayer();})
+                            .Do(() => { return TaskStatus.Success; })
+                        .End()
+                        .Sequence()
+                            .Condition(() => {return !SawOrHeardPlayer();})
+                            .Flip()
+                        .End()                            
+                    .End()
                 .End()
+
                 .SelectorRandom()
                     .Sequence()
                         .TriggerAnimation("WalkForward")
@@ -93,11 +102,16 @@ public class TestBoss : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position,
                                              Vector3.Normalize(visionObject.transform.position - transform.position),
+                                             20,
                                              playerAndGroundLayer);
+        
+        Debug.DrawRay(transform.position, 
+                      Vector3.Normalize(visionObject.transform.position - transform.position),
+                      Color.red);
 
         if (hit.collider != null)
         {
-            //Debug.Log(hit.collider.gameObject);
+            Debug.Log(hit.collider.gameObject);
             if (hit.collider.CompareTag("Player"))
             {
                 Debug.Log("vi player");
