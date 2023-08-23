@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1954460527}
   m_Layer: 7
   m_Name: FlyingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,9 +277,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbarManager: {fileID: 3387899444341540808}
   animator: {fileID: 1954460527}
+  calcPlayerDir: {fileID: 0}
   entityColliders: []
   isBounceable: 1
   weakSpotDmgMul: 5
+  knockbackBehaviour: {fileID: 0}
+  knockbackForceX: 0
+  knockbackForceY: 0
+  knockbackDuration: 0
+  thisFlippable: {fileID: 0}
 --- !u!114 &3387899444341540808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 3387899444341540808}
   points:
-  - {x: 3, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   - {x: -3, y: 0, z: 0}
   thisEnemy: {fileID: 1954460518}
 --- !u!114 &3387899444341540812

@@ -82,6 +82,11 @@ namespace TarodevController {
             hasInputControl = true;
         }
 
+        public void ResetPlayerSpeed()
+        {
+            _speed = Vector2.zero;
+        }
+
         public override void BeforeStartKnockback()
         {
             _rb.velocity = Vector2.zero;
@@ -112,7 +117,11 @@ namespace TarodevController {
         }
 
         protected virtual void GatherInput() {
-            if (!hasInputControl) return;
+            if (!hasInputControl)
+            {
+                FrameInput = new FrameInput();
+                return;
+            }
 
             FrameInput = _input.FrameInput;
 
@@ -189,7 +198,7 @@ namespace TarodevController {
         private int _ladderHitCount;
         private int _frameLeftGrounded = int.MinValue;
         private bool _grounded;
-        private Vector2 _skinWidth = new(0.02f, 0.02f); // Expose this?
+        private Vector2 _skinWidth = new(0.1f, 0.1f); // Expose this?
 
         protected virtual void CheckCollisions() {
             Physics2D.queriesHitTriggers = false;
@@ -685,7 +694,7 @@ namespace TarodevController {
             if (_stats == null) return;
 
             if (_stats.ShowWallDetection && _standingCollider != null) {
-                Gizmos.color = Color.white;
+                Gizmos.color = Color.red;
                 var bounds = GetWallDetectionBounds();
                 Gizmos.DrawWireCube(bounds.center, bounds.size);
             }

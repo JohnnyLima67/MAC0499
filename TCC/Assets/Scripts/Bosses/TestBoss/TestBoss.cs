@@ -47,7 +47,7 @@ public class TestBoss : MonoBehaviour
     {
         idleBehaviourTree = new BehaviorTreeBuilder(gameObject)
             .Sequence()
-            .Do(() => {Debug.Log("Estou no idle"); return TaskStatus.Continue;})
+            .Do(() => {return TaskStatus.Continue;})
             .End().Build();
     }
 
