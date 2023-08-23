@@ -7,4 +7,15 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void SaveLevel(int level)
+    {
+        int l = PlayerPrefs.GetInt("LevelsUnlocked", 1);
+        if(l > level){
+            return;
+        }
+        else {
+            PlayerPrefs.SetInt("LevelsUnlocked", level + 1);
+        }
+    }
 }

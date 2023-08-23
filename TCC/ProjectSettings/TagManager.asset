@@ -18,6 +18,7 @@ TagManager:
   - Enemy
   - Player
   - EnemyDamage
+  - Interactible
   - Weapon
   - 
   - 

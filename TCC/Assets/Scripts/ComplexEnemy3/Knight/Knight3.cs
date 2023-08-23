@@ -53,6 +53,7 @@ public class Knight3 : MonoBehaviour
                                              playerAndGroundLayer);
         if (hit.collider != null)
         {
+            //Debug.Log(hit.collider.gameObject);
             if (hit.collider.CompareTag("Player"))
             {
                 lastPlayerPos = hit.collider.gameObject.transform;
