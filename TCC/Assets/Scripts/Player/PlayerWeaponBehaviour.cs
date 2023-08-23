@@ -4,35 +4,94 @@ using UnityEngine;
 
 public class PlayerWeaponBehaviour : MonoBehaviour
 {
+    [SerializeField] TarodevController.PlayerController playerController;
     [SerializeField] float damage;
     [SerializeField] Animator animator;
-    [SerializeField] Transform pointArea1;
-    [SerializeField] Transform pointArea2;
+    [SerializeField] BoxCollider2D attackUpCollider;
+    [SerializeField] BoxCollider2D attackHorizontalCollider;
+    [SerializeField] BoxCollider2D attackDownCollider;
+    [SerializeField] PlayerWeaponColliderDetector colliderDetector;
 
-    public void TriggerAttackAnimation()
+    void Awake()
     {
-        animator.SetTrigger("Attack");
+        playerController = GameObject.FindWithTag("Player").GetComponent<TarodevController.PlayerController>();
     }
 
-    public Collider2D[] OverlapAttack(LayerMask targetLayer)
+    public void TriggerHorizontalAttackAnimation()
     {
-        return Physics2D.OverlapAreaAll(new Vector2(pointArea1.position.x, pointArea1.position.y),
-                                        new Vector2(pointArea2.position.x, pointArea2.position.y),
-                                        targetLayer);
+        animator.SetTrigger("AttackHorizontal");
     }
 
-    public void ApplyEffect(HittableBehaviour hittableBehaviour)
+    public void TriggerDownAttackAnimation()
     {
-        hittableBehaviour.TakeDamage(damage);
+        animator.SetTrigger("AttackDown");
     }
 
-     void OnDrawGizmos()
-     {
-         if(pointArea1 != null && pointArea2 != null)
-         {
-             // Draws a blue line from this transform to the target
-             Gizmos.color = Color.red;
-             Gizmos.DrawLine(pointArea1.position, pointArea2.position);
-         }
-     }
+    public void TriggerUpAttackAnimation()
+    {
+        animator.SetTrigger("AttackUp");
+    }
+
+    GameObject[] CheckForWeakSpots(Collider2D[] col)
+    {
+        GameObject[] weakSpotsReached = new GameObject[col.Length];
+
+        int i = 0;
+        foreach(Collider2D c in col)
+        {
+            WeakSpot w = c.GetComponent<WeakSpot>();
+            if (w != null)
+            {
+                if (w.IsHittable() && w.IsPlayerCorrectPos(transform))
+                    weakSpotsReached[i] = w.gameObject.transform.parent.parent.gameObject;
+            }
+            i++;
+        }
+
+        return weakSpotsReached;
+    }
+
+    void FinalizeAttack()
+    {
+        GameObject[] attackedWeakSpots = CheckForWeakSpots(colliderDetector.enemiesInWeaponRange.ToArray());
+
+        foreach(Collider2D c in colliderDetector.enemiesInWeaponRange)
+        {
+            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
+            if (hittableBehaviour != null)
+            {
+                bool reachedWeakSpot = false;
+
+                foreach (GameObject o in attackedWeakSpots)
+                {
+                    if (o == hittableBehaviour.gameObject)
+                    {
+                        reachedWeakSpot = true;
+                        break;
+                    }
+                }
+
+                ApplyEffect(hittableBehaviour, reachedWeakSpot);
+            }
+        }
+    }
+
+    void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
+    {
+        if (hittableBehaviour.IsBounceable() && playerController.ShouldBounce())
+        {
+            playerController.Bounce();
+        }
+
+        hittableBehaviour.TakeDamage(damage, hitWeakSpot);
+    }
+
+    public void StartAttackUp() { attackUpCollider.enabled = true; }
+    public void EndAttackUp() { attackUpCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+
+    public void StartAttackHorizontal() { attackHorizontalCollider.enabled = true; }
+    public void EndAttackHorizontal() { attackHorizontalCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+
+    public void StartAttackDown() { attackDownCollider.enabled = true; }
+    public void EndAttackDown() { attackDownCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
 }

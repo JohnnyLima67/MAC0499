@@ -79,23 +79,47 @@ public class BoxBoiAnimator : MonoBehaviour {
     // Face the direction of your last input
     private void HandleSpriteFlip(float xInput) {
 
-        if (_player.Input.x != 0) _sprite.flipX = xInput < 0; // _player.Input.x > 0 ? 1 : -1, 1, 1);
- 
+        // if (_player.Input.x != 0) _sprite.flipX = xInput < 0; // _player.Input.x > 0 ? 1 : -1, 1, 1);
+        if (_player.Input.x != 0)
+        {
+            // _sprite.flipX = xInput < 0;
+            Quaternion newRotation = gameObject.transform.rotation;
+            if (xInput < 0)
+            {
+                newRotation.y = -180;
+            }
+            else
+            {
+                newRotation.y = 0;
+            }
+
+            newRotation.z = 0;
+            gameObject.transform.rotation = newRotation;
+        }
     }
 
     // Speed up idle while running
     private void HandleIdleSpeed(float xInput) {
+        // var inputStrength = Mathf.Abs(xInput);
+        // _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, inputStrength));
+        // _moveParticles.transform.localScale = Vector3.MoveTowards(_moveParticles.transform.localScale,
+        //     Vector3.one * inputStrength, 2 * Time.deltaTime);
         var inputStrength = Mathf.Abs(xInput);
-        _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, inputStrength));
-        _moveParticles.transform.localScale = Vector3.MoveTowards(_moveParticles.transform.localScale,
-            Vector3.one * inputStrength, 2 * Time.deltaTime);
+        if (inputStrength != 0)
+        {
+            _anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            _anim.SetBool("isWalking", false);
+        }
     }
   
     private void HandleCharacterTilt(float xInput) {
-        var runningTilt = _grounded ? Quaternion.Euler(0, 0, _maxTilt * xInput) : Quaternion.identity;
-        var targetRot = _grounded && _player.GroundNormal != Vector2.up ? runningTilt * _player.GroundNormal : runningTilt * Vector2.up;
+        // var runningTilt = _grounded ? Quaternion.Euler(0, 0, _maxTilt * xInput) : Quaternion.identity;
+        // var targetRot = _grounded && _player.GroundNormal != Vector2.up ? runningTilt * _player.GroundNormal : runningTilt * Vector2.up;
 
-        _anim.transform.up = Vector3.RotateTowards(_anim.transform.up, targetRot, _tiltSpeed * Time.deltaTime, 0f);
+        // _anim.transform.up = Vector3.RotateTowards(_anim.transform.up, targetRot, _tiltSpeed * Time.deltaTime, 0f);
     }
 
     private bool _crouching;

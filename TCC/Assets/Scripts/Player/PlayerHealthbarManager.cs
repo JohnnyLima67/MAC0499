@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthbarManager : HealthManager
 {
+    [SerializeField] EntityAnimator animator;
     public Image healthBar;
 
     // Start is called before the first frame update

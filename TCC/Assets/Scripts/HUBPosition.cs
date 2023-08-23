@@ -7,7 +7,7 @@ public class HUBPosition : MonoBehaviour
     public HUBPosition prev;
     public HUBPosition next;
     public string sceneName;
-    
+    public int level;
     // Start is called before the first frame update
     void Start()
     {

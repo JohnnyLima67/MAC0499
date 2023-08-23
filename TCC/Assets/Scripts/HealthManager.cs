@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] protected EntityAnimator animator;
     [SerializeField] protected float maxHealth = 200f;
     [SerializeField] protected float health = 200f;
     [SerializeField] protected float damageInterval = 0.5f;
@@ -15,6 +14,11 @@ public class HealthManager : MonoBehaviour
     public virtual void Start()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
+    }
+
+    public virtual float CurrentHealth()
+    {
+        return health;
     }
 
     public virtual void FixedUpdate()
@@ -28,6 +32,11 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public bool CanTakeDamage()
+    {
+        return (Mathf.Sign(passedTime) == -1);
+    }
+
     public virtual void TakeDamage(float damage)
     {
         if (Mathf.Sign(passedTime) == -1)
@@ -36,7 +45,6 @@ public class HealthManager : MonoBehaviour
             if (damage > 0)
             {
                 health = Mathf.Max(health - damage, 0);
-                StartCoroutine(animator.PlayTakeDamage());
             }
         }
     }

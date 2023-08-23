@@ -1,0 +1,2005 @@
+fileFormatVersion: 2
+guid: 3a4084ba46c2bb1f4b01d8c146f651cf
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_0
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 416
+        width: 30
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75970e44678b57119d04aa531d6e3e9
+      internalID: -1430794340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_1
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 416
+        width: 30
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7b0ece09d6b472da02dfd54b886c03
+      internalID: 1743827750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_2
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 417
+        width: 47
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf1179dffeca25afb864611f41c3e51
+      internalID: -1397569737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_3
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 417
+        width: 46
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0203e344e635097b3b6f18585b6b36e8
+      internalID: 917017140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_4
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 417
+        width: 52
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 968296b3947075e0e9e5be488268ea71
+      internalID: 1230193378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_5
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 417
+        width: 41
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dec6f56c60ed23d9bf48ed0ae7141e6
+      internalID: 1848613655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_6
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 417
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294f74db6dd45d1029f5f0e4ebaba608
+      internalID: 1749912888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_7
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 416
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d2b020f2b6b19a1904edd9e56a4b84
+      internalID: -158670651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 335
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bce8315489eb16ba28f0e02635463e
+      internalID: 1213152920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_9
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 335
+        width: 47
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8217d682aece3314bc06516fbcb860a
+      internalID: -1755772864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_10
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 336
+        width: 79
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541951e9bf71bbb7497895aa42b513f4
+      internalID: 1081904330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_11
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 335
+        width: 81
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e347c9d79b0bb3edd89e838b59d651d7
+      internalID: 748333075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_12
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 336
+        width: 50
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bd6b3ea310b00e7bae20f97c54da94
+      internalID: 1239319943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_13
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 334
+        width: 33
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5929c15b54824a59251fc2139a15f0
+      internalID: 1326709233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 334
+        width: 31
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e165e786499601698e01c7c16f2b554
+      internalID: -1103991776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_15
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 334
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95cbd19e594c48cba802ef373f9224fe
+      internalID: -1892004127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_16
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 334
+        width: 31
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63fb9bbe8be638172b8e9f3ff0a4a0d0
+      internalID: 107454915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_17
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 334
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7940c6b2ce950f14891947d7b06f1722
+      internalID: -1760314196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_18
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 244
+        width: 72
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e660279659d0e8aad81bfa37dd0d3ced
+      internalID: -611621377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_19
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 244
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1cfb7722cfb34dfebe5a63f63d3fe33
+      internalID: -739111301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_20
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 243
+        width: 57
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244bc8bce5fb1db24bb8fea82d113a0c
+      internalID: -1043840174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_21
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 243
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023832e65faeea8cfbe6eee3175cb16e
+      internalID: -11701017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 243
+        width: 37
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11063549c29c51b27a3c1c663c2b9ce5
+      internalID: 537206033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_23
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 242
+        width: 33
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e20591545dfc44d184ccfcb7f620bfa
+      internalID: -2132656055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_24
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 242
+        width: 31
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbabc6582a5ed5ee96585fbcd851f19
+      internalID: -1435054774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_25
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 242
+        width: 30
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175be6a9e03b67d889ee1e0f02f7dcbe
+      internalID: 1755732707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_26
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 242
+        width: 29
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a97e40447b13c34bd0d53c08e59e34
+      internalID: -897863775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_27
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 242
+        width: 29
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad356eb75704cdac7b4c7c1e1db93d8e
+      internalID: 1080654157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_28
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 181
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d72e1a33e55198a95dc265d51c5522
+      internalID: -1763861042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_29
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 182
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86629e090861e23bab388938db5eb4f0
+      internalID: 961978327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 179
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a585846d50ec1151e8a13d254ab75e20
+      internalID: -1098592443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_31
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 182
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a297bf6961ce10d02968ac7c49dfbdee
+      internalID: -672306646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_32
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 174
+        width: 17
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4bf4a3a272d7c1ae8e2aa232524ca30
+      internalID: -699901142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_33
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 174
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7a6578a21ad9819a0222b7d434dfa1
+      internalID: 948267122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_34
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 174
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce06a82a0e67cdd3ba3a87b4e0ed974
+      internalID: -186074136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_35
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 166
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe155f5a2c9409bb907bbf58012987f
+      internalID: -1374778367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_36
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 165
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b32cd00e4a04ad998c8d1913cf6227a
+      internalID: 1986175839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_37
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 165
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2102064bd5894bffb725ce039d0d2ab
+      internalID: -2034147032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_38
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 165
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 088607ce88f40ab5c916d7c755abeeea
+      internalID: 1589340209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_39
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 133
+        width: 37
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063f5b1c1d830389a89d4df0736f334d
+      internalID: 1142727100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_40
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 132
+        width: 14
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221337abd006c93adb5ed2a014824e14
+      internalID: -1223112769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_41
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 134
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7bfd326c3361e2209c62874182e4472
+      internalID: -1936759397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_42
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 133
+        width: 5
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b0f2aa6e56ef385ab7847d7ebd817d
+      internalID: -882968804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_43
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 129
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd5db507f9dc1572a71b11e54f2dc0f
+      internalID: -1873562017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_44
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 129
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a66a07f1217103c81b1a9a5b607078c2
+      internalID: 1104610187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_45
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 116
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07be56b45eaadab796348246b6bf265
+      internalID: -1959231357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_46
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 129
+        width: 37
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9dba8515791d4a75aaac1916f53da23
+      internalID: -676808772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_47
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 94
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0781b8275e12f106180ecac97e475f7c
+      internalID: -1892363273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_48
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 94
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcb79defa8be147582f94f878df773e
+      internalID: 1649675172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_49
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 94
+        width: 48
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25a753b928ad0237bba212f77be5dea
+      internalID: 146792345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_50
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 94
+        width: 36
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44545a0a99df6bffb88b8989c3677199
+      internalID: -1813853402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_51
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 68
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f821311f2e00b5ab15506001161842
+      internalID: -1283334800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_52
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 68
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c97d63ae30162ff1a00483d0a2722cf
+      internalID: -1042966637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_53
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 68
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7f9443286b12bff8427580710ef07e
+      internalID: 681615183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_54
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 68
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74538c98c470ea6784502bdc2817b34
+      internalID: -990294213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_55
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 68
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2948115ccceee3ca0a7176578d71aee8
+      internalID: -1880825170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_56
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 68
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3872697c339f58c94932611d9babc9f0
+      internalID: 1792321257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_57
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 17
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe20497c8c0fbacc8c95daad52b6704
+      internalID: -976051373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_58
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 17
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3319383cd3a0da06bd65ec0d22d4f9f
+      internalID: -1027530480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_59
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 17
+        width: 48
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6a4a9084a25e68fbf6a41a144a07ef
+      internalID: 492662349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_60
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 17
+        width: 56
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d69fc2d9a157dd7bbcf01f84731934f
+      internalID: -911776232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_61
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 54
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7227eea5aca337d9bbef8859d4df619a
+      internalID: 1372089923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_62
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 54
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20dd0408aa201e48bad4a465a3e28a84
+      internalID: -843718107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_63
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 54
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e2468ec8cdfef249a3c9d646bce90f4
+      internalID: -1252803941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_64
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 54
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f63463bced81c60692cd8e8d23e1ee8
+      internalID: 422376718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_65
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 54
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9fb0ac1f0ff4061ba21976f2cf70077
+      internalID: -254071256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_66
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 54
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2454e6794388f57899a51610400d51
+      internalID: 228920398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_67
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fa7c155b505ff4dab36dafa38d3bf6
+      internalID: 1240101408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_68
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 40
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541746301340b54e4864d1fa5592e9e5
+      internalID: 389321521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_69
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 40
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95905e7dec66124d8b2a77067e7108a
+      internalID: -1813984944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_70
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 40
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2d702500da783aebad1757868e026d
+      internalID: -248494197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_71
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 40
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9afedab96fafa428a326ffd693f44e0
+      internalID: -475663676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_72
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 40
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3caf3034d21ce8a17ba4b0473efdafd5
+      internalID: 2040846738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_73
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 40
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73e37107ddc89d61ac68e34876a668c
+      internalID: -430165037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_74
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20cd09652755dcdfe87a44df83b8ce00
+      internalID: -915497930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_75
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 40
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be73c40d55e8db74bb92d1f9b64cccbf
+      internalID: 1442076766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_76
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 40
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6974e8a44b7aae1e3881ec79d897cba0
+      internalID: -1427973344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_77
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 40
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd36323e4be5568781f8b16cac91288
+      internalID: -491203298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_78
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 40
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3b97b0c462f52298bd9c48003f9800
+      internalID: -268282969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_79
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 40
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e619a6cb352f1d1282a2c7d9ca5c989
+      internalID: -904177372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_80
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 40
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8016c061f08aed2f4a0d8c036ee88fa4
+      internalID: -881384715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_81
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 40
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092a98f3ebbe01838a55f2e45fd6e20c
+      internalID: 798642515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_82
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 40
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ac1c2bfba833d04aa13893469917a8
+      internalID: -76664795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_83
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 40
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1ce5634b3d9a7af9da8d6891eb4608
+      internalID: 25915260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation - Castlevania Symphony of the Night - Owl Knight_84
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 40
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fca7f04f23ea29a08319dae47ce8ef4
+      internalID: -610995059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_0: -1430794340
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_1: 1743827750
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_10: 1081904330
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_11: 748333075
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_12: 1239319943
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_13: 1326709233
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_14: -1103991776
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_15: -1892004127
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_16: 107454915
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_17: -1760314196
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_18: -611621377
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_19: -739111301
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_2: -1397569737
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_20: -1043840174
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_21: -11701017
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_22: 537206033
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_23: -2132656055
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_24: -1435054774
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_25: 1755732707
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_26: -897863775
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_27: 1080654157
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_28: -1763861042
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_29: 961978327
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_3: 917017140
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_30: -1098592443
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_31: -672306646
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_32: -699901142
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_33: 948267122
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_34: -186074136
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_35: -1374778367
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_36: 1986175839
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_37: -2034147032
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_38: 1589340209
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_39: 1142727100
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_4: 1230193378
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_40: -1223112769
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_41: -1936759397
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_42: -882968804
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_43: -1873562017
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_44: 1104610187
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_45: -1959231357
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_46: -676808772
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_47: -1892363273
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_48: 1649675172
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_49: 146792345
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_5: 1848613655
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_50: -1813853402
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_51: -1283334800
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_52: -1042966637
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_53: 681615183
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_54: -990294213
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_55: -1880825170
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_56: 1792321257
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_57: -976051373
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_58: -1027530480
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_59: 492662349
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_6: 1749912888
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_60: -911776232
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_61: 1372089923
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_62: -843718107
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_63: -1252803941
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_64: 422376718
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_65: -254071256
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_66: 228920398
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_67: 1240101408
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_68: 389321521
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_69: -1813984944
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_7: -158670651
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_70: -248494197
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_71: -475663676
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_72: 2040846738
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_73: -430165037
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_74: -915497930
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_75: 1442076766
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_76: -1427973344
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_77: -491203298
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_78: -268282969
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_79: -904177372
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_8: 1213152920
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_80: -881384715
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_81: 798642515
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_82: -76664795
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_83: 25915260
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_84: -610995059
+      PlayStation - Castlevania Symphony of the Night - Owl Knight_9: -1755772864
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
