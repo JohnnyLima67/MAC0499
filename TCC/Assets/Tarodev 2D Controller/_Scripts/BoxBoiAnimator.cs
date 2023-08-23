@@ -173,12 +173,14 @@ public class BoxBoiAnimator : MonoBehaviour {
 
     private void OnDashChanged(bool dashing, Vector2 dir) {
         if (dashing) {
+            _anim.SetBool("Dashing", true);
             _dashParticles.Play();
             _dashRingTransform.up = dir;
             _dashRingParticles.Play();
             _source.PlayOneShot(_dashClip);
         }
         else {
+                        _anim.SetBool("Dashing", false);
             _dashParticles.Stop();
         }
     }
