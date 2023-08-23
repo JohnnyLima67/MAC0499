@@ -6,9 +6,15 @@ public class HittableBehaviour : MonoBehaviour
 {
 	[SerializeField] HealthManager healthbarManager;
     [SerializeField] EntityAnimator animator;
+    [SerializeField] PlayerDirection calcPlayerDir;
     [SerializeField] Collider2D[] entityColliders;
     [SerializeField] bool isBounceable = true;
     [SerializeField] float weakSpotDmgMul = 5.0f;
+    [SerializeField] KnockbackBehaviour knockbackBehaviour;
+    [SerializeField] float knockbackForceX;
+    [SerializeField] float knockbackForceY;
+    [SerializeField] float knockbackDuration;
+    [SerializeField] Transform thisFlippable;
 
     private bool died = false;
 
@@ -22,7 +28,10 @@ public class HittableBehaviour : MonoBehaviour
         if (healthbarManager.isDead())
             Die();
         else
+        {
             StartCoroutine(animator.PlayTakeDamage());
+            StartKnockback();
+        }
 	}
 
 	public void TakeDamage(float damage, bool hitWeakSpot)
@@ -37,7 +46,10 @@ public class HittableBehaviour : MonoBehaviour
             if (healthbarManager.isDead())
                 Die();
             else
+            {
                 StartCoroutine(animator.PlayTakeCriticalDamage());
+                StartKnockback();
+            }
         }
         else
         {
@@ -46,7 +58,10 @@ public class HittableBehaviour : MonoBehaviour
             if (healthbarManager.isDead())
                 Die();
             else
+            {
                 StartCoroutine(animator.PlayTakeDamage());
+                StartKnockback();
+            }
         }
 	}
 
@@ -72,5 +87,25 @@ public class HittableBehaviour : MonoBehaviour
     {
         if(healthbarManager.isDead()) return false;
         return isBounceable;
+    }
+
+    private void StartKnockback()
+    {
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        Vector2 force = Vector2.zero;
+        if (player.gameObject == this.gameObject)
+            force = new Vector2(-knockbackForceX * Mathf.Sign(thisFlippable.transform.rotation.y),
+                                        knockbackForceY);
+        else
+        {
+            float xForceValue = -knockbackForceX *
+                calcPlayerDir.WhichPlayerDirection(player) *
+                Mathf.Sign(thisFlippable.transform.rotation.y);
+
+            force = new Vector2(xForceValue, knockbackForceY);
+        }
+
+        knockbackBehaviour.ApplyKnockback(force, knockbackDuration);
     }
 }

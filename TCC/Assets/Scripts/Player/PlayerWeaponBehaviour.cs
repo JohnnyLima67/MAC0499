@@ -7,14 +7,10 @@ public class PlayerWeaponBehaviour : MonoBehaviour
     [SerializeField] TarodevController.PlayerController playerController;
     [SerializeField] float damage;
     [SerializeField] Animator animator;
-    [SerializeField] Transform pointArea1Horizontal;
-    [SerializeField] Transform pointArea2Horizontal;
-
-    [SerializeField] Transform pointArea1Down;
-    [SerializeField] Transform pointArea2Down;
-
-    [SerializeField] Transform pointArea1Up;
-    [SerializeField] Transform pointArea2Up;
+    [SerializeField] BoxCollider2D attackUpCollider;
+    [SerializeField] BoxCollider2D attackHorizontalCollider;
+    [SerializeField] BoxCollider2D attackDownCollider;
+    [SerializeField] PlayerWeaponColliderDetector colliderDetector;
 
     void Awake()
     {
@@ -36,28 +32,51 @@ public class PlayerWeaponBehaviour : MonoBehaviour
         animator.SetTrigger("AttackUp");
     }
 
-    public Collider2D[] OverlapAttackHorizontal(LayerMask targetLayer)
+    GameObject[] CheckForWeakSpots(Collider2D[] col)
     {
-        return Physics2D.OverlapAreaAll(new Vector2(pointArea1Horizontal.position.x, pointArea1Horizontal.position.y),
-                                        new Vector2(pointArea2Horizontal.position.x, pointArea2Horizontal.position.y),
-                                        targetLayer);
+        GameObject[] weakSpotsReached = new GameObject[col.Length];
+
+        int i = 0;
+        foreach(Collider2D c in col)
+        {
+            WeakSpot w = c.GetComponent<WeakSpot>();
+            if (w != null)
+            {
+                if (w.IsHittable() && w.IsPlayerCorrectPos(transform))
+                    weakSpotsReached[i] = w.gameObject.transform.parent.parent.gameObject;
+            }
+            i++;
+        }
+
+        return weakSpotsReached;
     }
 
-    public Collider2D[] OverlapAttackDown(LayerMask targetLayer)
+    void FinalizeAttack()
     {
-        return Physics2D.OverlapAreaAll(new Vector2(pointArea1Down.position.x, pointArea1Down.position.y),
-                                        new Vector2(pointArea2Down.position.x, pointArea2Down.position.y),
-                                        targetLayer);
+        GameObject[] attackedWeakSpots = CheckForWeakSpots(colliderDetector.enemiesInWeaponRange.ToArray());
+
+        foreach(Collider2D c in colliderDetector.enemiesInWeaponRange)
+        {
+            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
+            if (hittableBehaviour != null)
+            {
+                bool reachedWeakSpot = false;
+
+                foreach (GameObject o in attackedWeakSpots)
+                {
+                    if (o == hittableBehaviour.gameObject)
+                    {
+                        reachedWeakSpot = true;
+                        break;
+                    }
+                }
+
+                ApplyEffect(hittableBehaviour, reachedWeakSpot);
+            }
+        }
     }
 
-    public Collider2D[] OverlapAttackUp(LayerMask targetLayer)
-    {
-        return Physics2D.OverlapAreaAll(new Vector2(pointArea1Up.position.x, pointArea1Up.position.y),
-                                        new Vector2(pointArea2Up.position.x, pointArea2Up.position.y),
-                                        targetLayer);
-    }
-
-    public void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
+    void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
     {
         if (hittableBehaviour.IsBounceable() && playerController.ShouldBounce())
         {
@@ -67,25 +86,12 @@ public class PlayerWeaponBehaviour : MonoBehaviour
         hittableBehaviour.TakeDamage(damage, hitWeakSpot);
     }
 
-     void OnDrawGizmos()
-     {
-         if(pointArea1Horizontal != null && pointArea2Horizontal != null)
-         {
-             // Draws a blue line from this transform to the target
-             Gizmos.color = Color.red;
-             Gizmos.DrawLine(pointArea1Horizontal.position, pointArea2Horizontal.position);
-         }
-         if(pointArea1Down != null && pointArea2Down != null)
-         {
-             // Draws a blue line from this transform to the target
-             Gizmos.color = Color.red;
-             Gizmos.DrawLine(pointArea1Down.position, pointArea2Down.position);
-         }
-         if(pointArea1Up != null && pointArea2Up != null)
-         {
-             // Draws a blue line from this transform to the target
-             Gizmos.color = Color.red;
-             Gizmos.DrawLine(pointArea1Up.position, pointArea2Up.position);
-         }
-     }
+    public void StartAttackUp() { attackUpCollider.enabled = true; }
+    public void EndAttackUp() { attackUpCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+
+    public void StartAttackHorizontal() { attackHorizontalCollider.enabled = true; }
+    public void EndAttackHorizontal() { attackHorizontalCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+
+    public void StartAttackDown() { attackDownCollider.enabled = true; }
+    public void EndAttackDown() { attackDownCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
 }

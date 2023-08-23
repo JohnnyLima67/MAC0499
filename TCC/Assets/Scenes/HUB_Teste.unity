@@ -135,12 +135,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1088146483}
     - target: {fileID: 3370467777806469278, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370467777806469278, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: sceneName
-      value: CheckpointSystem
+      value: TL1
       objectReference: {fileID: 0}
     - target: {fileID: 7732897081372465161, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7732897081372465161, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -400,7 +404,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &72128043
 MonoBehaviour:
@@ -414,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c29704f49048544e851599e72afd70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Levels: 0
   currentHubPosition: {fileID: 9834224}
 --- !u!1001 &779780052
 PrefabInstance:
@@ -427,12 +432,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1088146483}
     - target: {fileID: 3370467777806469278, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
+      propertyPath: level
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370467777806469278, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: sceneName
-      value: PowerUp-test
+      value: TL3
       objectReference: {fileID: 0}
     - target: {fileID: 7732897081372465161, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7732897081372465161, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -507,12 +516,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9834224}
     - target: {fileID: 3370467777806469278, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370467777806469278, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: sceneName
-      value: Sistema_Camera
+      value: TL2
       objectReference: {fileID: 0}
     - target: {fileID: 7732897081372465161, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7732897081372465161, guid: 05cb8321f79a9a44fb15b98fdbac35a1, type: 3}
       propertyPath: m_LocalPosition.x
