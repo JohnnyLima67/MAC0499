@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BreakableBehaviour : HittableBehaviour
 {
-    protected int hitpoints = 3;
+    [SerializeField] protected int hitpoints = 3;
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, bool hitWeakSpot)
     {
         if (hitpoints > 0)
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerWeaponColliderDetector : MonoBehaviour
 {
     public List<Collider2D> enemiesInWeaponRange;
+    [SerializeField] string[] hittableTags;
 
     void Awake()
     {
@@ -13,7 +14,12 @@ public class PlayerWeaponColliderDetector : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Enemy"))
-            enemiesInWeaponRange.Add(col);
+        foreach(string t in hittableTags)
+        {
+            if (col.gameObject.CompareTag(t))
+            {
+                enemiesInWeaponRange.Add(col);
+            }
+        }
     }
 }
