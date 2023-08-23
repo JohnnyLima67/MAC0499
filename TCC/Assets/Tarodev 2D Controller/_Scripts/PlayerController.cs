@@ -12,6 +12,7 @@ namespace TarodevController {
 
         [SerializeField] private CapsuleCollider2D _standingCollider;
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
+        [SerializeField] private HittableBehaviour thisHittableBehaviour;
         private CapsuleCollider2D _col; // current active collider
         private InputManager _input;
         private bool _cachedTriggerSetting;
@@ -551,6 +552,7 @@ namespace TarodevController {
 
                 _dashVel = dir * _stats.DashVelocity;
                 _dashing = true;
+                thisHittableBehaviour.SetIFrame(true);
                 _canDash = false;
                 _startedDashing = _fixedFrame;
                 _nextDashTime = Time.time + _stats.DashCooldown;
@@ -564,6 +566,7 @@ namespace TarodevController {
                 // Cancel when the time is out or we've reached our max safety distance
                 if (_fixedFrame > _startedDashing + _stats.DashDurationFrames) {
                     _dashing = false;
+                    thisHittableBehaviour.SetIFrame(false);
                     DashingChanged?.Invoke(false, Vector2.zero);
                     _speed.y = Mathf.Min(0, _speed.y);
                     _speed.x *= _stats.DashEndHorizontalMultiplier;

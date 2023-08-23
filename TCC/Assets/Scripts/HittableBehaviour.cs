@@ -17,10 +17,11 @@ public class HittableBehaviour : MonoBehaviour
     [SerializeField] Transform thisFlippable;
 
     private bool died = false;
+    private bool iFrame = false;
 
     public void TakeDamage(float damage)
 	{
-        if (died || !healthbarManager.CanTakeDamage())
+        if (died || !healthbarManager.CanTakeDamage() || iFrame)
             return;
 
         healthbarManager.TakeDamage(damage);
@@ -36,7 +37,7 @@ public class HittableBehaviour : MonoBehaviour
 
 	public void TakeDamage(float damage, bool hitWeakSpot)
 	{
-        if (died || !healthbarManager.CanTakeDamage())
+        if (died || !healthbarManager.CanTakeDamage() || iFrame)
             return;
 
         if (hitWeakSpot)
@@ -107,5 +108,10 @@ public class HittableBehaviour : MonoBehaviour
         }
 
         knockbackBehaviour.ApplyKnockback(force, knockbackDuration);
+    }
+
+    public void SetIFrame(bool status)
+    {
+        iFrame = status;
     }
 }
