@@ -24,4 +24,9 @@ public class Enemy : MonoBehaviour
 
         flippableAssets.transform.rotation = newRotation;
     }
+
+    public bool IsFlipped()
+    {
+        return isFlipped;
+    }
 }

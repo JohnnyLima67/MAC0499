@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace TarodevController {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-    public class PlayerController : MonoBehaviour, IPlayerController {
+    public class PlayerController :  CharacterController, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
 
         #region Internal
 
-        [HideInInspector] private Rigidbody2D _rb; // Hide is for serialization to avoid errors in gizmo calls
         [SerializeField] private CapsuleCollider2D _standingCollider;
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
         private CapsuleCollider2D _col; // current active collider
@@ -22,6 +21,7 @@ namespace TarodevController {
         private Vector2 _currentExternalVelocity;
         private int _fixedFrame;
         private bool _hasControl = true;
+        private bool hasInputControl = true;
         private Direction currentDir = Direction.HORIZONTAL;
 
         #endregion
@@ -52,6 +52,11 @@ namespace TarodevController {
             else _currentExternalVelocity += vel;
         }
 
+        public override void ApplyForce(Vector2 force)
+        {
+            ApplyVelocity(force, PlayerForce.Burst);
+        }
+
         public virtual void SetVelocity(Vector2 vel, PlayerForce velocityType) {
             if (velocityType == PlayerForce.Burst) _speed = vel;
             else _currentExternalVelocity = vel;
@@ -65,6 +70,35 @@ namespace TarodevController {
         public virtual void ReturnControl() {
             _speed = Vector2.zero;
             _hasControl = true;
+        }
+
+        public void TakeAwayInputControl()
+        {
+            hasInputControl = false;
+        }
+
+        public void ReturnInputControl()
+        {
+            hasInputControl = true;
+        }
+
+        public void ResetPlayerSpeed()
+        {
+            _speed = Vector2.zero;
+        }
+
+        public override void BeforeStartKnockback()
+        {
+            _rb.velocity = Vector2.zero;
+            _speed = Vector2.zero;
+
+            _endedJumpEarly = true;
+            TakeAwayInputControl();
+        }
+
+        public override void AfterEndKnockback()
+        {
+            ReturnInputControl();
         }
 
         #endregion
@@ -83,6 +117,12 @@ namespace TarodevController {
         }
 
         protected virtual void GatherInput() {
+            if (!hasInputControl)
+            {
+                FrameInput = new FrameInput();
+                return;
+            }
+
             FrameInput = _input.FrameInput;
 
             if (_stats.SnapInput)
@@ -158,7 +198,7 @@ namespace TarodevController {
         private int _ladderHitCount;
         private int _frameLeftGrounded = int.MinValue;
         private bool _grounded;
-        private Vector2 _skinWidth = new(0.02f, 0.02f); // Expose this?
+        private Vector2 _skinWidth = new(0.1f, 0.1f); // Expose this?
 
         protected virtual void CheckCollisions() {
             Physics2D.queriesHitTriggers = false;
@@ -654,7 +694,7 @@ namespace TarodevController {
             if (_stats == null) return;
 
             if (_stats.ShowWallDetection && _standingCollider != null) {
-                Gizmos.color = Color.white;
+                Gizmos.color = Color.red;
                 var bounds = GetWallDetectionBounds();
                 Gizmos.DrawWireCube(bounds.center, bounds.size);
             }

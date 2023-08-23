@@ -4,48 +4,79 @@ using UnityEngine;
 using CleverCrow.Fluid.BTs.Tasks;
 using CleverCrow.Fluid.BTs.Tasks.Actions;
 using CleverCrow.Fluid.BTs.Trees;
+using FSM;
 
 public class TestBoss : MonoBehaviour
 {
-    [SerializeField] BehaviorTree bt;
+    public bool enteredBossRoom = false;
+    [SerializeField] BehaviorTree battleBehaviourTree;
+    [SerializeField] BehaviorTree idleBehaviourTree;
     [SerializeField] HealthManager healthManager;
     [SerializeField] float distanceF;
     [SerializeField] float distanceB;
+
     private float phase = 1;
 
-    void Awake()
+    private StateMachine fsm;
+
+    void DefineBattleBT()
     {
-        bt = new BehaviorTreeBuilder(gameObject)
-            .Selector()
-                .Sequence() // Fase 1
-                    .Condition(() => {return (healthManager.CurrentHealth() >= 100);})
-                    .WalkForward(d: distanceF)
-                    .WalkBackward(d: distanceB)
-                    .RepeatForever()
-                        .SelectorRandom()
-                            .Do(() => {Debug.Log("Ataque 1"); return TaskStatus.Success;})
-                            .Do(() => {Debug.Log("Ataque 2"); return TaskStatus.Success;})
-                            .Do(() => {Debug.Log("Ataque 3"); return TaskStatus.Success;})
-                        .End()
-                    .End()
+        battleBehaviourTree = new BehaviorTreeBuilder(gameObject)
+            .SelectorRandom()
+                .Sequence()
+                    .TriggerAnimation("WalkForward")
+                    .WalkForward(3.5f, 5)
                 .End()
-                .Sequence() // Fase 2
-                    .Do(() => {Debug.Log("Estou na fase 2"); return TaskStatus.Success;})
-                    .WalkBackward(d: 3.0f)
+                .Sequence()
+                    .TriggerAnimation("WalkBackward")
+                    .WalkBackward(3.5f, 5)
+                .End()
+                .Sequence()
+                    .TriggerAnimation("StandingAttack")
+                    .WaitTime(1.0f)
+                .End()
+                .Sequence()
+                    .TriggerAnimation("RunningAttack")
+                    .WalkForward(7, 7)
                 .End()
             .End()
             .Build();
     }
 
+    void DefineIdleBT()
+    {
+        idleBehaviourTree = new BehaviorTreeBuilder(gameObject)
+            .Sequence()
+            .Do(() => {return TaskStatus.Continue;})
+            .End().Build();
+    }
+
+    void Awake()
+    {
+        DefineBattleBT();
+        DefineIdleBT();
+        fsm = new StateMachine(this);
+        fsm.AddState("Idle",
+                      onLogic: (state) => idleBehaviourTree.Tick(),
+                      onExit: (state) => idleBehaviourTree.Reset());
+
+        fsm.AddState("Battle",
+                     onLogic: (state) => battleBehaviourTree.Tick(),
+                     onExit: (state) => battleBehaviourTree.Tick());
+
+        fsm.AddTransition("Idle", "Battle", t => enteredBossRoom);
+        fsm.Init();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (healthManager.CurrentHealth() < 100 && phase == 1)
-        {
-            phase = 2;
-            bt.Reset();
-            Debug.Log("Mudando pra fase 2");
-        }
-        bt.Tick();
+        // if (healthManager.CurrentHealth() < 100 && phase == 1)
+        // {
+        //     phase = 2;
+        //     battleBehaviourTree.Reset();
+        //     Debug.Log("Mudando pra fase 2");
+        // }
+        fsm.OnLogic();
     }
 }

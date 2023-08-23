@@ -9,30 +9,36 @@ public class WalkForward : ActionBase {
     float maxDistance = 10.0f;
     float speed = 5.0f;
 
-    Rigidbody2D rb;
+    EnemyCharacterController thisCharacterController;
     Vector3 direction = new Vector3(-1, 0, 0);
-    Vector3 startingPosition;
 
-    public WalkForward(float d)
+    float currentTime = 0.0f;
+    float maxTime;
+
+    public WalkForward(float d, float speed)
     {
         maxDistance = d;
+        this.speed = speed;
+        maxTime = d / speed;
     }
 
     protected override void OnStart()
     {
-        rb = Owner.GetComponent<Rigidbody2D>();
-        startingPosition = new Vector3(Owner.transform.position.x,
-                                       Owner.transform.position.y,
-                                       Owner.transform.position.z);
+        thisCharacterController = Owner.GetComponent<EnemyCharacterController>();
+        currentTime = 0.0f;
     }
 
     protected override TaskStatus OnUpdate () {
         Vector3 result = direction * speed;
-        rb.velocity = result;
+        thisCharacterController.SetSpeed(result);
+        currentTime += Time.deltaTime;
 
-        float currentDistance = Vector3.Magnitude(Owner.transform.position - startingPosition);
-        Debug.Log(currentDistance);
-        if (currentDistance > maxDistance) return TaskStatus.Success;
+        if (currentTime > maxTime) return TaskStatus.Success;
         else return TaskStatus.Continue;
+    }
+
+    protected override void OnExit()
+    {
+        thisCharacterController.SetSpeed(Vector2.zero);
     }
 }
