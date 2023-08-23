@@ -19,7 +19,7 @@ public class HittableBehaviour : MonoBehaviour
     private bool died = false;
     private bool iFrame = false;
 
-    public void TakeDamage(float damage)
+	public virtual void TakeDamage(float damage)
 	{
         if (died || !healthbarManager.CanTakeDamage() || iFrame)
             return;
@@ -35,7 +35,7 @@ public class HittableBehaviour : MonoBehaviour
         }
 	}
 
-	public void TakeDamage(float damage, bool hitWeakSpot)
+	public virtual void TakeDamage(float damage, bool hitWeakSpot)
 	{
         if (died || !healthbarManager.CanTakeDamage() || iFrame)
             return;
@@ -66,7 +66,7 @@ public class HittableBehaviour : MonoBehaviour
         }
 	}
 
-	public void Die()
+	public virtual void Die()
 	{
         if (died)
             return;
@@ -79,7 +79,7 @@ public class HittableBehaviour : MonoBehaviour
         }
 	}
 
-	public void AfterDie()
+	public virtual void AfterDie()
 	{
 		gameObject.SetActive(false);
 	}
