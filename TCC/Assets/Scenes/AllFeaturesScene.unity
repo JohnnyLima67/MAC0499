@@ -1867,6 +1867,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!1 &1127107157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4228197441171948379, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+  m_PrefabInstance: {fileID: 3441348968931737155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1127107174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127107157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2312cc01b54165a2f72694c179436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisEnemy: {fileID: 0}
+  topOfHead: {fileID: 0}
+  bottomOfFeet: {fileID: 0}
+  front: {fileID: 0}
+  back: {fileID: 0}
+  flippable: {fileID: 0}
 --- !u!1 &1240802252
 GameObject:
   m_ObjectHideFlags: 0
@@ -17231,8 +17254,32 @@ PrefabInstance:
       value: PlayerPackage
       objectReference: {fileID: 0}
     - target: {fileID: 3441348967245103830, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441348967245103830, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441348968672027056, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: calcPlayerDir
+      value: 
+      objectReference: {fileID: 1127107174}
+    - target: {fileID: 4228197441171948368, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.200503
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228197441171948368, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1441704
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228197441171948368, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.13183337
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228197441171948368, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.27374235
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17241,6 +17288,14 @@ PrefabInstance:
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
       value: -6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228197441171948373, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1696424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228197441171948373, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.13187551
       objectReference: {fileID: 0}
     - target: {fileID: 6177314221914999605, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_RootOrder
@@ -17296,7 +17351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.866009
+      value: -13.66782
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
