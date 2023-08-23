@@ -6,6 +6,7 @@ public enum Direction {HORIZONTAL, UP, DOWN}
 
 public class PlayerAttackBehaviour : MonoBehaviour
 {
+    [SerializeField] TarodevController.PlayerController playerCharacterController;
     [SerializeField] PlayerWeaponBehaviour playerWeapon;
     [SerializeField] PlayerRangedWeaponBehaviour playerRangedWeapon;
     [SerializeField] PlayerAnimator playerAnimator;
@@ -36,68 +37,6 @@ public class PlayerAttackBehaviour : MonoBehaviour
         }
     }
 
-    GameObject[] CheckForWeakSpots(Collider2D[] col)
-    {
-        GameObject[] weakSpotsReached = new GameObject[col.Length];
-
-        int i = 0;
-        foreach(Collider2D c in col)
-        {
-            WeakSpot w = c.GetComponent<WeakSpot>();
-            if (w != null)
-            {
-                if (w.IsHittable() && w.IsPlayerCorrectPos(transform))
-                    weakSpotsReached[i] = w.gameObject.transform.parent.parent.gameObject;
-            }
-            i++;
-        }
-
-        return weakSpotsReached;
-    }
-
-    void FinalizeAttack(Collider2D[] col)
-    {
-        GameObject[] attackedWeakSpots = CheckForWeakSpots(col);
-
-        foreach(Collider2D c in col)
-        {
-            HittableBehaviour hittableBehaviour = c.GetComponent<HittableBehaviour>();
-            if (hittableBehaviour != null)
-            {
-                bool reachedWeakSpot = false;
-
-                foreach (GameObject o in attackedWeakSpots)
-                {
-                    if (o == hittableBehaviour.gameObject)
-                    {
-                        reachedWeakSpot = true;
-                        break;
-                    }
-                }
-
-                playerWeapon.ApplyEffect(hittableBehaviour, reachedWeakSpot);
-            }
-        }
-    }
-
-    public void AttackHorizontal()
-    {
-        Collider2D[] col = playerWeapon.OverlapAttackHorizontal(enemyLayer);
-        FinalizeAttack(col);
-    }
-
-    public void AttackDown()
-    {
-        Collider2D[] col = playerWeapon.OverlapAttackDown(enemyLayer);
-        FinalizeAttack(col);
-    }
-
-    public void AttackUp()
-    {
-        Collider2D[] col = playerWeapon.OverlapAttackUp(enemyLayer);
-        FinalizeAttack(col);
-    }
-
     public void InitProjectile()
     {
         StartCoroutine(playerAnimator.PlayPlayerProjectileAnimation(playerRangedWeapon));
@@ -106,5 +45,20 @@ public class PlayerAttackBehaviour : MonoBehaviour
     public void LaunchProjectile()
     {
         playerRangedWeapon.Fire();
+    }
+
+    public void StopPlayerMovement()
+    {
+        playerCharacterController.TakeAwayInputControl();
+    }
+
+    public void ReturnPlayerMovement()
+    {
+        playerCharacterController.ReturnInputControl();
+    }
+
+    public void ResetPlayerSpeed()
+    {
+        playerCharacterController.ResetPlayerSpeed();
     }
 }

@@ -7,25 +7,29 @@ public class HUB_Player : MonoBehaviour
 {
     private float velocity = 15.0f;
     private bool input_locked = true;
-
+    public int Levels;
     [SerializeField]
     private HUBPosition currentHubPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        int nLevels = PlayerPrefs.GetInt("LevelsUnlocked", 1);
+        Levels = nLevels;
+        Debug.Log(nLevels);
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(input_locked);
         if (!input_locked)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow) && currentHubPosition.next != null)
+            if (Input.GetKeyDown(KeyCode.RightArrow) && currentHubPosition.next != null && Levels > currentHubPosition.level)
             {
                 input_locked = true;
                 currentHubPosition = currentHubPosition.next;
+                Debug.Log("Entrei");
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) && currentHubPosition.prev != null)
             {

@@ -12,6 +12,7 @@ namespace TarodevController {
 
         [SerializeField] private CapsuleCollider2D _standingCollider;
         [SerializeField] private CapsuleCollider2D _crouchingCollider;
+        [SerializeField] private HittableBehaviour thisHittableBehaviour;
         private CapsuleCollider2D _col; // current active collider
         private InputManager _input;
         private bool _cachedTriggerSetting;
@@ -82,6 +83,11 @@ namespace TarodevController {
             hasInputControl = true;
         }
 
+        public void ResetPlayerSpeed()
+        {
+            _speed = Vector2.zero;
+        }
+
         public override void BeforeStartKnockback()
         {
             _rb.velocity = Vector2.zero;
@@ -112,7 +118,11 @@ namespace TarodevController {
         }
 
         protected virtual void GatherInput() {
-            if (!hasInputControl) return;
+            if (!hasInputControl)
+            {
+                FrameInput = new FrameInput();
+                return;
+            }
 
             FrameInput = _input.FrameInput;
 
@@ -189,7 +199,7 @@ namespace TarodevController {
         private int _ladderHitCount;
         private int _frameLeftGrounded = int.MinValue;
         private bool _grounded;
-        private Vector2 _skinWidth = new(0.02f, 0.02f); // Expose this?
+        private Vector2 _skinWidth = new(0.1f, 0.1f); // Expose this?
 
         protected virtual void CheckCollisions() {
             Physics2D.queriesHitTriggers = false;
@@ -542,6 +552,7 @@ namespace TarodevController {
 
                 _dashVel = dir * _stats.DashVelocity;
                 _dashing = true;
+                thisHittableBehaviour.SetIFrame(true);
                 _canDash = false;
                 _startedDashing = _fixedFrame;
                 _nextDashTime = Time.time + _stats.DashCooldown;
@@ -555,6 +566,7 @@ namespace TarodevController {
                 // Cancel when the time is out or we've reached our max safety distance
                 if (_fixedFrame > _startedDashing + _stats.DashDurationFrames) {
                     _dashing = false;
+                    thisHittableBehaviour.SetIFrame(false);
                     DashingChanged?.Invoke(false, Vector2.zero);
                     _speed.y = Mathf.Min(0, _speed.y);
                     _speed.x *= _stats.DashEndHorizontalMultiplier;
@@ -685,7 +697,7 @@ namespace TarodevController {
             if (_stats == null) return;
 
             if (_stats.ShowWallDetection && _standingCollider != null) {
-                Gizmos.color = Color.white;
+                Gizmos.color = Color.red;
                 var bounds = GetWallDetectionBounds();
                 Gizmos.DrawWireCube(bounds.center, bounds.size);
             }

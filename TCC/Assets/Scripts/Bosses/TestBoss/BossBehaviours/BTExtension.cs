@@ -23,4 +23,10 @@ public static class BTExtension {
             Name = name + " " + triggerName,
         });
     }
+
+    public static BehaviorTreeBuilder Flip (this BehaviorTreeBuilder builder, string name = "Flip") {
+        return builder.AddNode(new Flip() {
+            Name = name,
+        });
+    }
 }

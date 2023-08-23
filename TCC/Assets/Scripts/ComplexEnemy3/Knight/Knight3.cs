@@ -7,7 +7,6 @@ public class Knight3 : MonoBehaviour
 {
     private StateMachine fsm;
     private Transform lastPlayerPos = null;
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] Enemy thisEnemy;
     [SerializeField] Transform visionObject;
     [SerializeField] float detectionDistance = 20.0f;
@@ -15,6 +14,7 @@ public class Knight3 : MonoBehaviour
     [SerializeField] LayerMask playerAndGroundLayer;
     [SerializeField] EnemyAnimator animator;
     [SerializeField] HealthManager healthManager;
+    [SerializeField] EnemyCharacterController thisEnemyCharacterController;
 
 
     void Start()
@@ -24,7 +24,7 @@ public class Knight3 : MonoBehaviour
         fsm.AddState("Idle");
         fsm.AddState("Active",
                      onEnter: (state) => animator.unityAnimator.SetBool("Following", true),
-                     onExit: (state) => animator.unityAnimator.SetBool("Following", false),
+                     onExit: (state) =>  {thisEnemyCharacterController.SetSpeed(Vector2.zero);animator.unityAnimator.SetBool("Following", false);},
                      onLogic: (state) => FollowPlayer());
         fsm.AddState("Flip", onEnter: (state) => thisEnemy.Flip());
 
@@ -53,6 +53,7 @@ public class Knight3 : MonoBehaviour
                                              playerAndGroundLayer);
         if (hit.collider != null)
         {
+            //Debug.Log(hit.collider.gameObject);
             if (hit.collider.CompareTag("Player"))
             {
                 lastPlayerPos = hit.collider.gameObject.transform;
@@ -68,9 +69,8 @@ public class Knight3 : MonoBehaviour
     {
         Vector3 direction = Vector3.Normalize(lastPlayerPos.transform.position - transform.position);
         Vector3 s = direction * speed;
-        s.y = rb.velocity.y;
 
-        rb.velocity = s;
+        thisEnemyCharacterController.SetHorizontalSpeed(s);
     }
 
     float Step()
@@ -80,7 +80,13 @@ public class Knight3 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(healthManager.isDead()) return;
+        if(healthManager.isDead())
+        {
+            thisEnemyCharacterController.SetSpeed(Vector2.zero);
+            thisEnemyCharacterController.EndExternalSpeed();
+            return;
+        }
+
         fsm.OnLogic();
     }
 }

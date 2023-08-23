@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 896
+    m_Bits: 1920
   ClimbableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -72,7 +72,7 @@ MonoBehaviour:
   DashCooldown: 1.5
   DashEndHorizontalMultiplier: 0.25
   AllowAttacks: 1
-  AttackFrameCooldown: 15
+  AttackFrameCooldown: 1
   ExternalVelocityDecay: 100
   ShowWallDetection: 1
   ShowLedgeDetection: 1

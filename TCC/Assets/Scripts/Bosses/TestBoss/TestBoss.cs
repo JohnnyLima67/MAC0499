@@ -9,6 +9,8 @@ using FSM;
 public class TestBoss : MonoBehaviour
 {
     public bool enteredBossRoom = false;
+    [SerializeField] Transform visionObject;
+    [SerializeField] LayerMask playerAndGroundLayer;
     [SerializeField] BehaviorTree battleBehaviourTree;
     [SerializeField] BehaviorTree idleBehaviourTree;
     [SerializeField] HealthManager healthManager;
@@ -22,22 +24,28 @@ public class TestBoss : MonoBehaviour
     void DefineBattleBT()
     {
         battleBehaviourTree = new BehaviorTreeBuilder(gameObject)
-            .SelectorRandom()
+            .Sequence()
                 .Sequence()
-                    .TriggerAnimation("WalkForward")
-                    .WalkForward(3.5f, 5)
+                    .Condition(() => {return !SawOrHeardPlayer();})
+                    .Flip()
                 .End()
-                .Sequence()
-                    .TriggerAnimation("WalkBackward")
-                    .WalkBackward(3.5f, 5)
-                .End()
-                .Sequence()
-                    .TriggerAnimation("StandingAttack")
-                    .WaitTime(1.0f)
-                .End()
-                .Sequence()
-                    .TriggerAnimation("RunningAttack")
-                    .WalkForward(7, 7)
+                .SelectorRandom()
+                    .Sequence()
+                        .TriggerAnimation("WalkForward")
+                        .WalkForward(3.5f, 5)
+                    .End()
+                    .Sequence()
+                        .TriggerAnimation("WalkBackward")
+                        .WalkBackward(3.5f, 5)
+                    .End()
+                    .Sequence()
+                        .TriggerAnimation("StandingAttack")
+                        .WaitTime(1.0f)
+                    .End()
+                    .Sequence()
+                        .TriggerAnimation("RunningAttack")
+                        .WalkForward(7, 7)
+                    .End()
                 .End()
             .End()
             .Build();
@@ -47,7 +55,7 @@ public class TestBoss : MonoBehaviour
     {
         idleBehaviourTree = new BehaviorTreeBuilder(gameObject)
             .Sequence()
-            .Do(() => {Debug.Log("Estou no idle"); return TaskStatus.Continue;})
+            .Do(() => {return TaskStatus.Continue;})
             .End().Build();
     }
 
@@ -79,4 +87,25 @@ public class TestBoss : MonoBehaviour
         // }
         fsm.OnLogic();
     }
+
+    bool SawOrHeardPlayer()
+    {
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position,
+                                             Vector3.Normalize(visionObject.transform.position - transform.position),
+                                             playerAndGroundLayer);
+
+        if (hit.collider != null)
+        {
+            //Debug.Log(hit.collider.gameObject);
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("vi player");
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
