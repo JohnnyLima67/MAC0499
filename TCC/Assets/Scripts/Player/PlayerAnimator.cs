@@ -45,7 +45,6 @@ public class PlayerAnimator : EntityAnimator
     {
         unityAnimator.SetTrigger("AttackHorizontal");
         playerWeapon.TriggerHorizontalAttackAnimation();
-        Debug.Log("Aqui");
         yield break;
     }
 

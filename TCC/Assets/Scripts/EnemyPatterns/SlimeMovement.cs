@@ -7,6 +7,8 @@ public class SlimeMovement : AbstractMovement
     [SerializeField] EnemyCharacterController thisEnemyCharacterController;
     [SerializeField] Enemy thisEnemy;
     [SerializeField] Transform visionObject;
+    [SerializeField] Transform bottomObject;
+
     [SerializeField] LayerMask groundMask;
     //[SerializeField] HealthManager healthManager;
 
@@ -17,7 +19,7 @@ public class SlimeMovement : AbstractMovement
     {
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position,
-                                             Vector3.Normalize(visionObject.transform.position - transform.position),
+                                             Vector3.Normalize(visionObject.transform.position - bottomObject.position),
                                              visionDistance,
                                              groundMask);
 
@@ -26,7 +28,7 @@ public class SlimeMovement : AbstractMovement
             thisEnemy.Flip();
         }
 
-        Vector3 s = Vector3.Normalize(visionObject.transform.position - transform.position) * speed;
+        Vector3 s = Vector3.Normalize(visionObject.transform.position - bottomObject.position) * speed;
         thisEnemyCharacterController.SetHorizontalSpeed(s);
     }
 
