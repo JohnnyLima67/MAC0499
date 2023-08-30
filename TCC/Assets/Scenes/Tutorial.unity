@@ -33412,7 +33412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -70.806755
+      value: -68.75962
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33711,7 +33711,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 4
-  visionDistance: 0.5
+  visionDistance: 0.85
 --- !u!50 &6215356497410393219
 Rigidbody2D:
   serializedVersion: 4
