@@ -32,8 +32,6 @@ public class Stomp : ActionBase
 
 		currentSpike = GameObject.Instantiate(spikePrefab, spikePosition, Quaternion.identity);
 
-		Debug.Log(currentSpike.transform.position);
-
 		return TaskStatus.Success;
 	}
 }
