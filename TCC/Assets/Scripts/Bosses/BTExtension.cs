@@ -29,4 +29,11 @@ public static class BTExtension {
             Name = name,
         });
     }
+
+	public static BehaviorTreeBuilder Stomp (this BehaviorTreeBuilder builder, GameObject spikePrefab, GameObject spikeUndergroundRefenrece, string name = "Stomp") {
+        return builder.AddNode(new Stomp(spikePrefab, spikeUndergroundRefenrece) {
+            Name = name,
+        });
+    }
+
 }
