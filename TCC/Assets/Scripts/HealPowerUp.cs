@@ -5,10 +5,9 @@ using UnityEngine;
 public class HealPowerUp : AbstractPowerUp
 {
     private PlayerHealthbarManager playerHealthManager;
-
+    [SerializeField] private float healthRegen;
     public void Awake()
     {
-        manaCost = 20;
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
         if (players.Length > 0)
@@ -17,6 +16,6 @@ public class HealPowerUp : AbstractPowerUp
 
     public override void Use()
     {
-        playerHealthManager.Heal(100.0f);
+        playerHealthManager.Heal(healthRegen);
     }
 }
