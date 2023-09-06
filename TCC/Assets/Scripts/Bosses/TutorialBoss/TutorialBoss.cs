@@ -12,12 +12,15 @@ public class TutorialBoss : MonoBehaviour
 	[SerializeField] GameObject spikePrefab;
 	[SerializeField] GameObject spikeUndergroundReferece;
 
+	[SerializeField] GameObject constrictPrefab;
+	[SerializeField] GameObject groundLevelReference;
+
     // Start is called before the first frame update
     void Start()
     {
 		mainBehaviour = new BehaviorTreeBuilder(gameObject)
 			.Sequence()
-			  .WaitTime(0.5f)
+			  .WaitTime(1.1f)
 			  .SelectorRandom()
 			    .Sequence()
 			      .Condition(() => {return IsPlayerInCorrectDistance();})
@@ -27,6 +30,11 @@ public class TutorialBoss : MonoBehaviour
 			      .TriggerAnimation("Stomp")
 			      .WaitTime(0.35f)
 			      .Stomp(spikePrefab, spikeUndergroundReferece)
+			    .End()
+			    .Sequence()
+			      .TriggerAnimation("Constrict")
+			      .WaitTime(0.7f)
+			      .Constrict(constrictPrefab, groundLevelReference.transform)
 			    .End()
 			  .End()
 			.End().Build();

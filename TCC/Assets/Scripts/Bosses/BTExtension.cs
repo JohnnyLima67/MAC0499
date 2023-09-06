@@ -36,4 +36,9 @@ public static class BTExtension {
         });
     }
 
+	public static BehaviorTreeBuilder Constrict (this BehaviorTreeBuilder builder, GameObject spikePrefab, Transform groundLevelReference, string name = "Constrict") {
+        return builder.AddNode(new Constrict(spikePrefab, groundLevelReference) {
+            Name = name,
+        });
+    }
 }
