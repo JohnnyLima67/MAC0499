@@ -6,6 +6,7 @@ public class Spike : MonoBehaviour
 {
 	public void AfterAnimationEnd()
 	{
-		Destroy(gameObject);
+		Debug.Log("Deleta Spike...");
+		Destroy(gameObject.transform.parent.gameObject);
 	}
 }
