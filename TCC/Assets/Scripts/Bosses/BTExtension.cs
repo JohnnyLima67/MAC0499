@@ -29,4 +29,16 @@ public static class BTExtension {
             Name = name,
         });
     }
+
+	public static BehaviorTreeBuilder Stomp (this BehaviorTreeBuilder builder, GameObject spikePrefab, GameObject spikeUndergroundRefenrece, string name = "Stomp") {
+        return builder.AddNode(new Stomp(spikePrefab, spikeUndergroundRefenrece) {
+            Name = name,
+        });
+    }
+
+	public static BehaviorTreeBuilder Constrict (this BehaviorTreeBuilder builder, GameObject spikePrefab, Transform groundLevelReference, string name = "Constrict") {
+        return builder.AddNode(new Constrict(spikePrefab, groundLevelReference) {
+            Name = name,
+        });
+    }
 }
