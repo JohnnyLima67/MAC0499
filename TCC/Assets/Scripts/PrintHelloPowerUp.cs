@@ -8,6 +8,7 @@ public class PrintHelloPowerUp : AbstractPowerUp
     {
         manaCost = 10;
     }
+
     public override void Use()
     {
         Debug.Log("Hello World");

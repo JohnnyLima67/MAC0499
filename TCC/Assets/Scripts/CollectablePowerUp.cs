@@ -7,15 +7,12 @@ public class CollectablePowerUp : MonoBehaviour
     [SerializeField]
     public AbstractPowerUp powerUp;
 
-    private bool collected = false;
-
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if (otherCollider.CompareTag("Player") && !collected)
+        if (otherCollider.CompareTag("Player"))
         {
-            collected = true;
             otherCollider.GetComponent<PowerUpManager>().equipPowerUp(powerUp);
-            Debug.Log("Power Up coletado!");
+            gameObject.SetActive(false);
         }
     }
 }

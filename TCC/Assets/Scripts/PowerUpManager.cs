@@ -15,16 +15,15 @@ public class PowerUpManager : MonoBehaviour
         _input = GetComponent<InputManager>();
 
     }
+
     // Update is called once per frame
     void Update()
     {
         FrameInput = _input.FrameInput;
         if (FrameInput.PowerUp)
         {
-            Debug.Log("Foi");
             if (powerUp != null && manabar.HasEnoughMana(powerUp.manaCost))
             {
-                Debug.Log("Foi");
                 powerUp.Use();
                 manabar.LoseMana(powerUp.manaCost);
             }
