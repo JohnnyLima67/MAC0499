@@ -39,15 +39,29 @@ public class EnemyAnimator : EntityAnimator
         yield break;
     }
 
-    public override IEnumerator PlayDie()
-    {
-        unityAnimator.SetTrigger("Dead");
+public override IEnumerator PlayDie()
+{
+    unityAnimator.SetTrigger("Dead");
 
-        yield return new WaitForSeconds(unityAnimator.GetCurrentAnimatorStateInfo(0).length + 10);
-        Destroy(gameObject);
-        yield break;
-        
+    float alphaVal = playerSprite.color.a;
+
+    while (alphaVal > 0)
+    {
+        alphaVal -= 0.01f * Time.deltaTime * 15; // Adjust the rate of fading with Time.deltaTime
+        alphaVal = Mathf.Clamp01(alphaVal); // Ensure the alpha value stays within [0, 1]
+        Color tmp = playerSprite.color;
+        tmp.a = alphaVal;
+        playerSprite.color = tmp;
+        yield return null; // Wait for the next frame
     }
+
+    // Optional: Set a specific alpha value at the end of the fade
+    // playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0);
+    
+    Destroy(gameObject);
+    yield break;
+}
+
 
     public bool IsInCriticalAnimation()
     {

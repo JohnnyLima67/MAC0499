@@ -8,6 +8,8 @@ using FSM;
 
 public class TutorialBoss : MonoBehaviour
 {
+	[SerializeField] Level_teste_1_Manager lvlChanger;
+	[SerializeField] HealthManager health;
 	[SerializeField] BehaviorTree mainBehaviour;
 	[SerializeField] GameObject spikePrefab;
 	[SerializeField] GameObject spikeUndergroundReferece;
@@ -43,9 +45,21 @@ public class TutorialBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mainBehaviour.Tick();
+		if (!health.isDead())
+        	mainBehaviour.Tick();
+		else {
+			Finish();
+		}
     }
 
+	private IEnumerator Finish(){
+					Debug.Log("Passou");
+
+					yield return new WaitForSeconds(10);
+			lvlChanger.FinishLevel();
+			    yield break;
+
+	}
 	bool IsPlayerInCorrectDistance()
 	{
 		return true;

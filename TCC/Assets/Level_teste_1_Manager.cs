@@ -20,14 +20,9 @@ public class Level_teste_1_Manager : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log("Colidi" + col.collider.gameObject.name);
-        if (col.collider.gameObject.tag == "Player") {
+    public void FinishLevel() {
             sceneLoader.SaveLevel(levelNumber);
             sceneLoader.LoadScene(sceneToGo);
-        }
-        else {
-            return;
-        }
+
     }
 }
