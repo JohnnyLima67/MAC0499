@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealthbarManager : HealthManager
 {
     [SerializeField] EntityAnimator animator;
+    [SerializeField] GameObject _deathMenu;
     public Image healthBar;
 
     // Start is called before the first frame update
@@ -17,6 +18,10 @@ public class PlayerHealthbarManager : HealthManager
 
     public override void TakeDamage(float damage)
     {
+
+        if (health <= damage){
+            _deathMenu.SetActive(true);
+        }
         if (Mathf.Sign(passedTime) == -1)
         {
             passedTime = +0.0f;

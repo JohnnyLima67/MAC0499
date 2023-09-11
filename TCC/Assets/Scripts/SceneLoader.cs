@@ -8,6 +8,10 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void LoadCurrentScene() {
+        LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void SaveLevel(int level)
     {
         int l = PlayerPrefs.GetInt("LevelsUnlocked", 1);
