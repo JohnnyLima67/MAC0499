@@ -76,6 +76,7 @@ MonoBehaviour:
   attackUpCollider: {fileID: 0}
   attackHorizontalCollider: {fileID: 0}
   attackDownCollider: {fileID: 0}
+  colliderDetector: {fileID: 0}
 --- !u!212 &273543058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -276,6 +277,7 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
   _standingCollider: {fileID: 1544650614272011794}
   _crouchingCollider: {fileID: 1544650614272011799}
+  thisHittableBehaviour: {fileID: 0}
 --- !u!114 &781140227258913189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +484,7 @@ MonoBehaviour:
   health: 200
   damageInterval: 0.5
   animator: {fileID: 871529892}
+  _deathMenu: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!114 &1846508762
 MonoBehaviour:
@@ -10324,7 +10327,7 @@ AudioSource:
   m_GameObject: {fileID: 2969068311962969429}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7442123966554198303, guid: aa13b9014cfb9824a974a19816347ae2, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -30036,6 +30039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8e97d4ca325e2f38662d7fd0bc27b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacterController: {fileID: 0}
   playerWeapon: {fileID: 273543059}
   playerRangedWeapon: {fileID: 1775010431}
   playerAnimator: {fileID: 871529892}
