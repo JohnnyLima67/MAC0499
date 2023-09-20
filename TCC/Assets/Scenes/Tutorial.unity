@@ -42215,6 +42215,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 501622773151123472, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: _dashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 05706e2e5097f797aa714f7ae2fc654e, type: 3}
+    - target: {fileID: 501622773151123472, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: _footsteps.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 69e77b3aa112e96ac8361385dd78f96f, type: 3}
@@ -42352,11 +42356,11 @@ PrefabInstance:
       objectReference: {fileID: 571620494}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 143.47
+      value: -10.98
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.19
+      value: -6.17
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948375, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: thisHittableBehaviour
