@@ -39396,14 +39396,6 @@ CompositeCollider2D:
         Y: 5299549
       - X: -437957234
         Y: 4700126
-    - - X: 1135000064
-        Y: -20000000
-      - X: 895000000
-        Y: -20000000
-      - X: 895000000
-        Y: -50000000
-      - X: 1135000064
-        Y: -50000000
     - - X: 2124999936
         Y: -20000000
       - X: 1235000064
@@ -39411,6 +39403,14 @@ CompositeCollider2D:
       - X: 1235000064
         Y: -50000000
       - X: 2124999936
+        Y: -50000000
+    - - X: 1135000064
+        Y: -20000000
+      - X: 895000000
+        Y: -20000000
+      - X: 895000000
+        Y: -50000000
+      - X: 1135000064
         Y: -50000000
     - - X: -306500000
         Y: -31299998
@@ -39696,14 +39696,14 @@ CompositeCollider2D:
     - - {x: -43.81, y: 0.48999992}
       - {x: -43.82998, y: 0.5299549}
       - {x: -43.795727, y: 0.4700126}
-    - - {x: 113.50001, y: -2}
-      - {x: 89.5, y: -2}
-      - {x: 89.5, y: -5}
-      - {x: 113.50001, y: -5}
     - - {x: 212.5, y: -2}
       - {x: 123.50001, y: -2}
       - {x: 123.50001, y: -5}
       - {x: 212.5, y: -5}
+    - - {x: 113.50001, y: -2}
+      - {x: 89.5, y: -2}
+      - {x: 89.5, y: -5}
+      - {x: 113.50001, y: -5}
     - - {x: -30.65, y: -3.1299999}
       - {x: -30.83, y: -3.1299999}
       - {x: -30.79, y: -3.0899997}
@@ -42071,7 +42071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896475601986687439, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_text
-      value: L
+      value: "L\x01"
       objectReference: {fileID: 0}
     - target: {fileID: 1181493779721040061, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -42123,7 +42123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1619991508061664865, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_text
-      value: Z
+      value: LMB
       objectReference: {fileID: 0}
     - target: {fileID: 2007103987400889161, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -42175,7 +42175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2934640482509110927, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_text
-      value: C
+      value: "C\x01"
       objectReference: {fileID: 0}
     - target: {fileID: 3435224094301557445, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_Name
@@ -42189,25 +42189,13 @@ PrefabInstance:
       propertyPath: _deathMenu
       value: 
       objectReference: {fileID: 571620494}
-    - target: {fileID: 3441348968931737159, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
-      propertyPath: hittableTags.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3441348968931737159, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
-      propertyPath: hittableTags.Array.data[0]
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3441348968931737159, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
-      propertyPath: hittableTags.Array.data[1]
-      value: BreakableWall
-      objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.2
+      value: 143.47
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948375, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: thisHittableBehaviour
@@ -42303,7 +42291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -67.62141
+      value: -60.485565
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y

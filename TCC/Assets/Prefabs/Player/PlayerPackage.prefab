@@ -647,7 +647,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInWeaponRange: []
-  hittableTags: []
+  hittableTags:
+  - Enemy
+  - BreakableWall
+  - WeakSpot
 --- !u!4 &4228197441171948372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
@@ -1089,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613034169785885885, guid: e67d93cabdcff884bbdc43957b9cb22d, type: 3}
       propertyPath: m_text
-      value: RMB
+      value: "C\x01"
       objectReference: {fileID: 0}
     - target: {fileID: 7119496308177220706, guid: e67d93cabdcff884bbdc43957b9cb22d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1193,7 +1196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9155593455396490237, guid: e67d93cabdcff884bbdc43957b9cb22d, type: 3}
       propertyPath: m_text
-      value: N
+      value: "L\x01"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67d93cabdcff884bbdc43957b9cb22d, type: 3}
