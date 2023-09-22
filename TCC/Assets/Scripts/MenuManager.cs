@@ -9,6 +9,7 @@ namespace TarodevController {
     {
         [SerializeField] private GameObject _mainMenuCanvasGO;
         [SerializeField] private GameObject _settingsMenuCanvasGO;
+		[SerializeField] private GameObject _audioSettingsMenuGO;
         [SerializeField] private GameObject _keyboardMenuCanvasGO;
         [SerializeField] private GameObject _gamepadMenuCanvasGO;
 
@@ -18,6 +19,7 @@ namespace TarodevController {
         [Header("First Selected Options")]
         [SerializeField] private GameObject _mainMenuFirst;
         [SerializeField] private GameObject _settingsMenuFirst;
+		[SerializeField] private GameObject _audioSettingsMenuFirst;
         [SerializeField] private GameObject _keyboardMenuFirst;
         [SerializeField] private GameObject _gamepadMenuFirst;
 
@@ -28,7 +30,7 @@ namespace TarodevController {
             _settingsMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(false);
             _gamepadMenuCanvasGO.SetActive(false);
-
+			_audioSettingsMenuGO.SetActive(false);
         }
 
         private void Update() {
@@ -67,6 +69,7 @@ namespace TarodevController {
         }
 
         private void CloseAllMenus() {
+			_audioSettingsMenuGO.SetActive(false);
             _mainMenuCanvasGO.SetActive(false);
             _settingsMenuCanvasGO.SetActive(false); 
             _keyboardMenuCanvasGO.SetActive(false);        
@@ -77,6 +80,7 @@ namespace TarodevController {
         }
 
         private void OpenSettingsMenuHandle() {
+			_audioSettingsMenuGO.SetActive(false);
              _settingsMenuCanvasGO.SetActive(true);
              _mainMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(false);
@@ -86,7 +90,19 @@ namespace TarodevController {
 
         }
 
+		private void OpenAudioSettingsMenuHandle()
+		{
+			_audioSettingsMenuGO.SetActive(true);
+			_settingsMenuCanvasGO.SetActive(false);
+			_mainMenuCanvasGO.SetActive(false);
+            _keyboardMenuCanvasGO.SetActive(false);
+            _gamepadMenuCanvasGO.SetActive(false);
+
+            EventSystem.current.SetSelectedGameObject(_audioSettingsMenuFirst);
+		}
+
         private void OpenKeyboardMenuHandle() {
+			_audioSettingsMenuGO.SetActive(false);
             _settingsMenuCanvasGO.SetActive(false);
             _mainMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(true);
@@ -97,6 +113,7 @@ namespace TarodevController {
         }
 
         private void OpenGamepadMenuHandle() {
+			_audioSettingsMenuGO.SetActive(false);
             _settingsMenuCanvasGO.SetActive(false);
             _mainMenuCanvasGO.SetActive(false);
             _keyboardMenuCanvasGO.SetActive(false);
@@ -126,6 +143,17 @@ namespace TarodevController {
         public void OnSettingsGamepadPress(){
             OpenGamepadMenuHandle();
         }
+
+		public void OnSettingsAudioSettingsPress() {
+			OpenAudioSettingsMenuHandle();
+		}
+
+ // -----------------Botões Audio Settings -------------------//
+
+		public void OnAudioSettingsBackPress() {
+			OpenSettingsMenuHandle();
+		}
+
  // -----------------Botões Menu Teclado -------------------//
        
         public void OnKeyboardBackPress(){
