@@ -16,6 +16,10 @@ public class HittableBehaviour : MonoBehaviour
     [SerializeField] float knockbackDuration;
     [SerializeField] Transform thisFlippable;
 
+	[SerializeField] AudioSource audioSource;
+	[SerializeField] AudioClip deathSound;
+	[SerializeField] float deathSoundDelay;
+
     private bool died = false;
     private bool iFrame = false;
 
@@ -72,6 +76,9 @@ public class HittableBehaviour : MonoBehaviour
             return;
 
         died = true;
+		audioSource.Stop();
+		audioSource.clip = deathSound;
+		audioSource.PlayDelayed(deathSoundDelay);
         StartCoroutine(animator.PlayDie());
         foreach(Collider2D col in entityColliders)
         {

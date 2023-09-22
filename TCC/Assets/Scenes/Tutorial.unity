@@ -11089,6 +11089,9 @@ MonoBehaviour:
   knockbackForceY: 0
   knockbackDuration: 0
   thisFlippable: {fileID: 0}
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathSoundDelay: 0
   hitpoints: 3
 --- !u!66 &1775763204
 CompositeCollider2D:
@@ -42789,6 +42792,9 @@ MonoBehaviour:
   knockbackForceY: 0
   knockbackDuration: 0
   thisFlippable: {fileID: 354472017}
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathSoundDelay: 0
 --- !u!114 &6215356497410393231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42990,6 +42996,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4318293542637522131, guid: 49402ab75a7a29e4ca36e8596464c6ad, type: 3}
+      propertyPath: deathSoundDelay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4318293542637522134, guid: 49402ab75a7a29e4ca36e8596464c6ad, type: 3}
       propertyPath: visionDistance
       value: 2
@@ -42997,6 +43007,10 @@ PrefabInstance:
     - target: {fileID: 4318293542637522135, guid: 49402ab75a7a29e4ca36e8596464c6ad, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988493454574738276, guid: 49402ab75a7a29e4ca36e8596464c6ad, type: 3}
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49402ab75a7a29e4ca36e8596464c6ad, type: 3}

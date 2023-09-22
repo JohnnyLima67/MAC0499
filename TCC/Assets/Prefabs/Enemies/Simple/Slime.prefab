@@ -14,15 +14,14 @@ GameObject:
   - component: {fileID: 4318293542637522132}
   - component: {fileID: 4318293542637522142}
   - component: {fileID: 7902912262830365651}
-  - component: {fileID: 7902912262364929418}
   - component: {fileID: 7902912262364929426}
   - component: {fileID: 7902912262364929429}
   - component: {fileID: 7902912262364929420}
   - component: {fileID: 7902912262364929423}
   - component: {fileID: 7902912262364929438}
-  - component: {fileID: 5726535841995238982}
   - component: {fileID: 4318293542637522134}
   - component: {fileID: 4318293542637522153}
+  - component: {fileID: 4988493454574738276}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Enemy
@@ -65,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthbarManager: {fileID: 4318293542637522130}
   animator: {fileID: 7902912262830365651}
-  calcPlayerDir: {fileID: 5726535841995238982}
+  calcPlayerDir: {fileID: 7902912262364929438}
   entityColliders:
   - {fileID: 7902912263149857915}
   - {fileID: 7902912263053641679}
@@ -76,6 +75,8 @@ MonoBehaviour:
   knockbackForceY: 0
   knockbackDuration: 0.2
   thisFlippable: {fileID: 7902912262299785228}
+  audioSource: {fileID: 4988493454574738276}
+  deathSound: {fileID: 8300000, guid: 2587c2729cc61d9d0a52f7262f38fe67, type: 3}
 --- !u!114 &4318293542637522130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,28 +154,6 @@ MonoBehaviour:
   unityAnimator: {fileID: 7902912261499558385}
   playerSprite: {fileID: 7902912261499558273}
   healthbarManager: {fileID: 4318293542637522130}
---- !u!114 &7902912262364929418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4318293542637522135}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba1414b12a394ba943543648cef7b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisEnemy: {fileID: 7902912262364929429}
-  visionObject: {fileID: 7902912263266183425}
-  detectionDistance: 20
-  speed: 5
-  playerAndGroundLayer:
-    serializedVersion: 2
-    m_Bits: 320
-  animator: {fileID: 7902912262830365651}
-  healthManager: {fileID: 4318293542637522130}
-  thisEnemyCharacterController: {fileID: 7902912262364929420}
 --- !u!114 &7902912262364929426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,24 +232,6 @@ MonoBehaviour:
   front: {fileID: 7902912261605077219}
   back: {fileID: 7902912262121748943}
   flippable: {fileID: 7902912262299785228}
---- !u!114 &5726535841995238982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4318293542637522135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb2312cc01b54165a2f72694c179436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisEnemy: {fileID: 7902912262364929429}
-  topOfHead: {fileID: 7902912261443625527}
-  bottomOfFeet: {fileID: 7902912261244565963}
-  front: {fileID: 7902912261605077219}
-  back: {fileID: 7902912262121748943}
-  flippable: {fileID: 7902912262299785228}
 --- !u!114 &4318293542637522134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +254,8 @@ MonoBehaviour:
     m_Bits: 64
   speed: 4
   visionDistance: 2
+  audioSource: {fileID: 4988493454574738276}
+  slimeWalking: {fileID: 8300000, guid: 59b8542303e10a061a5696bfd299391f, type: 3}
 --- !u!212 &4318293542637522153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -345,6 +308,102 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &4988493454574738276
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318293542637522135}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7442123966554198303, guid: aa13b9014cfb9824a974a19816347ae2, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 4.832073
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7902912261244565960
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6ada0314b66635594570194db3d82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  calculatePlayerDirection: {fileID: 5726535841995238982}
+  calculatePlayerDirection: {fileID: 0}
   allowCritFront: 0
   allowCritBack: 0
   allowCritUp: 0
