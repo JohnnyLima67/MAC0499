@@ -6681,6 +6681,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &930156507 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 501622773151124463, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+  m_PrefabInstance: {fileID: 3441348968931737155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &992805321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3387899444341540806, guid: 471b58eef058cc94aa3871e28fee0fb7, type: 3}
@@ -42190,6 +42195,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2092599380, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 930156507}
+    - target: {fileID: 2092599380, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: attackSwooshSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c78bd33527f0fbb04aa51031a645e3a2, type: 3}
     - target: {fileID: 324073023196800969, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

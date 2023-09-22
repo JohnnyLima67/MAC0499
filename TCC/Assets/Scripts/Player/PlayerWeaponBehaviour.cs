@@ -11,6 +11,8 @@ public class PlayerWeaponBehaviour : MonoBehaviour
     [SerializeField] BoxCollider2D attackHorizontalCollider;
     [SerializeField] BoxCollider2D attackDownCollider;
     [SerializeField] PlayerWeaponColliderDetector colliderDetector;
+	[SerializeField] AudioSource audioSource;
+	[SerializeField] AudioClip attackSwooshSound;
 
     void Awake()
     {
@@ -19,16 +21,19 @@ public class PlayerWeaponBehaviour : MonoBehaviour
 
     public void TriggerHorizontalAttackAnimation()
     {
+		audioSource.PlayOneShot(attackSwooshSound, 0.40f);
         animator.SetTrigger("AttackHorizontal");
     }
 
     public void TriggerDownAttackAnimation()
     {
+		audioSource.PlayOneShot(attackSwooshSound, 0.40f);
         animator.SetTrigger("AttackDown");
     }
 
     public void TriggerUpAttackAnimation()
     {
+		audioSource.PlayOneShot(attackSwooshSound, 0.40f);
         animator.SetTrigger("AttackUp");
     }
 
