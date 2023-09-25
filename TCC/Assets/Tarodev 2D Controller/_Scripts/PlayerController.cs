@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TarodevController {
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-    public class PlayerController :  CharacterController, IPlayerController {
+    public class PlayerController : CharacterController, IPlayerController {
         [SerializeField] private ScriptableStats _stats;
 
         #region Internal
@@ -543,7 +543,7 @@ namespace TarodevController {
         private float _nextDashTime;
 
         protected virtual void HandleDash() {
-            if (_dashToConsume && _canDash && !Crouching && Time.time > _nextDashTime) {
+            if (_dashToConsume && _canDash && !Crouching && Time.time > _nextDashTime && _grounded) {
                 var dir = new Vector2(FrameInput.Move.x, Mathf.Max(FrameInput.Move.y, 0f)).normalized;
                 if (dir == Vector2.zero) {
                     _dashToConsume = false;
