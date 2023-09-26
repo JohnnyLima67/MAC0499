@@ -31,7 +31,7 @@ MonoBehaviour:
   GroundingForce: -1.5
   StickyFeetMultiplier: 2
   GrounderDistance: 0.05
-  AllowCrouching: 1
+  AllowCrouching: 0
   CrouchSpeedPenalty: 0
   CrouchSlowdownFrames: 1
   CrouchBufferCheck: 0.01
