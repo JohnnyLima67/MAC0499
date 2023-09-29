@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine. EventSystems;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 namespace TarodevController {
     public class MenuManager : MonoBehaviour
@@ -23,6 +25,12 @@ namespace TarodevController {
         [SerializeField] private GameObject _keyboardMenuFirst;
         [SerializeField] private GameObject _gamepadMenuFirst;
 
+		[Header("Settings objects")]
+		[SerializeField] private Slider SFXVolumeSlider;
+		[SerializeField] private Slider musicVolumeSlider;
+		[SerializeField] private Slider masterVolumeSlider;
+		[SerializeField] private AudioMixer objAudioMixer;
+
         private bool isPaused;
 
         private void Start() {
@@ -31,6 +39,17 @@ namespace TarodevController {
             _keyboardMenuCanvasGO.SetActive(false);
             _gamepadMenuCanvasGO.SetActive(false);
 			_audioSettingsMenuGO.SetActive(false);
+
+			SFXVolumeSlider.value = GameManager.Instance.settingsData.SFXVolume;
+			objAudioMixer.SetFloat("SFX", Mathf.Log10(GameManager.Instance.settingsData.SFXVolume) * 20);
+
+			musicVolumeSlider.value = GameManager.Instance.settingsData.musicVolume;
+			objAudioMixer.SetFloat("music", Mathf.Log10(musicVolumeSlider.value) * 20);
+
+			masterVolumeSlider.value = GameManager.Instance.settingsData.masterVolume;
+			objAudioMixer.SetFloat("MasterVolume", Mathf.Log10(masterVolumeSlider.value) * 20);
+
+			Debug.Log("Dei awake no menuManager");
         }
 
         private void Update() {
@@ -165,5 +184,9 @@ namespace TarodevController {
             OpenSettingsMenuHandle();
         }
 
+		public void SaveSettings()
+		{
+			GameManager.Instance.SaveSettingsData();
+		}
     }
 }
