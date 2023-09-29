@@ -49,8 +49,7 @@ MonoBehaviour:
   damage: 100
   projectileDuration: 10
   velocity: {x: 100, y: 0, z: 0}
-  hitRadius: 0.07
-  wallDetectionSensitivity: 2
+  hitRadius: 0.34
   hitMask:
     serializedVersion: 2
     m_Bits: 128

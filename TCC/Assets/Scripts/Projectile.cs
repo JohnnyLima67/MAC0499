@@ -49,6 +49,7 @@ public class Projectile : MonoBehaviour
 
         if (col.Length > 0)
         {
+			Debug.Log(col[0].name);
             FinalizeAttack(col);
         }
     }
