@@ -63,6 +63,7 @@ Transform:
   - {fileID: 1475461291629866108}
   - {fileID: 1475461292270705795}
   - {fileID: 1593172755}
+  - {fileID: 479719278632764607}
   m_Father: {fileID: 4771711104535824812}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -454,7 +455,6 @@ GameObject:
   - component: {fileID: 4771711104535824803}
   - component: {fileID: 1475461291523871902}
   - component: {fileID: 1475461291462483630}
-  - component: {fileID: 1475461290720221431}
   - component: {fileID: 1475461290720221423}
   - component: {fileID: 1475461290720221416}
   - component: {fileID: 1475461290720221425}
@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 4771711104535824804}
   - component: {fileID: 2138449160}
   - component: {fileID: 2138449159}
+  - component: {fileID: 4617849472111067888}
   m_Layer: 7
   m_Name: PiranaPlant
   m_TagString: Enemy
@@ -617,28 +618,6 @@ MonoBehaviour:
   unityAnimator: {fileID: 1475461291523871902}
   playerSprite: {fileID: 1475461292270705916}
   healthbarManager: {fileID: 4771711104535824815}
---- !u!114 &1475461290720221431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4771711104535824810}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bba1414b12a394ba943543648cef7b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisEnemy: {fileID: 1475461290720221416}
-  visionObject: {fileID: 1475461291629866108}
-  detectionDistance: 1
-  speed: 0
-  playerAndGroundLayer:
-    serializedVersion: 2
-    m_Bits: 320
-  animator: {fileID: 1475461291462483630}
-  healthManager: {fileID: 4771711104535824815}
-  thisEnemyCharacterController: {fileID: 1475461290720221425}
 --- !u!114 &1475461290720221423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,3 +869,88 @@ MonoBehaviour:
   visionRadius: 3
   attackRadius: 2
   playerDir: {fileID: 3939966805150001979}
+--- !u!114 &4617849472111067888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771711104535824810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d78bf6d052244ddbc3c72df75d69a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCollider: {fileID: 7263704903643105944}
+--- !u!1 &5054196081143245925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479719278632764607}
+  - component: {fileID: 7263704903643105944}
+  - component: {fileID: 4273573404241561757}
+  m_Layer: 9
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479719278632764607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054196081143245925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1475461290919320945}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7263704903643105944
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054196081143245925}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.7223575, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.949486, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &4273573404241561757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054196081143245925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dbca6b998166e48a281ce6ba2b0163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

@@ -71339,7 +71339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701734038527758905, guid: 2d39b04f1c5cded4780ea3f65487fc38, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d39b04f1c5cded4780ea3f65487fc38, type: 3}
@@ -71554,6 +71554,10 @@ PrefabInstance:
       propertyPath: _deathMenu
       value: 
       objectReference: {fileID: 571620494}
+    - target: {fileID: 3441348967826378977, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
+      propertyPath: damageInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4228197441171948372, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 51.06
@@ -71736,7 +71740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -66.104675
+      value: -60.629177
       objectReference: {fileID: 0}
     - target: {fileID: 7705491277705531948, guid: 8cf579f1b49882851834eab3f47e6fe3, type: 3}
       propertyPath: m_LocalPosition.y
