@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7017527679154490514}
   - component: {fileID: 2382579919604962982}
   - component: {fileID: 3928880084124304179}
+  - component: {fileID: 6164925781956344082}
   m_Layer: 0
   m_Name: SpikeObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddbf89ae06bf13ec87703c626ebac0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6164925781956344082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105943443645221595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f7042e0c8e8bf778d70ef1adc04398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbarManager: {fileID: 0}
+  animator: {fileID: 0}
+  calcPlayerDir: {fileID: 0}
+  entityColliders: []
+  isBounceable: 1
+  weakSpotDmgMul: 5
+  knockbackBehaviour: {fileID: 0}
+  knockbackForceX: 0
+  knockbackForceY: 0
+  knockbackDuration: 0
+  thisFlippable: {fileID: 0}
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 0}
+  deathSoundDelay: 0
 --- !u!1 &7492407356728610188
 GameObject:
   m_ObjectHideFlags: 0
