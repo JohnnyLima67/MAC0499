@@ -22,6 +22,12 @@ public class HittableBehaviour : MonoBehaviour
 
     private bool died = false;
     private bool iFrame = false;
+	private CameraEffects cameraEffects;
+
+	void Awake()
+	{
+		cameraEffects = GameObject.FindGameObjectWithTag("CameraEffects").GetComponent<CameraEffects>();
+	}
 
 	public virtual void TakeDamage(float damage)
 	{
@@ -55,6 +61,8 @@ public class HittableBehaviour : MonoBehaviour
                 StartCoroutine(animator.PlayTakeCriticalDamage());
                 StartKnockback();
             }
+
+			cameraEffects.ShakeCamera();
         }
         else
         {

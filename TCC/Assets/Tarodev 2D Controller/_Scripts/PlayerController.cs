@@ -23,6 +23,7 @@ namespace TarodevController {
         private int _fixedFrame;
         private bool _hasControl = true;
         private bool hasInputControl = true;
+		private bool isBouncing = false;
         private Direction currentDir = Direction.HORIZONTAL;
 
         #endregion
@@ -179,6 +180,7 @@ namespace TarodevController {
             var incomingSpeedNormal = Vector3.Project(Speed, transform.up); // vertical speed in direction of Bouncer
             ApplyVelocity(-incomingSpeedNormal, PlayerForce.Burst); // cancel current vertical speed for more consistent heights
             SetVelocity(transform.up * 35f, PlayerForce.Burst);
+			isBouncing = true;
         }
 
         public Direction GetDirection()
@@ -243,6 +245,7 @@ namespace TarodevController {
             // Landed on the Ground
             if (!_grounded && _groundHitCount > 0) {
                 _grounded = true;
+				isBouncing = false;
                 ResetDash();
                 ResetJump();
                 GroundedChanged?.Invoke(true, Mathf.Abs(_speed.y));
@@ -678,7 +681,7 @@ namespace TarodevController {
             // In Air
             else {
                 var inAirGravity = _stats.FallAcceleration;
-                if (_endedJumpEarly && _speed.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
+                if (_endedJumpEarly && _speed.y > 0 && !isBouncing) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
                 _speed.y = Mathf.MoveTowards(_speed.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
             }
         }
