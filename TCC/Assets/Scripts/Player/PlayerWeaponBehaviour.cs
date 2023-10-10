@@ -9,6 +9,7 @@ public class PlayerWeaponBehaviour : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] BoxCollider2D attackUpCollider;
     [SerializeField] BoxCollider2D attackHorizontalCollider;
+	[SerializeField] BoxCollider2D airAttackHorizontalCollider;
     [SerializeField] BoxCollider2D attackDownCollider;
     [SerializeField] PlayerWeaponColliderDetector colliderDetector;
 	[SerializeField] AudioSource audioSource;
@@ -79,6 +80,8 @@ public class PlayerWeaponBehaviour : MonoBehaviour
                 ApplyEffect(hittableBehaviour, reachedWeakSpot);
             }
         }
+
+		colliderDetector.enemiesInWeaponRange = new List<Collider2D>();
     }
 
     void ApplyEffect(HittableBehaviour hittableBehaviour, bool hitWeakSpot)
@@ -91,12 +94,24 @@ public class PlayerWeaponBehaviour : MonoBehaviour
         hittableBehaviour.TakeDamage(damage, hitWeakSpot);
     }
 
+	public void DisableAllAttackColliders()
+	{
+		attackUpCollider.enabled = false;
+		airAttackHorizontalCollider.enabled = false;
+		attackHorizontalCollider.enabled = false;
+		attackDownCollider.enabled = false;
+		colliderDetector.enemiesInWeaponRange = new List<Collider2D>();
+	}
+
     public void StartAttackUp() { attackUpCollider.enabled = true; }
-    public void EndAttackUp() { attackUpCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+    public void EndAttackUp() { attackUpCollider.enabled = false; }
+
+	public void StartAirAttackHorizontal() { airAttackHorizontalCollider.enabled = true; }
+	public void EndAirAttackHorizontal() { airAttackHorizontalCollider.enabled = false; }
 
     public void StartAttackHorizontal() { attackHorizontalCollider.enabled = true; }
-    public void EndAttackHorizontal() { attackHorizontalCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+    public void EndAttackHorizontal() { attackHorizontalCollider.enabled = false; }
 
     public void StartAttackDown() { attackDownCollider.enabled = true; }
-    public void EndAttackDown() { attackDownCollider.enabled = false; colliderDetector.enemiesInWeaponRange = new List<Collider2D>(); }
+    public void EndAttackDown() { attackDownCollider.enabled = false; }
 }
