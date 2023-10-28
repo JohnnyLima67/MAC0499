@@ -7,6 +7,7 @@ using UnityEngine. EventSystems;
 namespace TarodevController {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField] Animator anim;
         private SceneLoader sceneLoader;
 
         [SerializeField] private GameObject _mainMenuCanvasGO;
@@ -60,7 +61,11 @@ namespace TarodevController {
 // -----------------Botões Menu Principal -------------------//
         
         public void OnMainMenuPlayPress(){
-            sceneLoader.LoadScene("AllFeaturesScene");
+            anim.SetTrigger("Start");
+        }
+
+        public void StartGame(){
+            sceneLoader.LoadScene("Tutorial");
         }
 
         public void OnMainMenuSettingsPress(){
