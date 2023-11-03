@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buraco_planta : MonoBehaviour
+public class HurtBox : MonoBehaviour
 {
     private HittableBehaviour collidingEntity;
     [SerializeField] float damage = 10.0f;
