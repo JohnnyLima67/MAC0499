@@ -94,19 +94,19 @@ public class Predaplant : MonoBehaviour
         finishedAttackAnimation = true;
     }
 
-    void OnDrawGizmos()
-    {
-        if (visionOrigin != null && drawVisionGizmos)
-        {
-            Handles.color = Color.white;
-            Handles.DrawWireDisc(visionOrigin.position, new Vector3(0, 0, 1), visionRadius, 0.1f);
-        }
+    // void OnDrawGizmos()
+    // {
+    //     if (visionOrigin != null && drawVisionGizmos)
+    //     {
+    //         Handles.color = Color.white;
+    //         Handles.DrawWireDisc(visionOrigin.position, new Vector3(0, 0, 1), visionRadius, 0.1f);
+    //     }
 
-        if (drawAttackRadius)
-        {
-            Handles.color = Color.red;
-            Handles.DrawWireDisc(attackOrigin.position, new Vector3(0, 0, 1), attackRadius, 0.1f);
-        }
-            
-    }
+    //     if (drawAttackRadius)
+    //     {
+    //         Handles.color = Color.red;
+    //         Handles.DrawWireDisc(attackOrigin.position, new Vector3(0, 0, 1), attackRadius, 0.1f);
+    //     }
+
+    // }
 }

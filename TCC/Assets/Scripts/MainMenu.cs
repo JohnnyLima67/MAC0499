@@ -74,7 +74,7 @@ namespace TarodevController {
 
         public void OnMainMenuExitPress() {
             Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            // UnityEditor.EditorApplication.isPlaying = false;
 
         }
 // -----------------Botões Menu Settings -------------------//
