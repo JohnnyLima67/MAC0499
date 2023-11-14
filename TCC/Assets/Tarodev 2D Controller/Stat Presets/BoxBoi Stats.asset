@@ -37,11 +37,11 @@ MonoBehaviour:
   CrouchBufferCheck: 0.01
   MaxAirJumps: 0
   JumpPower: 30
-  MaxFallSpeed: 40
-  FallAcceleration: 110
+  MaxFallSpeed: 30
+  FallAcceleration: 100
   JumpEndEarlyGravityModifier: 3
-  CoyoteFrames: 7
-  JumpBufferFrames: 7
+  CoyoteFrames: 10
+  JumpBufferFrames: 10
   AllowWalls: 0
   RequireInputPush: 0
   WallClimbSpeed: 5
