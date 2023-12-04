@@ -21,8 +21,7 @@ public class Level_teste_1_Manager : MonoBehaviour
     }
 
     public void FinishLevel() {
-            sceneLoader.SaveLevel(levelNumber);
-            sceneLoader.LoadScene(sceneToGo);
-
+		sceneLoader.SaveLevel(levelNumber);
+		sceneLoader.LoadScene(sceneToGo);
     }
 }

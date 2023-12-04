@@ -23,14 +23,14 @@ public class PlayerWeaponColliderDetector : MonoBehaviour
         }
     }
 
-	void OnTriggerStay2D(Collider2D col)
-	{
-		foreach(string t in hittableTags)
+    void OnTriggerStay2D(Collider2D col)
+    {
+        foreach(string t in hittableTags)
         {
             if (col.gameObject.CompareTag(t) && !enemiesInWeaponRange.Contains(col))
             {
                 enemiesInWeaponRange.Add(col);
             }
         }
-	}
+    }
 }
