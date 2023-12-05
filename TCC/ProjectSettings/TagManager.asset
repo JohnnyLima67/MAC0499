@@ -10,6 +10,8 @@ TagManager:
   - BreakableWall
   - WeakSpot
   - CameraEffects
+  - SpikeUndergroundReference
+  - BossGroundLevelReference
   layers:
   - Default
   - TransparentFX

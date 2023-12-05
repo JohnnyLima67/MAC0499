@@ -7,7 +7,7 @@ using CleverCrow.Fluid.BTs.Trees;
 
 public class Stomp : ActionBase
 {
-	GameObject spikePrefab;
+	[SerializeField] GameObject spikePrefab;
 	GameObject spikeUndergroundReference;
 	Transform playerTransform;
 
@@ -22,6 +22,7 @@ public class Stomp : ActionBase
     protected override void OnStart()
     {
 		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+		this.spikeUndergroundReference = GameObject.FindGameObjectWithTag("SpikeUndergroundReference");
 	}
 
 	protected override TaskStatus OnUpdate()

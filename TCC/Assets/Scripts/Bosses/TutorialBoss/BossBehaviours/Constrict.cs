@@ -9,8 +9,7 @@ public class Constrict : ActionBase
 {
 	Transform playerTransform;
 	Transform groundLevelReference;
-	GameObject constrictPrefab;
-
+	[SerializeField] GameObject constrictPrefab;
 
 	GameObject currentConstrict;
 
@@ -23,6 +22,7 @@ public class Constrict : ActionBase
     protected override void OnStart()
     {
 		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+		groundLevelReference = GameObject.FindGameObjectWithTag("BossGroundLevelReference").transform;
 	}
 
 	protected override TaskStatus OnUpdate()

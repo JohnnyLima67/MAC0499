@@ -7,7 +7,8 @@ using CleverCrow.Fluid.BTs.Trees;
 
 public class TriggerAnimation : ActionBase
 {
-    string triggerName;
+    [SerializeField] string triggerName;
+
     public TriggerAnimation(string triggerName)
     {
         this.triggerName = triggerName;
