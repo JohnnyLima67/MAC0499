@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.fluid.behavior-tree": {
-      "version": "file:/home/andre/Downloads/IpeBT",
+      "version": "file:../IpeBT",
       "depth": 0,
       "source": "local",
       "dependencies": {}
