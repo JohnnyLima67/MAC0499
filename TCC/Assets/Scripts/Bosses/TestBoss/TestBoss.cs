@@ -75,7 +75,7 @@ public class TestBoss : MonoBehaviour
         fsm = new StateMachine(this);
         fsm.AddState("Idle",
                       onLogic: (state) => idleBehaviourTree.Tick(),
-                      onExit: (state) => idleBehaviourTree.Reset());
+                      onExit: (state) => idleBehaviourTree.ResetTree());
 
         fsm.AddState("Battle",
                      onLogic: (state) => battleBehaviourTree.Tick(),
